@@ -5,7 +5,7 @@ versioned with semver; adopting projects cite the version they copied (ADR-0008)
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
-## [Unreleased]
+## [1.1.0] - 2026-06-28
 
 ### Changed
 - ADR-0009 — adopting projects use conventional, unbranded locations
