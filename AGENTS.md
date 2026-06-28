@@ -67,13 +67,31 @@ has a home, across three artifact families:
 ideas/        idea artifacts
 decisions/    proposal + decision artifacts (ADRs)
 plans/        plan + execution artifacts
+starter/      clean skeleton an adopting project copies (see ADR-0008)
 .github/      the contract and agent hand-off files
 AGENTS.md     this entry point
+CHANGELOG.md  released versions of the method
 ```
 
 When the method is adopted into another project, these families nest under a
 single `the-way/` root to avoid colliding with the host project's folders. In
 *this* repository, the repo root itself is that root.
+
+## Adopting the-way in another project
+
+Real projects live in their **own** repos, not here. This repository is the
+versioned *standard*; a project *adopts* it. See
+[ADR-0008](decisions/0008-adopt-the-way-via-a-copied-starter-skeleton.md).
+
+1. Copy the contents of [`starter/`](starter/) into a fresh repo.
+2. Fill in the seed `decisions/0001-adopt-the-way.md` (project name, the-way
+   version, date).
+3. From there, work the project the-way — its own ADR log starts at 0001 and
+   never inherits this repo's construction ADRs (0001–0008).
+
+The method is versioned (semver git tags + [`CHANGELOG.md`](CHANGELOG.md)); an
+adopting project cites the version it took. Promoting `starter/` to a GitHub
+*template repository* is the deferred next step.
 
 ## Cross-link vocabulary
 
