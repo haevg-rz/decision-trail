@@ -82,24 +82,30 @@ conventional `docs/` locations instead (see below and ADR-0009).
 Real projects live in their **own** repos, not here. This repository is the
 versioned *standard*; a project *adopts* it. There is **no branded `the-way/`
 folder** — an adopting repo just gains conventional, self-descriptive files (see
-[ADR-0008](decisions/0008-adopt-the-way-via-a-copied-starter-skeleton.md) and
-[ADR-0009](decisions/0009-adopters-use-conventional-unbranded-locations.md)).
+[ADR-0008](decisions/0008-adopt-the-way-via-a-copied-starter-skeleton.md),
+[ADR-0009](decisions/0009-adopters-use-conventional-unbranded-locations.md) and
+[ADR-0010](decisions/0010-adopters-keep-the-method-text-in-working-method-md.md)).
 
 The [`starter/`](starter/) skeleton mirrors the target shape:
 
 ```
-AGENTS.md         how the project works (root; cites "Based on the-way vX.Y")
-docs/ideas/       idea artifacts
-docs/decisions/   ADRs — the conventional location, recognizable on sight
-docs/plans/       plan + execution artifacts
+AGENTS.md               repo root — points to the method ("How we work")
+docs/working-method.md  the full method (cites "Based on the-way vX.Y")
+docs/ideas/             idea artifacts
+docs/decisions/         ADRs — the conventional location, recognizable on sight
+docs/plans/             plan + execution artifacts
 ```
 
 To adopt:
 
 1. Copy the contents of [`starter/`](starter/) into the project's repo root.
-   `docs/` merges cleanly with anything already there.
-2. If the repo **already has an `AGENTS.md`**, don't overwrite it — merge a short
-   "How we work" pointer (to `docs/decisions/`) into it instead.
+   `docs/` (including `docs/working-method.md`) merges cleanly with anything
+   already there.
+2. For `AGENTS.md`: if the repo has none, use the starter's. If it **already has
+   an `AGENTS.md`**, don't overwrite it — append only the starter's
+   `## How we work` section (a fixed pointer to `docs/working-method.md` and
+   `docs/decisions/`). The method text itself always lives in
+   `docs/working-method.md`, so nothing needs hand-merging.
 3. Fill in the seed `docs/decisions/0001-adopt-the-way.md` (project name, the-way
    version, date).
 4. From there, work the project the-way — its own ADR log starts at 0001 and

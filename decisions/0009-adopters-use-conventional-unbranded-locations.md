@@ -3,6 +3,7 @@
 - Status: accepted
 - Date: 2026-06-28
 - Amends: ADR-0005 (drops the `the-way/` nesting), ADR-0008 (restructures the starter)
+- Amended by: ADR-0010 (relocates the method body to `docs/working-method.md`; pins the merge text)
 
 ## Context
 

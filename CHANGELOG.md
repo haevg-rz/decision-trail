@@ -5,6 +5,16 @@ versioned with semver; adopting projects cite the version they copied (ADR-0008)
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.2.0] - 2026-06-28
+
+### Changed
+- ADR-0010 — adopters keep the full method text in `docs/working-method.md`;
+  the adopter's `AGENTS.md` carries only a fixed `## How we work` pointer (the
+  same in every repo). Pins down the previously-undefined merge text and closes
+  a circular reference (`AGENTS.md` → `0001` → `AGENTS.md`) that left the method
+  text nowhere. Amends ADR-0009. The `starter/` skeleton moves its method body
+  to `starter/docs/working-method.md`.
+
 ## [1.1.0] - 2026-06-28
 
 ### Changed
