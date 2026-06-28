@@ -45,4 +45,4 @@ You can ask the agent to **regenerate the overview** at any time.
 |------|---------|-------|
 | [0001 Build overview.md and the mandatory `Date:` convention](plans/0001-build-overview-and-mandatory-date.md) | 2026-06-28 | done |
 | [0002 Make the `Promoted` link reciprocal](plans/0002-make-the-promoted-link-reciprocal.md) | 2026-06-28 | done |
-| [0003 Rename the-way to decision-trail](plans/0003-rename-the-way-to-decision-trail.md) | 2026-06-28 | draft |
+| [0003 Rename the-way to decision-trail](plans/0003-rename-the-way-to-decision-trail.md) | 2026-06-28 | done |

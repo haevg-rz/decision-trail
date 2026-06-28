@@ -1,6 +1,6 @@
 # 3. Rename the-way to decision-trail
 
-- Status: active
+- Status: done
 - Date: 2026-06-28
 - Implements: [ADR-0013](../decisions/0013-rename-the-way-to-decision-trail.md)
 
@@ -41,14 +41,14 @@ old name. Only the live method surfaces and the provenance string move.
 - [x] Decide the version number for the rename and add the `CHANGELOG.md` entry
       (a rename of the citation string is adopter-visible → favour a **major**
       bump, e.g. `2.0.0`).
-- [ ] Cut the semver git tag for that version.
+- [x] Cut the semver git tag for that version.
 
 ### Repository
-- [ ] Rename the GitHub repo `ckluth/the-way` → `ckluth/decision-trail`
+- [x] Rename the GitHub repo `ckluth/the-way` → `ckluth/decision-trail`
       (`gh repo rename`) and update the local `origin` remote.
 
 ### Close-out
-- [ ] Regenerate `overview.md` and re-stamp the date (ADR-0013 already accepted;
+- [x] Regenerate `overview.md` and re-stamp the date (ADR-0013 already accepted;
       this plan moves `draft → active → done`).
 
 ## Open question
