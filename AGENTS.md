@@ -6,10 +6,10 @@ navigate from here. Tool-specific files (e.g.
 [`.github/copilot-instructions.md`](.github/copilot-instructions.md)) only point
 back to this file.
 
-> **Status: settled & sealed.** The concept phase is complete. The contract and
-> all mechanics below are decided and recorded as ADRs in [`decisions/`](decisions/).
-> The method now exists to be *used*; further changes to it are themselves made
-> the-way — as new ADRs.
+> **Status: settled (not frozen).** The concept phase is logically complete —
+> the contract and all mechanics below are decided and recorded as ADRs in
+> [`decisions/`](decisions/). The method now exists to be *used*; real use will
+> bring improvements, and any such change is made *the-way* — as a new ADR.
 
 ## What this is
 
@@ -113,7 +113,3 @@ documents its own construction.
 - **Confirmation guard.** Never rush into writing, editing, or implementing.
   First briefly explain what you intend to do, then wait for explicit approval.
   Discussing and proposing is always fine — acting requires a green light.
-- **Custom agents.** This repo defines specialized agents in
-  `.github/agents/*.agent.md`. At session start, read only the YAML frontmatter
-  of each to learn its name and description; read the rest only if you actually
-  delegate to it.

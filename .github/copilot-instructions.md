@@ -11,7 +11,7 @@ Everything you need to work in this repo is there, including:
 - the idea → proposal → decision → plan → execution lifecycle and where each
   artifact lives,
 - the cross-link vocabulary,
-- the confirmation guard and custom-agents note.
+- the confirmation guard.
 
 Do not duplicate that content here; keep this file a pointer so the two never
 diverge (Economy, promise #2).

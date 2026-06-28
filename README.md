@@ -2,9 +2,10 @@
 
 A generic, reusable way to work on projects — economic, transparent, agile.
 
-**Status: settled & sealed.** The concept phase is complete. The contract and
-all mechanics are decided and recorded as ADRs; the method now exists to be
-*used*.
+**Status: settled (not frozen).** The concept phase is logically complete — the
+contract and all mechanics are decided and recorded as ADRs. The method now
+exists to be *used*; real use will bring improvements, each made *the-way* as a
+new ADR.
 
 `the-way` carries a thought through its whole life — **idea → proposal →
 decision → plan → execution** — in plain markdown, borrowing existing standards
