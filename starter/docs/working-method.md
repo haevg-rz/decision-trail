@@ -61,12 +61,16 @@ artifact families:
   markdown (`- [ ]` / `- [x]`).
 
 Every idea, decision, and plan carries a `Date:` (creation date) in its header —
-**mandatory**. `docs/overview.md` is a derived status index over all three
+**mandatory**. Artifact numbers are **ordinal only**: assign the next unused
+number in that family (`docs/ideas/`, `docs/decisions/`, `docs/plans/` are
+independent sequences). Never derive a number from a related artifact — a plan
+implementing ADR-0004 is not named `0004`; it takes the next free plan slot.
+Relationships are expressed via cross-link fields (`Implements:`, `Promoted
+to:`, etc.), never via matching numbers. `docs/overview.md` is a derived status index over all three
 families: a single dated snapshot of each artifact's name, creation date, and
 state. It is **regenerated wholesale from the artifact headers** (never
-hand-patched) and stamped "as of <date>". Keeping it current is the **agent's**
-responsibility — regenerated after any work that creates an artifact or changes a
-state, and whenever asked.
+hand-patched) and stamped "as of <date>". Regenerate it whenever the user
+explicitly asks.
 
 ## Layout
 

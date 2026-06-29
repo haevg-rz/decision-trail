@@ -5,6 +5,23 @@ versioned with semver; adopting projects cite the version they copied (ADR-0008)
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [2.2.0] - 2026-06-29
+
+### Added
+- ADR-0015 — artifact numbers are **ordinal only**: always assign the next free
+  slot in the target family (`ideas/`, `decisions/`, `plans/` are independent
+  sequences). Numbers carry no relational meaning; relationships live exclusively
+  in cross-link fields (`Implements:`, `Promoted to:`, etc.). Rule added to
+  `AGENTS.md`, `starter/docs/working-method.md`, and `starter/AGENTS.md` so it
+  is visible to agents in every context.
+
+### Changed
+- ADR-0016 — the `overview.md` regeneration trigger changes from *"after every
+  artifact change"* to **"on explicit user request only"**. The "as of <date>"
+  stamp makes staleness visible; eliminating automatic regeneration honours
+  promise #2 (Economy). Rule updated in `AGENTS.md`, `starter/docs/working-method.md`,
+  and `starter/AGENTS.md`.
+
 ## [2.1.0] - 2026-06-28
 
 ### Added

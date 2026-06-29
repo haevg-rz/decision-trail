@@ -22,6 +22,12 @@ Based on decision-trail vX.Y — https://github.com/ckluth/decision-trail
 
 These rules are for an AI agent working in this repo:
 
+- **Artifact numbers are ordinal only.** When creating an artifact, assign the
+  next unused number in that family (`docs/ideas/`, `docs/decisions/`,
+  `docs/plans/` are independent sequences). Never derive a number from a related
+  artifact — a plan implementing ADR-0004 is not named `0004`; it gets the next
+  free plan slot. Relationships are expressed via cross-link fields
+  (`Implements:`, `Promoted to:`, etc.), never via matching numbers.
 - **The method is settled.** Use decision-trail; don't redesign the *method*
   casually. (Your project's own decisions are normal work — captured as ideas,
   ADRs, and plans under `docs/`.)
@@ -30,7 +36,6 @@ These rules are for an AI agent working in this repo:
   Discussing and proposing is always fine — acting requires a green light.
 - **Keep `docs/overview.md` current.** It is a derived snapshot, regenerated
   wholesale from the artifact headers (never hand-patched) and stamped "as of
-  <date>". Regenerate it — and update the stamp — after any work that creates an
-  artifact or changes a state, and whenever the user asks. Keeping it current is
-  the agent's responsibility, never the user's; a user may flip a state directly
-  in an artifact, and the next regeneration reconciles the index.
+  <date>". Regenerate it — and update the stamp — whenever the user explicitly
+  asks. A user may flip a state directly in an artifact; the next regeneration
+  reconciles the index.
