@@ -9,7 +9,7 @@ snapshot. Keeping it current is the agent's responsibility (see
 
 You can ask the agent to **regenerate the overview** at any time.
 
-**As of: 2026-06-29**
+**As of: 2026-07-03**
 
 ## Ideas
 
@@ -23,6 +23,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0006 Documentation flaw — sync and audience](ideas/0006-documentation-flaw-sync-and-audience.md) | 2026-06-28 | promoted |
 | [0007 Artifact numbering is ordinal only — always use the next free slot](ideas/0007-artifact-numbering-is-ordinal-only.md) | 2026-06-29 | promoted |
 | [0008 Overview regeneration should be more economical](ideas/0008-overview-regeneration-should-be-more-economical.md) | 2026-06-29 | promoted |
+| [0009 Cross-cutting concerns have no navigable home — is a "spine" missing?](ideas/0009-cross-cutting-concerns-have-no-home.md) | 2026-07-03 | seed |
 
 ## Decisions
 
