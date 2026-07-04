@@ -32,6 +32,46 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-04]
+
+**Where we are.** decision-trail's adopter update path is now **reliable**, not
+just present. In one sitting we took idea 0013 through the whole lifecycle: idea →
+[ADR-0022](decisions/0022-every-release-ships-reliable-update-instructions.md)
+(accepted, amends ADR-0021) →
+[plan 0012](plans/0012-carry-adr-0022-into-the-method.md) (done). The trail now
+runs `ideas` 0001–0013, `decisions` 0001–0022, `plans` 0001–0012, with a
+`[2.7.0]` section drafted in the CHANGELOG and the starter bumped to **v2.7**.
+
+**What we achieved.**
+- **Promoted idea 0013** — *"every change must ship precise, agent-reliable update
+  instructions for older adopters"* — into a proposal, then settled its five open
+  questions one at a time.
+- **The settled decision (ADR-0022):** "bring me current" is now **copy-driven** —
+  re-copy the method-owned set (exactly `starter/`'s contents) into the adopter's
+  `docs/`, so additive scaffolds arrive automatically. A **preserve rule** protects
+  project content; `Adopter migration:` is scoped to **required behavioral changes
+  only**; every version carries a **durable in-repo pointer** to `adopting.md`; and
+  a lightweight **conformance check** (do-guidance, no tool) closes the loop.
+- **Executed plan 0012:** added the `Amends:`/`Amended by:` links between 0022 and
+  0021, rewrote `adopting.md` §3 to the copy-driven procedure + a new conformance
+  section, strengthened the starter pointer, refined the release-author rule in
+  `CHANGELOG.md` and `AGENTS.md`, and drafted the `[2.7.0]` release entry.
+
+**What is left.** Same standing thread as last time: the work is committed but
+**not yet released/tagged** — the tag still trails the drafted CHANGELOG sections
+(`[2.6.0]`, now `[2.7.0]`). No open design questions.
+
+**What is next.** Cut the actual release/tag when ready, folding in both drafted
+CHANGELOG sections.
+
+*Continuation brief:* the method is settled and dogfooded another round — idea 0013
+closed the "bring me current" gap the josyn-builder update run exposed. Pick up at
+[plan 0012](plans/0012-carry-adr-0022-into-the-method.md) /
+[ADR-0022](decisions/0022-every-release-ships-reliable-update-instructions.md) if
+you need the details.
+
+---
+
 ## [2026-07-03-(3)]
 
 **Where we are.** decision-trail has a full **adopter on-ramp**. Idea 0004 was

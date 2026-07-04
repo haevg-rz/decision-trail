@@ -1,8 +1,9 @@
 # 13. Every change must ship precise, agent-reliable update instructions for older adopters
 
-- Status: seed
+- Status: promoted
 - Date: 2026-07-03
 - Parent: [idea 0004](0004-using-decision-trail-in-your-own-repo-should-be-easy.md)
+- Promoted to: [ADR-0022](../decisions/0022-every-release-ships-reliable-update-instructions.md)
 
 ## Idea
 

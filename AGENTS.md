@@ -239,9 +239,23 @@ These rules are for an AI agent working in this repo:
   no plan, and no confirmation guard** — because it touches nothing authoritative.
   Its internal organization is the project's business; it is committed by default
   (a repo may gitignore it) and left to rot harmlessly once a plan is done.
-- **Release-migration contract (release-author rule, ADR-0021).** When cutting a
-  new release of decision-trail, every `CHANGELOG.md` entry **must** carry an
-  **`Adopter migration:`** line — **even when it is "none"** — written as
-  agent-executable steps. Adopters follow these, in version order, via the update
-  path in [`adopting.md`](adopting.md), the adopter-facing on-ramp. No adoption
-  *tool* ships: adopting/updating is plain do-guidance the agent executes directly.
+- **Release-migration contract (release-author rule, ADR-0021, refined by
+  ADR-0022).** When cutting a new release of decision-trail, every `CHANGELOG.md`
+  entry **must** carry an **`Adopter migration:`** line — **even when it is
+  "none"** — written as agent-executable steps. Its scope is **required behavioral
+  changes only** (e.g. "backfill missing `Date:` headers, then regenerate
+  `overview.md`"); **new optional scaffolds are not enumerated here** — they reach
+  adopters automatically via the copy-driven update. Adopters follow these, in
+  version order, via the update path in [`adopting.md`](adopting.md), the
+  adopter-facing on-ramp. No adoption *tool* ships: adopting/updating is plain
+  do-guidance the agent executes directly.
+- **Copy-driven "bring me current" + conformance check (ADR-0022).** Updating an
+  adopter to a target version means **re-copying the method-owned set** (exactly
+  `starter/`'s contents) into the adopter's `docs/`, overwriting method text and
+  scaffolds while **preserving project content** (the artifact families, a
+  populated `travel-diary.md`, `intermediate-artifacts/`, `overview.md`) — so
+  additive scaffolds arrive without per-release bookkeeping. After an update (or on
+  request), run the **conformance check** (do-guidance, no tool): mandatory `Date:`
+  headers present, `overview.md` in sync with headers, and the `Based on
+  decision-trail vX.Y` citation consistent across `docs/working-method.md` and the
+  `AGENTS.md` "How we work" block. Full steps live in [`adopting.md`](adopting.md).

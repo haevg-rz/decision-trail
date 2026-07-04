@@ -5,13 +5,50 @@ versioned with semver; adopting projects cite the version they copied (ADR-0008)
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
-**Release-author rule (ADR-0021):** every release **must** carry an
-**`Adopter migration:`** line stating the work an already-adopting repo must do to
-take this version — **even when it is "none."** Write it as steps an agent can
-execute (e.g. "backfill any missing `Date:` header, then regenerate `overview.md`").
-This is the contract the [`adopting.md`](adopting.md) update path relies on.
+**Release-author rule (ADR-0021, refined by ADR-0022):** every release **must**
+carry an **`Adopter migration:`** line stating the **required behavioral changes** an
+already-adopting repo must perform to take this version — **even when it is "none."**
+Write it as steps an agent can execute (e.g. "backfill any missing `Date:` header,
+then regenerate `overview.md`"). **New optional scaffolds are not listed here** — they
+reach adopters automatically via the copy-driven "bring me current" update. This is
+the contract the [`adopting.md`](adopting.md) update path relies on.
 
-## [2.6.0] - 2026-07-03
+## [2.7.0] - 2026-07-04
+
+### Added
+- ADR-0022 — **copy-driven "bring me current"** (idea 0013): updating an adopter to
+  a target version now **re-copies the method-owned set** (exactly `starter/`'s
+  contents) into the adopter's `docs/`, so additive scaffolds (travel diary,
+  `intermediate-artifacts/`) arrive **automatically** without per-release
+  file-addition bookkeeping. A **preserve rule** (copy method text/templates,
+  preserve project content) protects the artifact families, a populated
+  `travel-diary.md`, `intermediate-artifacts/`, and `overview.md` from being
+  overwritten. The method-owned set is `starter/` itself — no separate manifest to
+  drift.
+- A **conformance check** in [`adopting.md`](adopting.md) — pure agent do-guidance,
+  no tool — that verifies mandatory `Date:` headers, `overview.md` in sync with the
+  artifact headers, and a consistent `Based on decision-trail vX.Y` citation across
+  `docs/working-method.md` and the `AGENTS.md` "How we work" block. It runs at the
+  end of an update or any time on request.
+
+### Changed
+- `adopting.md` §3 (Update) rewritten from note-driven ("replace two files") to the
+  copy-driven procedure above, closing with the conformance check.
+- The **release-author rule** is clarified: `Adopter migration:` states **required
+  behavioral changes only** (still "none" when apt); new optional scaffolds are not
+  enumerated there. Updated in `CHANGELOG.md`'s intro and this repo's `AGENTS.md`
+  agent operating guidance.
+- The forward pointer in `starter/docs/working-method.md` is strengthened into a
+  durable, version-carried breadcrumb to `adopting.md` (covering "bring me current"
+  and the conformance check); both `starter/` renderings bump their provenance
+  citation to **v2.7**.
+- ADR-0022 **amends** ADR-0021 (reciprocal `Amends:`/`Amended by:` cross-links).
+
+- **Adopter migration:** none — additive; adopter-facing update guidance and a
+  clarified release-author rule only. Optionally re-run the new conformance check to
+  confirm your repo matches the version it cites.
+
+
 
 ### Added
 - ADR-0021 — a single adopter **on-ramp** (idea 0004): a top-level

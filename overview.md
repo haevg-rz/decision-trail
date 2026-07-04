@@ -9,7 +9,7 @@ snapshot. Keeping it current is the agent's responsibility (see
 
 You can ask the agent to **regenerate the overview** at any time.
 
-**As of: 2026-07-03**
+**As of: 2026-07-04**
 
 ## Ideas
 
@@ -27,7 +27,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0010 A human-friendly travel diary for the human-machine interface](ideas/0010-a-human-friendly-travel-diary.md) | 2026-07-03 | promoted | |
 | [0011 The confirmation guard is never perfectly safe — scope lives in the "yes"](ideas/0011-confirmation-guard-never-perfectly-safe.md) | 2026-07-03 | promoted | |
 | [0012 Intermediate artifacts — a scratch persistence layer for execution](ideas/0012-intermediate-artifacts-a-scratch-layer-for-execution.md) | 2026-07-03 | promoted | |
-| [0013 Every change must ship precise, agent-reliable update instructions for older adopters](ideas/0013-every-change-ships-reliable-update-instructions.md) | 2026-07-03 | seed | |
+| [0013 Every change must ship precise, agent-reliable update instructions for older adopters](ideas/0013-every-change-ships-reliable-update-instructions.md) | 2026-07-03 | promoted | |
 
 ## Decisions
 
@@ -54,6 +54,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0019 Teach that the confirmation guard is never perfectly safe](decisions/0019-confirmation-guard-never-perfectly-safe.md) | 2026-07-03 | accepted | |
 | [0020 Intermediate artifacts — a scratch persistence layer for execution](decisions/0020-intermediate-artifacts-a-scratch-layer-for-execution.md) | 2026-07-03 | accepted | |
 | [0021 A single adopter on-ramp covering fresh, inject, and update](decisions/0021-a-single-adopter-on-ramp-fresh-inject-update.md) | 2026-07-03 | accepted | |
+| [0022 Every release ships precise, agent-reliable "bring me current" instructions](decisions/0022-every-release-ships-reliable-update-instructions.md) | 2026-07-04 | accepted | |
 
 ## Plans
 
@@ -70,3 +71,4 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0009 Teach that the confirmation guard is never perfectly safe](plans/0009-teach-confirmation-guard-fragility.md) | 2026-07-03 | done | |
 | [0010 Ship intermediate artifacts as an optional execution-stage companion](plans/0010-ship-intermediate-artifacts.md) | 2026-07-03 | done | |
 | [0011 Ship the adopter on-ramp (`adopting.md`) and the release-migration contract](plans/0011-ship-adopter-on-ramp-and-migration-contract.md) | 2026-07-03 | done | |
+| [0012 Carry ADR-0022 into the method — copy-driven update, manifest, in-repo pointer, conformance check](plans/0012-carry-adr-0022-into-the-method.md) | 2026-07-04 | done | |

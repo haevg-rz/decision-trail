@@ -109,26 +109,60 @@ migration.
 
 1. **Find your current version.** Read the `Based on decision-trail vX.Y` citation
    in your `AGENTS.md` (and `docs/working-method.md`). That is the anchor.
-2. **Replace the copied method text** with the target version's copies:
-   - overwrite `docs/working-method.md` with the target's
-     `starter/docs/working-method.md`;
-   - overwrite `docs/guide.md` with the target's `starter/docs/guide.md`;
-   - bump the `Based on decision-trail vX.Y` citation to the new version (in both
-     `docs/working-method.md` and the `## How we work` block of `AGENTS.md`).
+2. **Re-copy the method-owned set** from the target version's `starter/`, so your
+   repo lands in the exact shape a *fresh* adopter of the target would have
+   ("bring me current"). Overwrite the **method text and templates** with the
+   target's `starter/docs/` copies — `working-method.md`, `guide.md`, and any
+   companion scaffolds the target ships (e.g. `travel-diary.md`,
+   `intermediate-artifacts/`). Because these scaffolds live in `starter/`,
+   re-copying lands new additive companions **automatically** — you never have to
+   hunt a changelog for "what files got added."
 
-   These are self-contained files, so this is a clean, file-level diff. Your own
-   ideas, decisions, and plans are **never** overwritten.
-3. **Apply the release migrations.** In this standard repo's
+   **Preserve rule — copy method text/templates, preserve project content.** The
+   method-owned set is exactly `starter/`'s own contents (it is the source of
+   truth; there is no separate manifest to drift). Everything your project
+   *authored* is **never** overwritten:
+   - `docs/decisions/`, `docs/ideas/`, `docs/plans/` (your artifacts);
+   - a populated `docs/travel-diary.md` and `docs/intermediate-artifacts/`;
+   - `docs/overview.md` (regenerated, not copied).
+
+   Rule of thumb: if `starter/` ships it as *method text or an empty scaffold*, copy
+   it; if your repo *filled it with project content*, keep yours.
+3. **Bump the citation.** Update the `Based on decision-trail vX.Y` citation to the
+   target version in **both** `docs/working-method.md` and the `## How we work`
+   block of `AGENTS.md`.
+4. **Apply the release migrations.** In this standard repo's
    [`CHANGELOG.md`](CHANGELOG.md), each release carries an **`Adopter migration:`**
-   note. Read the notes for every version **between your old version and the target**
-   and apply them **in order**. Each is written as steps an agent can execute — for
-   example: *"backfill any missing `Date:` header on ideas and plans, then regenerate
-   `docs/overview.md`."* When a release's note says **"none"**, there is nothing to
-   do for that version.
-4. **Record the bump.** Add a short ADR in your own `docs/decisions/` noting that you
+   note stating the **required behavioral changes** for that version. Read the notes
+   for every version **between your old version and the target** and apply them **in
+   order**. Each is written as steps an agent can execute — for example: *"backfill
+   any missing `Date:` header on ideas and plans, then regenerate
+   `docs/overview.md`."* When a note says **"none"**, there is nothing required for
+   that version (new optional scaffolds already arrived via step 2).
+5. **Regenerate `docs/overview.md`** from the artifact headers.
+6. **Run the conformance check** (below) to confirm the update landed cleanly.
+7. **Record the bump.** Add a short ADR in your own `docs/decisions/` noting that you
    moved to the new version (the method text is copied, not referenced, so the bump
    is a decision worth recording).
-5. **Commit.**
+8. **Commit.**
+
+---
+
+## Conformance check
+
+After an update — or any time you want to confirm your repo still matches the method
+it cites — run this quick check. It is **pure agent do-guidance**: there is no
+script, your agent verifies each point directly.
+
+1. **Headers present.** Every artifact in `docs/ideas/`, `docs/decisions/`, and
+   `docs/plans/` carries the mandatory `Date:` header (and a `Status:`).
+2. **Overview in sync.** `docs/overview.md` matches the artifact headers — same
+   names, dates, and states — and is stamped with a current "as of" date. If not,
+   regenerate it.
+3. **Citation consistent.** The `Based on decision-trail vX.Y` citation is identical
+   in `docs/working-method.md` and the `## How we work` block of `AGENTS.md`.
+
+If all three hold, the repo conforms to the version it cites.
 
 ---
 
