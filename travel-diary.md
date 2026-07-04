@@ -32,6 +32,41 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-04-(2)]
+
+**Where we are.** v2.7.0 is **released and tagged**, and the update path it added
+has already been used for real. The tag history is now complete and continuous
+(`v2.0.0 … v2.7.0`) — we backfilled the two missing tags (`v2.4.0`, `v2.6.0`) along
+the way. decision-trail is settled, released, and freshly dogfooded.
+
+**What we achieved.**
+- **Cut the 2.7.0 release.** Committed the ADR-0022 work, backfilled the missing
+  `v2.4.0` and `v2.6.0` tags, tagged `v2.7.0`, and pushed everything (commit +
+  tags) to the standard repo.
+- **Dogfooded the new update path on `josyn-builder`** (the repo that exposed the
+  gap in the first place). Migrated it **v2.3 → v2.7** via the copy-driven "bring me
+  current" procedure: re-copied `working-method.md` + `guide.md`, bumped the
+  citation and refreshed the `AGENTS.md` guidance block, recorded the bump as that
+  repo's ADR-0014, regenerated its overview — and **preserved** its authored
+  artifacts, populated travel diary, and intermediate-artifacts untouched. All four
+  intervening releases were `Adopter migration: none`, so no behavioral work.
+- Ran the new **conformance check** on josyn-builder: PASS (30 artifacts carry
+  `Date:`, overview in sync, citation consistent). Committed the migration in
+  isolation from that repo's in-progress WIP and pushed it.
+
+**What is left.** Nothing outstanding on the method itself. josyn-builder still has
+its own unrelated WIP in the working tree — that's their project's business, not
+ours.
+
+**What is next.** No open method threads. Future changes ride the same rails: idea →
+ADR → plan → release, with each release stating its `Adopter migration:` line.
+
+*Continuation brief:* the v2.7 "bring me current" path proved itself on its first
+real use — the josyn-builder update landed cleanly and conformant. Nothing pending;
+pick up a new idea whenever one arrives.
+
+---
+
 ## [2026-07-04]
 
 **Where we are.** decision-trail's adopter update path is now **reliable**, not
