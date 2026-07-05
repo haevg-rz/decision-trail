@@ -73,6 +73,13 @@ Let's make it concrete by following one small example the whole way — **"add a
 dark-mode toggle to a small web app"** — and watching it change shape at each
 stage.
 
+One thing to settle before we start, so nothing below alarms you: **you won't be
+hand-writing any of these files.** Throughout the example, "you" *name and shape*
+each artifact by talking it through — the agent is what actually drafts the
+markdown and creates the file. Read every "you jot down…" / "you write…" below as
+*"you describe it and the agent writes it up"*; the mechanics of who-types-what are
+covered in full later on.
+
 **Idea.** It starts as an *idea*: a cheap, small markdown file in `docs/ideas/`.
 The whole point is that ideas are cheap to write, so you write them down instead
 of losing them. You jot down `docs/ideas/0007-dark-mode-toggle.md`: *"People using
@@ -177,6 +184,11 @@ board, the diary is loose prose — a growing, newest-first logbook you can skim
 after a break to catch up on *where we are, what changed, what's left, and what's
 next*. It touches no artifact and is never a source of truth; adding a chapter is a
 guard-free, informal task. A repo that doesn't want one simply has none.
+
+Try it — you'll love it. It's informal, so there's just one habit worth forming:
+before you end a session, say *"update the diary"*. Once this underrated little
+helper is part of your routine, you'll miss it the moment you forget that last,
+super-useful step.
 
 ## Intermediate artifacts
 
