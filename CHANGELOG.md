@@ -13,6 +13,26 @@ then regenerate `overview.md`"). **New optional scaffolds are not listed here** 
 reach adopters automatically via the copy-driven "bring me current" update. This is
 the contract the [`adopting.md`](adopting.md) update path relies on.
 
+## [2.9.0] - 2026-07-10
+
+### Added
+- ADR-0024 — **per-family status vocabulary guard** (idea 0015): the method texts
+  now state each family's **entry status** in words (a new idea starts `seed`, a
+  new proposal `proposed`, a new plan `draft`) and add an **exclusivity guard** —
+  a status is drawn only from the artifact's own family, never borrowed from
+  another (an idea is never `proposed`/`draft`; a plan is never `proposed`/`seed`;
+  a proposal/decision is never `seed`/`draft`) — mirroring the ordinal-numbering
+  guard's placement (method body + agent-guidance bullet). Applied to both
+  renderings (`starter/docs/working-method.md` + `AGENTS.md`) and the starter
+  hand-off file (`starter/AGENTS.md`).
+
+### Changed
+- Both `starter/` renderings bump their provenance citation to **v2.9**.
+
+**Adopter migration: none.** This is a documentation/guardrail clarification with
+no behavioral change to any state machine; the new wording reaches adopters
+automatically via the copy-driven "bring me current" update (ADR-0022).
+
 ## [2.8.0] - 2026-07-05
 
 ### Added

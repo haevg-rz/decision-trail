@@ -32,6 +32,45 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-10]
+
+**Where we are.** v2.9.0 is ready — a small guardrail release. While an adopter
+repo (`ckl-builder`) was using the method, its agent twice mislabelled an
+artifact's status by borrowing a word from the wrong family (an *idea* headed
+`proposed`, and earlier a *plan* headed `proposed` instead of `draft`). That real
+misuse surfaced a genuine gap in the method's docs, and we fixed it *decision-trail*
+— idea 0015 → ADR-0024 → plan 0014, all closed.
+
+**What we achieved.**
+- **Diagnosed the flaw:** the status vocabulary lived only in the lifecycle table,
+  with no stated *entry* status and no "don't mix families" guard — the same class
+  of easy-to-violate implicit rule that numbering already got a guard for (ADR-0015).
+  `proposed` is especially primed for misuse because it also headlines "How to start
+  working" step 2.
+- **Added a per-family status guard** to both renderings (`starter/docs/working-method.md`
+  + `AGENTS.md`) and the starter hand-off (`starter/AGENTS.md`): each family's entry
+  status stated in words (idea→`seed`, proposal→`proposed`, plan→`draft`) plus an
+  exclusivity rule (never borrow another family's status), mirroring the numbering
+  guard's placement.
+- **Cut the release:** provenance bumped to v2.9 in both `starter/` renderings,
+  `CHANGELOG.md` `## [2.9.0]` with `Adopter migration: none` (pure doc change).
+- **Regenerated `overview.md`** (as of 2026-07-10) and, along the way, restored a
+  missing row — the dropped duplicate-numbered idea `0010-stamp-overview-with-date-time.md`.
+
+**What is left.** Nothing for this thread. One loose end noticed but *not* touched:
+there are **two `0010` ideas** (a numbering collision predating this work) — a
+harmless cosmetic wart that could be cleaned up someday on its own trail.
+
+**What is next.** Commit the v2.9.0 changes. Then back to the adopter side, where the
+conversation that started all this is still open: `ckl-builder`'s idea 0011 (revisit
+integrity for `ckl-libs-crypt` — AES-GCM via BCL-native `AesGcm`) is a fresh `seed`
+awaiting promotion.
+
+**Continuation brief.** The method change is fully landed; just commit. For the
+substantive crypto thread, pick up at `ckl-builder`'s `docs/ideas/0011-integrity-for-ckl-libs-crypt.md`.
+
+---
+
 ## [2026-07-05]
 
 **Where we are.** v2.8.0 is ready to cut — the guide has been reworked from a plain

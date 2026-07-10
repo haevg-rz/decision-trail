@@ -9,7 +9,7 @@ snapshot. Keeping it current is the agent's responsibility (see
 
 You can ask the agent to **regenerate the overview** at any time.
 
-**As of: 2026-07-05**
+**As of: 2026-07-10**
 
 ## Ideas
 
@@ -25,10 +25,12 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0008 Overview regeneration should be more economical](ideas/0008-overview-regeneration-should-be-more-economical.md) | 2026-06-29 | promoted | |
 | [0009 Cross-cutting concerns have no navigable home — is a "spine" missing?](ideas/0009-cross-cutting-concerns-have-no-home.md) | 2026-07-03 | promoted | |
 | [0010 A human-friendly travel diary for the human-machine interface](ideas/0010-a-human-friendly-travel-diary.md) | 2026-07-03 | promoted | |
+| [0010 Stamp the overview with a date-time, not just a date](ideas/0010-stamp-overview-with-date-time.md) | 2026-07-03 | dropped | |
 | [0011 The confirmation guard is never perfectly safe — scope lives in the "yes"](ideas/0011-confirmation-guard-never-perfectly-safe.md) | 2026-07-03 | promoted | |
 | [0012 Intermediate artifacts — a scratch persistence layer for execution](ideas/0012-intermediate-artifacts-a-scratch-layer-for-execution.md) | 2026-07-03 | promoted | |
 | [0013 Every change must ship precise, agent-reliable update instructions for older adopters](ideas/0013-every-change-ships-reliable-update-instructions.md) | 2026-07-03 | promoted | |
 | [0014 Promote and teach the method — a didactical guide, and a German translation](ideas/0014-promote-and-teach-the-method.md) | 2026-07-05 | promoted | |
+| [0015 Status vocabulary is per-family — guard against cross-contamination](ideas/0015-status-vocabulary-guard-per-family.md) | 2026-07-10 | promoted | |
 
 ## Decisions
 
@@ -57,6 +59,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0021 A single adopter on-ramp covering fresh, inject, and update](decisions/0021-a-single-adopter-on-ramp-fresh-inject-update.md) | 2026-07-03 | accepted | |
 | [0022 Every release ships precise, agent-reliable "bring me current" instructions](decisions/0022-every-release-ships-reliable-update-instructions.md) | 2026-07-04 | accepted | |
 | [0023 Promote and teach the method — a didactical guide](decisions/0023-promote-and-teach-the-method.md) | 2026-07-05 | accepted | |
+| [0024 Status vocabulary is per-family — state entry status and guard against cross-contamination](decisions/0024-status-vocabulary-guard-per-family.md) | 2026-07-10 | accepted | |
 
 ## Plans
 
@@ -75,3 +78,4 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0011 Ship the adopter on-ramp (`adopting.md`) and the release-migration contract](plans/0011-ship-adopter-on-ramp-and-migration-contract.md) | 2026-07-03 | done | |
 | [0012 Carry ADR-0022 into the method — copy-driven update, manifest, in-repo pointer, conformance check](plans/0012-carry-adr-0022-into-the-method.md) | 2026-07-04 | done | |
 | [0013 Promote and teach the method — didactical guide with Mermaid visuals](plans/0013-promote-and-teach-the-method.md) | 2026-07-05 | done | |
+| [0014 Make the per-family status vocabulary explicit and guarded](plans/0014-status-vocabulary-guard-in-method-texts.md) | 2026-07-10 | done | |

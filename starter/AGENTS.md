@@ -16,7 +16,7 @@ terse reference is [`docs/working-method.md`](docs/working-method.md); decision
 records live in [`docs/decisions/`](docs/decisions/), starting with
 [`0001-adopt-decision-trail.md`](docs/decisions/0001-adopt-decision-trail.md).
 
-Based on decision-trail v2.8 — https://github.com/ckluth/decision-trail
+Based on decision-trail v2.9 — https://github.com/ckluth/decision-trail
 
 ## Agent operating guidance
 
@@ -28,6 +28,10 @@ These rules are for an AI agent working in this repo:
   artifact — a plan implementing ADR-0004 is not named `0004`; it gets the next
   free plan slot. Relationships are expressed via cross-link fields
   (`Implements:`, `Promoted to:`, etc.), never via matching numbers.
+- **Status values are per-family — never mix them.** A new idea starts `seed`, a
+  new proposal `proposed`, a new plan `draft`. Pick a status only from the target
+  artifact's own family: an idea is never `proposed`/`draft`/`accepted`; a plan is
+  never `proposed`/`seed`; a proposal/decision is never `seed`/`draft`.
 - **The method is settled.** Use decision-trail; don't redesign the *method*
   casually. (Your project's own decisions are normal work — captured as ideas,
   ADRs, and plans under `docs/`.)

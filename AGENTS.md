@@ -61,6 +61,14 @@ artifact families:
   is the *how*, execution is the plan in motion. Tasks use portable task-list
   markdown (`- [ ]` / `- [x]`).
 
+**Each family's status vocabulary is its own — never borrow another family's
+status.** A newly created idea starts at `seed`, a new proposal at `proposed`, and
+a new plan at `draft`; decision and execution are in-place continuations (of a
+proposal and a plan) and add no separate entry status. Name the artifact family
+first, then pick a status from *that* family's row above only — an idea is never
+`proposed`, `draft`, or `accepted`; a plan is never `proposed` or `seed`; a
+proposal/decision is never `seed` or `draft`. (ADR-0024)
+
 Every idea, decision, and plan carries a `Date:` (creation date) in its header —
 **mandatory**. It may also carry an optional `Tags:` line — comma-separated theme
 words, omitted when empty (see **Tags** below). `overview.md` is a derived status
@@ -208,6 +216,10 @@ These rules are for an AI agent working in this repo:
   that implements ADR-0004 is not named `0004`; it gets the next free plan slot.
   Relationships are expressed via cross-link fields (`Implements:`, `Promoted
   to:`, etc.), never via matching numbers. (ADR-0015)
+- **Status values are per-family — never mix them.** A new idea starts `seed`, a
+  new proposal `proposed`, a new plan `draft`. Pick a status only from the target
+  artifact's own family: an idea is never `proposed`/`draft`/`accepted`; a plan is
+  never `proposed`/`seed`; a proposal/decision is never `seed`/`draft`. (ADR-0024)
 - **The method is settled.** Use it; don't redesign decision-trail casually. Any
   change to the method itself is made decision-trail — proposed and recorded as a
   new ADR, with amended or superseded ADRs cross-linked (never edited away).

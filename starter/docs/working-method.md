@@ -3,7 +3,7 @@
 > This project works **decision-trail** — carrying a thought through its whole life
 > (idea → proposal → decision → plan → execution) in plain markdown.
 >
-> Based on **decision-trail v2.8** — https://github.com/ckluth/decision-trail
+> Based on **decision-trail v2.9** — https://github.com/ckluth/decision-trail
 
 <!--
 Sync note — this file is CANONICAL.
@@ -59,6 +59,14 @@ artifact families:
 - **Plans** carry an accepted decision into action: the ADR is the spec, the plan
   is the *how*, execution is the plan in motion. Tasks use portable task-list
   markdown (`- [ ]` / `- [x]`).
+
+**Each family's status vocabulary is its own — never borrow another family's
+status.** A newly created idea starts at `seed`, a new proposal at `proposed`, and
+a new plan at `draft`; decision and execution are in-place continuations (of a
+proposal and a plan) and add no separate entry status. Name the artifact family
+first, then pick a status from *that* family's row above only — an idea is never
+`proposed`, `draft`, or `accepted`; a plan is never `proposed` or `seed`; a
+proposal/decision is never `seed` or `draft`.
 
 Every idea, decision, and plan carries a `Date:` (creation date) in its header —
 **mandatory**. It may also carry an optional `Tags:` line — comma-separated tag
