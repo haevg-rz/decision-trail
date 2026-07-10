@@ -1,12 +1,12 @@
 # ADR-0020: Intermediate artifacts — a scratch persistence layer for execution
 
-Date: 2026-07-03
-Status: accepted
-Promoted from: [Idea-0012](../ideas/0012-intermediate-artifacts-a-scratch-layer-for-execution.md)
+- Date: 2026-07-03
+- Status: accepted
+- Promoted from: [Idea-0013](../ideas/0013-intermediate-artifacts-a-scratch-layer-for-execution.md)
 
 ## Context
 
-Idea 0012 diagnosed a **working-material** gap at the execution stage. Ticking a
+Idea 0013 diagnosed a **working-material** gap at the execution stage. Ticking a
 plan's checkboxes is not always a clean walk down a list: sometimes a step must
 first **gather information** — pull data together, extract or transcribe findings,
 capture intermediate outputs — and then *work on that material later*, across
@@ -129,7 +129,7 @@ changes.
 
 ## Consequences
 
-- The working-material gap from idea 0012 is closed: plan execution gains a cheap,
+- The working-material gap from idea 0013 is closed: plan execution gains a cheap,
   conventional persistence layer, so gathered material survives a break instead of
   dying with the session's context (Continuity #1, Economy #2).
 - Intermediate artifacts are the **execution-stage companion**, alongside the

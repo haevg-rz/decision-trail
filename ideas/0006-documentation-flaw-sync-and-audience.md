@@ -1,8 +1,8 @@
 # Idea: documentation flaw — sync and audience
 
-Date: 2026-06-28
-Status: promoted
-Promoted to: [ADR-0014](../decisions/0014-sync-method-renderings-and-separate-audiences.md)
+- Date: 2026-06-28
+- Status: promoted
+- Promoted to: [ADR-0014](../decisions/0014-sync-method-renderings-and-separate-audiences.md)
 
 ## Observation
 

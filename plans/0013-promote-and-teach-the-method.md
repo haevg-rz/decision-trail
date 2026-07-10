@@ -1,8 +1,8 @@
 # Plan: promote and teach the method — didactical guide with Mermaid visuals
 
-Date: 2026-07-05
-Status: done
-Implements: [ADR-0023](../decisions/0023-promote-and-teach-the-method.md)
+- Date: 2026-07-05
+- Status: done
+- Implements: [ADR-0023](../decisions/0023-promote-and-teach-the-method.md)
 
 ## Goal
 
@@ -68,7 +68,7 @@ rework to **both** guide renderings (this repo's `guide.md` and
       and `starter/AGENTS.md`.
 
 ### Overview
-- [x] Regenerate `overview.md` to include idea 0014, ADR-0023, and this plan;
+- [x] Regenerate `overview.md` to include idea 0015, ADR-0023, and this plan;
       restamp "as of".
 
 ## Out of scope

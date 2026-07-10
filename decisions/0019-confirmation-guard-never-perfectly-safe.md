@@ -1,12 +1,12 @@
 # ADR-0019: Teach that the confirmation guard is never perfectly safe
 
-Date: 2026-07-03
-Status: accepted
-Promoted from: [Idea-0011](../ideas/0011-confirmation-guard-never-perfectly-safe.md)
+- Date: 2026-07-03
+- Status: accepted
+- Promoted from: [Idea-0012](../ideas/0012-confirmation-guard-never-perfectly-safe.md)
 
 ## Context
 
-Idea 0011 recorded a lived lesson from this repo: the **confirmation guard** —
+Idea 0012 recorded a lived lesson from this repo: the **confirmation guard** —
 *never act without explicit approval* — is never perfectly safe, and cannot be.
 The weakness is not the rule but the **acknowledgement**. A user's "yes" / "ok" /
 "go on" carries an unavoidable ambiguity of *scope*: did it approve just this one

@@ -1,8 +1,8 @@
 # Plan: update overview regeneration rule to explicit-request only
 
-Date: 2026-06-29
-Status: done
-Implements: [ADR-0016](../decisions/0016-overview-regeneration-on-explicit-request-only.md)
+- Date: 2026-06-29
+- Status: done
+- Implements: [ADR-0016](../decisions/0016-overview-regeneration-on-explicit-request-only.md)
 
 ## Goal
 

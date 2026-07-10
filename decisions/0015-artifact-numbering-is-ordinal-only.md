@@ -1,8 +1,9 @@
 # ADR-0015: Artifact numbering is ordinal only — always use the next free slot
 
-Date: 2026-06-29
-Status: accepted
-Promoted from: [Idea-0007](../ideas/0007-artifact-numbering-is-ordinal-only.md)
+- Date: 2026-06-29
+- Status: accepted
+- Promoted from: [Idea-0007](../ideas/0007-artifact-numbering-is-ordinal-only.md)
+- Amended by: [ADR-0025](0025-harden-slot-numbering-with-collision-proof-procedure.md)
 
 ## Context
 

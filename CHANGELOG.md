@@ -13,10 +13,66 @@ then regenerate `overview.md`"). **New optional scaffolds are not listed here** 
 reach adopters automatically via the copy-driven "bring me current" update. This is
 the contract the [`adopting.md`](adopting.md) update path relies on.
 
+## [2.10.0] - 2026-07-10
+
+### Added
+- ADR-0025 — **collision-proof slot numbering** (idea 0018, amends ADR-0015): the
+  ordinal-numbering rule gains a reliable **procedure** so duplicate numbers
+  (two `0010` ideas were created independently in two repos) can't recur. The
+  method texts now tell the agent to enumerate the whole family and take
+  **`max(existing number) + 1`** — never the first apparent gap a glob surfaces —
+  and **verify the target filename is unused** before writing. The
+  timeline-preserving **insert-and-shift** repair (renumber the intruder into
+  place, shift every later artifact, rewire cross-links, regenerate the overview)
+  is documented as the sanctioned way to slot an out-of-order artifact. A
+  **duplicate-number detection** step is added to the conformance check
+  (`adopting.md`). Applied to both renderings (`starter/docs/working-method.md` +
+  `AGENTS.md`) and the starter hand-off file (`starter/AGENTS.md`).
+- ADR-0026 — **canonical artifact-header format** (idea 0019): the header block
+  had drifted into two forms that parse the same but look different — bulleted
+  (`- Status:`) and bare (`Status:`) — and because the overview **refresh
+  procedure** greps the bulleted form, a bare header was **silently missed**,
+  leaving a stale row in `overview.md`. The method texts now state a **canonical
+  header template** (a `# Title` line, a blank line, then a bulleted block —
+  `- Date:`, `- Status:`, any cross-link fields, optional `- Tags:` — each on its
+  own `-`-prefixed line), the **refresh procedure is hardened** so a mis-rendered
+  header is treated as a conformance failure rather than an invisible skip, and a
+  **header-format detection** step is added to the conformance check
+  (`adopting.md`). Applied to both renderings (`starter/docs/working-method.md` +
+  `AGENTS.md`) and the starter hand-off file (`starter/AGENTS.md`).
+- ADR-0027 — **a `decomposed` idea status for a budded parent map** (idea 0017,
+  amends ADR-0024): the **idea** family's status vocabulary gains `decomposed` —
+  a rare, *alternative finalized* state (alongside `promoted`) for a large idea
+  that has been broken apart by **budding** into child ideas, its own content
+  moved out. `seed` is reframed as *"not yet promoted,"* so a still-budding parent
+  map sits there honestly; `decomposed` is hand-curated and reversible and says
+  nothing about the children's fate. A fixed **disentangling procedure** is stated
+  (parent → `decomposed`; each axis buds 1:1 to its own ADR — never
+  multi-promotion; reasons documented in the parent; one status per idea) while
+  the *strategy* stays a free judgment call the agent proposes and the human
+  decides. The per-family status guard is extended to fence `decomposed` as
+  idea-only. Applied to both renderings (`starter/docs/working-method.md` +
+  `AGENTS.md`), the starter hand-off file (`starter/AGENTS.md`), and both guide
+  renderings (`guide.md` + `starter/docs/guide.md`). The concept is also raised in
+  the human guide to a first-class **"Budding: when one idea is really several"**
+  section.
+
+### Changed
+- All three `starter/` renderings bump their provenance citation to **v2.10**
+  (`starter/docs/working-method.md`, `starter/docs/guide.md`, `starter/AGENTS.md`).
+
+**Adopter migration: none.** ADR-0025, ADR-0026, and ADR-0027 are
+guardrail/vocabulary clarifications with no behavioral change to any state
+machine, and no existing artifact is reinterpreted (no `seed` idea becomes
+`decomposed` retroactively); the new wording and the extra permitted status reach
+adopters automatically via the copy-driven "bring me current" update (ADR-0022).
+(Adopters may optionally run the new duplicate-number and header-format
+conformance checks to confirm their existing artifacts are clean.)
+
 ## [2.9.0] - 2026-07-10
 
 ### Added
-- ADR-0024 — **per-family status vocabulary guard** (idea 0015): the method texts
+- ADR-0024 — **per-family status vocabulary guard** (idea 0016): the method texts
   now state each family's **entry status** in words (a new idea starts `seed`, a
   new proposal `proposed`, a new plan `draft`) and add an **exclusivity guard** —
   a status is drawn only from the artifact's own family, never borrowed from
@@ -36,7 +92,7 @@ automatically via the copy-driven "bring me current" update (ADR-0022).
 ## [2.8.0] - 2026-07-05
 
 ### Added
-- ADR-0023 — **promote and teach the method** (idea 0014): the guide is reworked
+- ADR-0023 — **promote and teach the method** (idea 0015): the guide is reworked
   from a narrative introduction into a **didactical tutorial** — it motivates the
   problem before the mechanics, introduces the lifecycle progressively, and walks
   one canonical worked example (*"add a dark-mode toggle to a small web app"*) from
@@ -55,7 +111,7 @@ automatically via the copy-driven "bring me current" update (ADR-0022).
 ## [2.7.0] - 2026-07-04
 
 ### Added
-- ADR-0022 — **copy-driven "bring me current"** (idea 0013): updating an adopter to
+- ADR-0022 — **copy-driven "bring me current"** (idea 0014): updating an adopter to
   a target version now **re-copies the method-owned set** (exactly `starter/`'s
   contents) into the adopter's `docs/`, so additive scaffolds (travel diary,
   `intermediate-artifacts/`) arrive **automatically** without per-release
@@ -120,7 +176,7 @@ automatically via the copy-driven "bring me current" update (ADR-0022).
 ## [2.5.0] - 2026-07-03
 
 ### Added
-- ADR-0020 — **intermediate artifacts** (idea 0012): an optional, informal
+- ADR-0020 — **intermediate artifacts** (idea 0013): an optional, informal
   `intermediate-artifacts/` folder that gives the *execution* stage a scratch
   persistence layer for material a plan gathers along the way (data, findings,
   intermediate outputs) to work on later, across steps or sessions. It is the

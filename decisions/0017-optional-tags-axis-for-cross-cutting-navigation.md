@@ -1,8 +1,8 @@
 # ADR-0017: An optional `Tags:` axis for cross-cutting navigation
 
-Date: 2026-07-03
-Status: accepted
-Promoted from: [Idea-0009](../ideas/0009-cross-cutting-concerns-have-no-home.md)
+- Date: 2026-07-03
+- Status: accepted
+- Promoted from: [Idea-0009](../ideas/0009-cross-cutting-concerns-have-no-home.md)
 
 ## Context
 

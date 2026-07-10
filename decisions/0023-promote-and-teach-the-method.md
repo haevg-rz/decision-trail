@@ -1,12 +1,12 @@
 # ADR-0023: Promote and teach the method — a didactical guide
 
-Date: 2026-07-05
-Status: accepted
-Promoted from: [Idea-0014](../ideas/0014-promote-and-teach-the-method.md)
+- Date: 2026-07-05
+- Status: accepted
+- Promoted from: [Idea-0015](../ideas/0015-promote-and-teach-the-method.md)
 
 ## Context
 
-The method is settled and usable, but it is barely *taught*. Idea 0014 diagnosed
+The method is settled and usable, but it is barely *taught*. Idea 0015 diagnosed
 the gap: `guide.md` exists as a *narrative introduction*, yet it is not genuinely
 **educational and didactical**. It explains what the method *is* more than it
 teaches a newcomer how to *learn and adopt* it — there is no gentle on-ramp, no
@@ -21,7 +21,7 @@ cost, so the **translation thread is dropped**; this ADR settles only the
 teaching-material thread. (Because this decision was revised in place while still
 uncommitted, the translation thread leaves no trace in the permanent record.)
 
-This ADR settles the design questions idea 0014 left open for the teaching material
+This ADR settles the design questions idea 0015 left open for the teaching material
 (structure, worked example, and which renderings are affected) so a plan can carry
 them into action. It touches only the *documentation companion* `guide.md`. It
 changes **nothing** in the contract, the lifecycle, the artifact families, the
@@ -52,7 +52,7 @@ renderings" discipline this ADR builds on.
 
 ## Considered options
 
-The questions from idea 0014 (teaching-material thread), and the option chosen for
+The questions from idea 0015 (teaching-material thread), and the option chosen for
 each:
 
 ### 1. Where does the teaching content live?
@@ -103,7 +103,7 @@ Rework the guide into a **didactical tutorial**.
   - stays a **guide** (human-facing narrative), keeping `AGENTS.md` /
     `working-method.md` as the terse reference; it does not absorb the reference.
 
-A **German translation** was considered (idea 0014's second thread) but **dropped**:
+A **German translation** was considered (idea 0015's second thread) but **dropped**:
 a first machine-drafted `guide.de.md` was clumsy and uninspiring, and refining it to
 the quality bar was judged not worth the cost. Translation may return as a future
 idea, done properly.
@@ -113,7 +113,7 @@ artifact families, cross-link vocabulary, or `overview.md` changes.
 
 ## Consequences
 
-- The didactical gap from idea 0014 is closed: a newcomer reads a guide that
+- The didactical gap from idea 0015 is closed: a newcomer reads a guide that
   motivates, shows a concrete end-to-end example, and builds the lifecycle up
   progressively — lowering the cost of the first adoption (Economy #2, Continuity
   #1).

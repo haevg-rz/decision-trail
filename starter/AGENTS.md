@@ -16,7 +16,7 @@ terse reference is [`docs/working-method.md`](docs/working-method.md); decision
 records live in [`docs/decisions/`](docs/decisions/), starting with
 [`0001-adopt-decision-trail.md`](docs/decisions/0001-adopt-decision-trail.md).
 
-Based on decision-trail v2.9 — https://github.com/ckluth/decision-trail
+Based on decision-trail v2.10 — https://github.com/ckluth/decision-trail
 
 ## Agent operating guidance
 
@@ -27,11 +27,33 @@ These rules are for an AI agent working in this repo:
   `docs/plans/` are independent sequences). Never derive a number from a related
   artifact — a plan implementing ADR-0004 is not named `0004`; it gets the next
   free plan slot. Relationships are expressed via cross-link fields
-  (`Implements:`, `Promoted to:`, etc.), never via matching numbers.
+  (`Implements:`, `Promoted to:`, etc.), never via matching numbers. To find that
+  slot **reliably**, enumerate the whole family and take **`max(existing number) +
+  1`** — never the first apparent gap a glob surfaces — and **check the target
+  filename is unused** before writing. To slot an artifact out of order, use
+  **insert-and-shift**: renumber it into place, shift every later artifact in the
+  family, rewire reciprocal cross-links and prose references, and regenerate the
+  overview.
 - **Status values are per-family — never mix them.** A new idea starts `seed`, a
   new proposal `proposed`, a new plan `draft`. Pick a status only from the target
   artifact's own family: an idea is never `proposed`/`draft`/`accepted`; a plan is
   never `proposed`/`seed`; a proposal/decision is never `seed`/`draft`.
+- **Disentangling a large idea — use `decomposed`.** When an idea grows too big
+  to be one thought, break it apart by **budding**, never multi-promotion
+  (promotion is 1:1). The procedure is fixed: the parent idea stays and its status
+  becomes `decomposed` (the idea's *alternative finalized* state for a fully-budded
+  parent map — hand-curated and reversible, saying nothing about the children's
+  fate); each axis buds into a child via `Parent:`; each child promotes 1:1 to its
+  own ADR; and the **reasons for the branching are documented in the parent idea**.
+  Never stack `promoted` and `decomposed`. The *strategy* (promote a decidable core
+  first, or bud everything) is a free judgment call — **propose** it; the human
+  decides.
+- **Header format is canonical.** Every artifact header is a bulleted block — a
+  `# Title` line, a blank line, then `- Date:` and `- Status:` followed by any
+  cross-link fields and the optional `- Tags:`, each on its own `-`-prefixed line.
+  Never write a bare (bullet-less) header line: the overview refresh procedure
+  greps the bullets, so a bare header is silently missed and can leave a stale row
+  in the overview.
 - **The method is settled.** Use decision-trail; don't redesign the *method*
   casually. (Your project's own decisions are normal work — captured as ideas,
   ADRs, and plans under `docs/`.)

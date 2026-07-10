@@ -46,13 +46,21 @@ artifact families:
 
 | Stage | Where it lives | Status values |
 |-------|----------------|---------------|
-| idea | `ideas/NNNN-*.md` | `seed` → `promoted` / `dropped` |
+| idea | `ideas/NNNN-*.md` | `seed` → `promoted` / `dropped` / `decomposed` |
 | proposal | `decisions/NNNN-*.md` | `proposed` |
 | decision | `decisions/NNNN-*.md` (same file) | `accepted` / `rejected` |
 | plan | `plans/NNNN-*.md` | `draft` → `active` → `done` / `abandoned` |
 | execution | `plans/NNNN-*.md` (same file) | the plan ticking its checkboxes |
 
-- **Ideas** are cheap to write; a matured idea is *promoted* to a proposal.
+- **Ideas** are cheap to write; a matured idea is *promoted* to a proposal. A
+  fresh idea starts at `seed` — read as *"not yet promoted,"* which legitimately
+  includes a deliberately-kept parent map that is still budding children (it sits
+  at `seed` honestly, not as an unexamined seed). `decomposed` is a rare,
+  *alternative finalized* state (alongside the standard finalized `promoted`): the
+  idea broke into budded children and its own content moved out. It says nothing
+  about the children's fate — that is told by *their* statuses — and is
+  hand-curated and reversible (nothing computes it; flip it back to `seed` to bud
+  one more child). (ADR-0027)
 - **Decisions** are [ADRs](decisions/) — a proposal *becomes* a decision in place
   when accepted. Use the classic template (Status / Context / Decision /
   Consequences); add **Decision Drivers** / **Considered Options** when weighing
@@ -66,12 +74,34 @@ status.** A newly created idea starts at `seed`, a new proposal at `proposed`, a
 a new plan at `draft`; decision and execution are in-place continuations (of a
 proposal and a plan) and add no separate entry status. Name the artifact family
 first, then pick a status from *that* family's row above only — an idea is never
-`proposed`, `draft`, or `accepted`; a plan is never `proposed` or `seed`; a
-proposal/decision is never `seed` or `draft`. (ADR-0024)
+`proposed`, `draft`, or `accepted`; a plan is never `proposed`, `seed`, or
+`decomposed`; a proposal/decision is never `seed`, `draft`, or `decomposed`.
+(`decomposed` is an idea-only status.) (ADR-0024, ADR-0027)
 
 Every idea, decision, and plan carries a `Date:` (creation date) in its header —
 **mandatory**. It may also carry an optional `Tags:` line — comma-separated theme
-words, omitted when empty (see **Tags** below). `overview.md` is a derived status
+words, omitted when empty (see **Tags** below).
+
+Every artifact's header follows one **canonical rendering**: a `# Title` line, a
+blank line, then a **bulleted header block** — `- Date:` and `- Status:` first,
+then any cross-link fields (`- Promoted to:`, `- Implements:`, `- Amends:`, …)
+and the optional `- Tags:` — each field on its own `-`-prefixed line. The bullets
+matter: the overview refresh procedure greps them, so a bare (bullet-less) header
+line is silently missed (ADR-0026).
+
+Artifact numbers are **ordinal
+only**: assign the next unused number in that family (`ideas/`, `decisions/`,
+`plans/` are independent sequences). Never derive a number from a related artifact
+— a plan implementing ADR-0004 is not named `0004`; it takes the next free plan
+slot. Relationships are expressed via cross-link fields (`Implements:`, `Promoted
+to:`, etc.), never via matching numbers. To pick that slot **reliably**, enumerate
+the whole family and take **`max(existing number) + 1`** — never the first
+apparent gap a glob happens to surface, and never a number copied from a related
+artifact — then **verify the target filename is unused** before writing. If an
+artifact must be slotted out of order (to preserve the timeline), use
+**insert-and-shift**: renumber the intruder into place, shift every later artifact
+in the family, rewire the reciprocal cross-links and prose references, and
+regenerate `overview.md` (ADR-0015, ADR-0025). `overview.md` is a derived status
 index over all three families: a
 single dated snapshot of each artifact's name, creation date, and state. It is
 **regenerated wholesale from the artifact headers** (never hand-patched) and
@@ -119,6 +149,28 @@ promotion**. A link is reciprocal only when *both* ends are single and write-onc
 (promotion: one idea ↔ one ADR); `Parent` and `Implements` stay forward-only
 because their reverse side accumulates (one parent → many children; one ADR → many
 plans). See ADR-0012.
+
+## Disentangling a large idea
+
+Sometimes an idea grows too big to be one thought — it braids several *orthogonal*
+axes that only have weight together, as a map. The tool for this is **budding**
+(#6), not multi-promotion: promotion is strictly 1:1 (one idea ↔ one ADR), so a
+big idea cannot fan out into several ADRs.
+
+The **procedure is fixed** — when the thought *"let's disentangle this idea"*
+arises, the *how* is a lookup, not a debate:
+
+1. The parent idea **stays** and its status becomes `decomposed`.
+2. Each axis **buds** into a child idea via `Parent:`.
+3. Each child matures and **promotes 1:1** to its own ADR.
+4. The **reasons for the branching are documented in the parent idea.**
+5. One status per idea — never stack `promoted` and `decomposed`.
+
+What is **not** prescribed is the *strategy*: whether to promote an
+already-decidable core first and bud the rest, or bud everything and let the
+parent stand as a pure map, is a judgment call decided in conversation. The agent
+may (and a good one will) **propose** the disentangling; the **responsible unit is
+the human.** See ADR-0027.
 
 ## Tags (optional)
 
@@ -215,11 +267,33 @@ These rules are for an AI agent working in this repo:
   independent sequences). Never derive a number from a related artifact — a plan
   that implements ADR-0004 is not named `0004`; it gets the next free plan slot.
   Relationships are expressed via cross-link fields (`Implements:`, `Promoted
-  to:`, etc.), never via matching numbers. (ADR-0015)
+  to:`, etc.), never via matching numbers. To find that slot **reliably**,
+  enumerate the whole family and take **`max(existing number) + 1`** — never the
+  first apparent gap a glob surfaces — and **verify the target filename is unused**
+  before writing. To slot an artifact out of order, use **insert-and-shift**:
+  renumber it into place, shift every later artifact in the family, rewire
+  reciprocal cross-links and prose references, and regenerate `overview.md`.
+  (ADR-0015, ADR-0025)
 - **Status values are per-family — never mix them.** A new idea starts `seed`, a
   new proposal `proposed`, a new plan `draft`. Pick a status only from the target
   artifact's own family: an idea is never `proposed`/`draft`/`accepted`; a plan is
   never `proposed`/`seed`; a proposal/decision is never `seed`/`draft`. (ADR-0024)
+- **Disentangling a large idea — use `decomposed`.** When an idea grows too big
+  to be one thought, break it apart by **budding**, never multi-promotion
+  (promotion is 1:1). The procedure is fixed: the parent idea stays and its status
+  becomes `decomposed` (the idea's *alternative finalized* state for a fully-budded
+  parent map — hand-curated and reversible, saying nothing about the children's
+  fate); each axis buds into a child via `Parent:`; each child promotes 1:1 to its
+  own ADR; and the **reasons for the branching are documented in the parent idea**.
+  Never stack `promoted` and `decomposed`. The *strategy* (promote a decidable core
+  first, or bud everything) is a free judgment call — **propose** it; the human
+  decides. (ADR-0027)
+- **Header format is canonical.** Every artifact header is a bulleted block — a
+  `# Title` line, a blank line, then `- Date:` and `- Status:` followed by any
+  cross-link fields and the optional `- Tags:`, each on its own `-`-prefixed line.
+  Never write a bare (bullet-less) header line: the overview refresh procedure
+  greps the bullets, so a bare header is silently missed and can leave a stale row
+  in `overview.md`. (ADR-0026)
 - **The method is settled.** Use it; don't redesign decision-trail casually. Any
   change to the method itself is made decision-trail — proposed and recorded as a
   new ADR, with amended or superseded ADRs cross-linked (never edited away).
@@ -235,7 +309,10 @@ These rules are for an AI agent working in this repo:
 
   **Refresh procedure:** scan each family for `# N. Title` (line 1) and
   `- Status:` / `- Date:` / `- Tags:` (header block) → rewrite the three tables
-  in `overview.md`. Nothing else is needed.
+  in `overview.md`. If an artifact's header fields carry no leading `-` bullet, do
+  **not** silently skip it — a bare header means the artifact is non-conformant;
+  fix the header to the canonical bulleted form before regenerating, so no
+  artifact is dropped from the index.
 - **Travel diary — guard-free.** `travel-diary.md` is an optional, informal
   human-facing logbook, outside the lifecycle and **not a source of truth**
   (ADR-0018). When the user says *"add a chapter to the travel diary"* (or

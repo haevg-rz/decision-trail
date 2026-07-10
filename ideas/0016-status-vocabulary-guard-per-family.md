@@ -1,8 +1,8 @@
 # Idea: status vocabulary is per-family — guard against cross-contamination
 
-Date: 2026-07-10
-Status: promoted
-Promoted to: [ADR-0024](../decisions/0024-status-vocabulary-guard-per-family.md)
+- Date: 2026-07-10
+- Status: promoted
+- Promoted to: [ADR-0024](../decisions/0024-status-vocabulary-guard-per-family.md)
 
 ## Observation
 

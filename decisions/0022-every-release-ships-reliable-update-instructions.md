@@ -1,9 +1,10 @@
 # ADR-0022: Every release ships precise, agent-reliable "bring me current" instructions
 
-Date: 2026-07-04
-Status: accepted
-Promoted from: [Idea-0013](../ideas/0013-every-change-ships-reliable-update-instructions.md)
-Amends: [ADR-0021](0021-a-single-adopter-on-ramp-fresh-inject-update.md)
+- Date: 2026-07-04
+- Status: accepted
+- Promoted from: [Idea-0014](../ideas/0014-every-change-ships-reliable-update-instructions.md)
+- Amends: [ADR-0021](0021-a-single-adopter-on-ramp-fresh-inject-update.md)
+- Amended by: [ADR-0026](0026-pin-canonical-artifact-header-format.md)
 
 ## Context
 
@@ -18,7 +19,7 @@ new version doesn't break me?"* — and for additive features that minimum is
 legitimately **"none."** But the instruction an adopter's agent is handed is
 *"a newer decision-trail is over there — read it and bring me current"*: put me in
 the shape a **fresh adopter of the target version** would have. Those two are not
-the same, and the current design only serves the first. Idea 0013 sharpens the
+the same, and the current design only serves the first. Idea 0014 sharpens the
 requirement: **any** further change to the standard must ship instructions precise
 enough that an agent in an older adopter-repo can reach the fully-current shape
 **reliably**, without guesswork.
@@ -70,7 +71,7 @@ enough that an agent in an older adopter-repo can reach the fully-current shape
 
 ### Decision drivers
 
-- **Reliability of "bring me current"** — the sharpened requirement from idea 0013:
+- **Reliability of "bring me current"** — the sharpened requirement from idea 0014:
   an older adopter's agent must reach the target's full shape without guesswork.
 - **Non-destructiveness** — updating must never clobber project-owned artifacts.
 - **Economy (#2) / Borrow (#8)** — prefer deriving a manifest from `starter/` and
@@ -143,7 +144,7 @@ stable in-repo pointer, and a lightweight conformance check.
 
 - "Bring me current" reliably lands an adopter on the target version's **full
   fresh-adopter shape**, additive scaffolds included, without per-release
-  enumeration — satisfying idea 0013's sharpened requirement (Continuity #1,
+  enumeration — satisfying idea 0014's sharpened requirement (Continuity #1,
   Economy #2).
 - The `Adopter migration:` contract gets **lighter and clearer**: release authors
   state only required behavioral steps (still "none" when apt), never a scaffold

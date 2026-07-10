@@ -1,9 +1,9 @@
 # ADR-0021: A single adopter on-ramp covering fresh, inject, and update
 
-Date: 2026-07-03
-Status: accepted
-Promoted from: [Idea-0004](../ideas/0004-using-decision-trail-in-your-own-repo-should-be-easy.md)
-Amended by: [ADR-0022](0022-every-release-ships-reliable-update-instructions.md)
+- Date: 2026-07-03
+- Status: accepted
+- Promoted from: [Idea-0004](../ideas/0004-using-decision-trail-in-your-own-repo-should-be-easy.md)
+- Amended by: [ADR-0022](0022-every-release-ships-reliable-update-instructions.md)
 
 ## Context
 

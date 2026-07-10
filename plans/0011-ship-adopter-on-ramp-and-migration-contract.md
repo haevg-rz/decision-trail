@@ -1,8 +1,8 @@
 # Plan: ship the adopter on-ramp (`adopting.md`) and the release-migration contract
 
-Date: 2026-07-03
-Status: done
-Implements: [ADR-0021](../decisions/0021-a-single-adopter-on-ramp-fresh-inject-update.md)
+- Date: 2026-07-03
+- Status: done
+- Implements: [ADR-0021](../decisions/0021-a-single-adopter-on-ramp-fresh-inject-update.md)
 
 ## Goal
 

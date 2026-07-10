@@ -1,8 +1,8 @@
 # Idea: the confirmation guard is never perfectly safe — scope lives in the "yes"
 
-Date: 2026-07-03
-Status: promoted
-Promoted to: [ADR-0019](../decisions/0019-confirmation-guard-never-perfectly-safe.md)
+- Date: 2026-07-03
+- Status: promoted
+- Promoted to: [ADR-0019](../decisions/0019-confirmation-guard-never-perfectly-safe.md)
 
 ## Observation
 

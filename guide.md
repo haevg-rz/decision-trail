@@ -43,8 +43,9 @@ because every mechanic later is just one of these promises made concrete:
    proposal → decision → plan → execution.
 5. **Agility** — any thread can be refined or overthrown at any time. Nothing is
    locked.
-6. **Budding** — one idea can spawn another, and the parent–child link is kept, so
-   you can trace where a thought came from.
+6. **Budding** — one idea can spawn another, so a knot of entangled ideas can bud
+   into one child per thread; the parent–child link is kept, so you can trace where
+   a thought came from.
 7. **Genericity** — none of this is bound to a particular project; it works for
    any.
 8. **Borrow, don't invent** — wherever a portable standard already exists (ADRs,
@@ -88,6 +89,7 @@ starts as an **idea**. That word is deliberately broad — an idea can be:
 - a question you can't yet answer;
 - a big, still-fuzzy concept;
 - the takeaway from a discussion with colleagues;
+- an idea that turns out to be a whole knot of separate ideas tangled together;
 - or just an observation that *something* might be improved.
 
 If it's worth not losing, it's worth capturing as an idea — that's the whole point
@@ -97,7 +99,7 @@ stage has its own set of *status* values:
 
 ```mermaid
 flowchart LR
-    idea["idea<br/><i>seed → promoted / dropped</i>"] -->|promote| prop["proposal<br/><i>proposed</i>"]
+    idea["idea<br/><i>seed → promoted / dropped / decomposed</i>"] -->|promote| prop["proposal<br/><i>proposed</i>"]
     prop -->|"accept / reject"| dec["decision<br/><i>accepted / rejected</i>"]
     dec -->|implement| plan["plan<br/><i>draft → active</i>"]
     plan -->|execute| exe["execution<br/><i>done / abandoned</i>"]
@@ -120,6 +122,12 @@ losing them. You jot down `ideas/0007-dark-mode-toggle.md`: *"People using the a
 at night want a dark theme — a toggle in settings might help. Worth exploring."*
 Its status is `seed`. That's the entire artifact — a seed, cheap to write. Most
 ideas wait here like this one; some get `dropped`; a few mature.
+
+And an idea needn't be a single, tidy thought — quite often it's really a *knot of
+several entangled ideas*. That's fine, and it's expected: you don't have to
+untangle it up front. When you're ready, it can **bud** into a child idea per
+thread (each linked back with `Parent:`), and the original is marked `decomposed`
+once its substance has moved into the children.
 
 **Proposal.** The dark-mode idea gathers support, so you *promote* it. It becomes a
 *proposal* — an [ADR](https://adr.github.io/) (Architecture Decision Record) in
@@ -146,6 +154,28 @@ the plan from `draft` to `active`, then tick checkboxes as the work lands, until
 the last box is checked and the plan is `done`. The dark-mode toggle has now
 travelled its whole life — *idea → proposal → decision → plan → execution* — and
 anyone can walk that trail later to see not just what shipped, but why.
+
+## Budding: when one idea is really several
+
+Not every idea is one thought. Sometimes, once you look closely, an idea turns
+out to be a *knot of several separate ideas* tangled together — a big fuzzy
+concept that braids two or three genuinely independent threads. The method has a
+first-class way to handle this, and it's one of the eight promises: **budding**.
+
+You don't force a tangled idea through as a single decision, and you don't have to
+untangle it up front either. When you're ready, you let it **bud**: each separate
+thread becomes its own child idea, linked back to the original with `Parent:`.
+Each child then lives its own life — it can mature and be promoted 1:1 to its own
+proposal, wait as a `seed`, or be `dropped` — entirely on its own timeline.
+
+The original idea, once its substance has moved into the children, is marked
+`decomposed`: a calm, honest end-state that says *"this wasn't rejected and it
+wasn't a single decision — it fanned out into the children; follow the `Parent:`
+links to find where it went."* Nothing is lost and no thread is rushed.
+
+When and how to split is your call, in conversation with the agent — a good agent
+will often notice the tangle and suggest budding it apart. The mechanics of the
+`Parent:` link are covered next.
 
 ## The vocabulary of links
 

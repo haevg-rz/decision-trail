@@ -1,8 +1,8 @@
 # Idea: a human-friendly travel diary for the human-machine interface
 
-Date: 2026-07-03
-Status: promoted
-Promoted to: [ADR-0018](../decisions/0018-a-travel-diary-for-the-human-machine-interface.md)
+- Date: 2026-07-03
+- Status: promoted
+- Promoted to: [ADR-0018](../decisions/0018-a-travel-diary-for-the-human-machine-interface.md)
 
 ## Observation
 

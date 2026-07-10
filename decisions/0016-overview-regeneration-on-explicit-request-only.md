@@ -1,8 +1,8 @@
 # ADR-0016: Overview regeneration should be more economical
 
-Date: 2026-06-29
-Status: accepted
-Promoted from: [Idea-0008](../ideas/0008-overview-regeneration-should-be-more-economical.md)
+- Date: 2026-06-29
+- Status: accepted
+- Promoted from: [Idea-0008](../ideas/0008-overview-regeneration-should-be-more-economical.md)
 
 ## Context
 

@@ -1,7 +1,7 @@
 # Idea: stamp the overview with a date-time, not just a date
 
-Date: 2026-07-03
-Status: dropped
+- Date: 2026-07-03
+- Status: dropped
 
 ## Why dropped
 

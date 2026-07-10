@@ -1,7 +1,7 @@
 # 1. Adopt decision-trail
 
-- Status: accepted
 - Date: <YYYY-MM-DD>
+- Status: accepted
 
 ## Context
 

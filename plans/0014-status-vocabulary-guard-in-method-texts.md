@@ -1,8 +1,8 @@
 # Plan: make the per-family status vocabulary explicit and guarded
 
-Date: 2026-07-10
-Status: done
-Implements: [ADR-0024](../decisions/0024-status-vocabulary-guard-per-family.md)
+- Date: 2026-07-10
+- Status: done
+- Implements: [ADR-0024](../decisions/0024-status-vocabulary-guard-per-family.md)
 
 ## Goal
 
@@ -53,5 +53,5 @@ via the copy-driven update, ADR-0022).
       none`** line (documentation/guardrail clarification only — the new wording
       reaches adopters via the copy-driven "bring me current" update; no
       behavioral change to any state machine).
-- [ ] **Regenerate `overview.md`** after all edits are done (idea 0015 →
+- [ ] **Regenerate `overview.md`** after all edits are done (idea 0016 →
       `promoted`, ADR-0024 → `accepted`, this plan → `done`).

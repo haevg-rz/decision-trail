@@ -1,8 +1,8 @@
 # Idea: intermediate artifacts — a scratch persistence layer for execution
 
-Date: 2026-07-03
-Status: promoted
-Promoted to: [ADR-0020](../decisions/0020-intermediate-artifacts-a-scratch-layer-for-execution.md)
+- Date: 2026-07-03
+- Status: promoted
+- Promoted to: [ADR-0020](../decisions/0020-intermediate-artifacts-a-scratch-layer-for-execution.md)
 
 ## Observation
 

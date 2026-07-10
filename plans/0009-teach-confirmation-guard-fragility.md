@@ -1,8 +1,8 @@
 # Plan: teach that the confirmation guard is never perfectly safe
 
-Date: 2026-07-03
-Status: done
-Implements: [ADR-0019](../decisions/0019-confirmation-guard-never-perfectly-safe.md)
+- Date: 2026-07-03
+- Status: done
+- Implements: [ADR-0019](../decisions/0019-confirmation-guard-never-perfectly-safe.md)
 
 ## Goal
 
@@ -42,7 +42,7 @@ operating guidance. **Version stays v2.4**: no bump, no `CHANGELOG.md` entry
 - [x] Mirror that one sentence in `starter/AGENTS.md`.
 
 ### Overview
-- [x] Regenerate `overview.md` to include idea 0011, ADR-0019, and this plan;
+- [x] Regenerate `overview.md` to include idea 0012, ADR-0019, and this plan;
       restamp "as of".
 
 ## Out of scope

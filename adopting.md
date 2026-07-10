@@ -156,13 +156,23 @@ script, your agent verifies each point directly.
 
 1. **Headers present.** Every artifact in `docs/ideas/`, `docs/decisions/`, and
    `docs/plans/` carries the mandatory `Date:` header (and a `Status:`).
-2. **Overview in sync.** `docs/overview.md` matches the artifact headers — same
+2. **No duplicate numbers.** Within each family (`docs/ideas/`, `docs/decisions/`,
+   `docs/plans/`) every four-digit number appears exactly once — no two artifacts
+   share a slot. If a collision exists, fix it with insert-and-shift (renumber the
+   intruder into place, shift every later artifact, rewire cross-links and prose
+   references) and regenerate `docs/overview.md`.
+3. **Header format canonical.** Every artifact's header fields use the canonical
+   bulleted form — a `# Title` line, a blank line, then `- Date:` / `- Status:`
+   and any cross-link / `- Tags:` fields, each on its own `-`-prefixed line. Flag
+   any bare (bullet-less) header and fix it, so the overview refresh can't
+   silently drop the artifact.
+4. **Overview in sync.** `docs/overview.md` matches the artifact headers — same
    names, dates, and states — and is stamped with a current "as of" date. If not,
    regenerate it.
-3. **Citation consistent.** The `Based on decision-trail vX.Y` citation is identical
+5. **Citation consistent.** The `Based on decision-trail vX.Y` citation is identical
    in `docs/working-method.md` and the `## How we work` block of `AGENTS.md`.
 
-If all three hold, the repo conforms to the version it cites.
+If all five hold, the repo conforms to the version it cites.
 
 ---
 

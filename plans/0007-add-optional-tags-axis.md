@@ -1,8 +1,8 @@
 # Plan: add the optional `Tags:` axis for cross-cutting navigation
 
-Date: 2026-07-03
-Status: done
-Implements: [ADR-0017](../decisions/0017-optional-tags-axis-for-cross-cutting-navigation.md)
+- Date: 2026-07-03
+- Status: done
+- Implements: [ADR-0017](../decisions/0017-optional-tags-axis-for-cross-cutting-navigation.md)
 
 ## Goal
 

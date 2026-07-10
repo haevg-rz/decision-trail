@@ -1,8 +1,8 @@
 # Plan: ship intermediate artifacts as an optional execution-stage companion
 
-Date: 2026-07-03
-Status: done
-Implements: [ADR-0020](../decisions/0020-intermediate-artifacts-a-scratch-layer-for-execution.md)
+- Date: 2026-07-03
+- Status: done
+- Implements: [ADR-0020](../decisions/0020-intermediate-artifacts-a-scratch-layer-for-execution.md)
 
 ## Goal
 
@@ -67,7 +67,7 @@ documented-but-empty starter folder**; the home repo may seed its own.
       artifacts as an optional execution-stage companion; minor/additive bump).
 
 ### Overview
-- [x] Regenerate `overview.md` to include idea 0012, ADR-0020, and this plan;
+- [x] Regenerate `overview.md` to include idea 0013, ADR-0020, and this plan;
       restamp "as of".
 
 ## Out of scope

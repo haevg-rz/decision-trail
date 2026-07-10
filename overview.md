@@ -25,12 +25,16 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0008 Overview regeneration should be more economical](ideas/0008-overview-regeneration-should-be-more-economical.md) | 2026-06-29 | promoted | |
 | [0009 Cross-cutting concerns have no navigable home — is a "spine" missing?](ideas/0009-cross-cutting-concerns-have-no-home.md) | 2026-07-03 | promoted | |
 | [0010 A human-friendly travel diary for the human-machine interface](ideas/0010-a-human-friendly-travel-diary.md) | 2026-07-03 | promoted | |
-| [0010 Stamp the overview with a date-time, not just a date](ideas/0010-stamp-overview-with-date-time.md) | 2026-07-03 | dropped | |
-| [0011 The confirmation guard is never perfectly safe — scope lives in the "yes"](ideas/0011-confirmation-guard-never-perfectly-safe.md) | 2026-07-03 | promoted | |
-| [0012 Intermediate artifacts — a scratch persistence layer for execution](ideas/0012-intermediate-artifacts-a-scratch-layer-for-execution.md) | 2026-07-03 | promoted | |
-| [0013 Every change must ship precise, agent-reliable update instructions for older adopters](ideas/0013-every-change-ships-reliable-update-instructions.md) | 2026-07-03 | promoted | |
-| [0014 Promote and teach the method — a didactical guide, and a German translation](ideas/0014-promote-and-teach-the-method.md) | 2026-07-05 | promoted | |
-| [0015 Status vocabulary is per-family — guard against cross-contamination](ideas/0015-status-vocabulary-guard-per-family.md) | 2026-07-10 | promoted | |
+| [0011 Stamp the overview with a date-time, not just a date](ideas/0011-stamp-overview-with-date-time.md) | 2026-07-03 | dropped | |
+| [0012 The confirmation guard is never perfectly safe — scope lives in the "yes"](ideas/0012-confirmation-guard-never-perfectly-safe.md) | 2026-07-03 | promoted | |
+| [0013 Intermediate artifacts — a scratch persistence layer for execution](ideas/0013-intermediate-artifacts-a-scratch-layer-for-execution.md) | 2026-07-03 | promoted | |
+| [0014 Every change must ship precise, agent-reliable update instructions for older adopters](ideas/0014-every-change-ships-reliable-update-instructions.md) | 2026-07-03 | promoted | |
+| [0015 Promote and teach the method — a didactical guide, and a German translation](ideas/0015-promote-and-teach-the-method.md) | 2026-07-05 | promoted | |
+| [0016 Status vocabulary is per-family — guard against cross-contamination](ideas/0016-status-vocabulary-guard-per-family.md) | 2026-07-10 | promoted | |
+| [0017 A large idea has no home to decompose into — is a "container" idea missing?](ideas/0017-decomposing-a-large-idea-container-gap.md) | 2026-07-10 | promoted | |
+| [0018 Harden next-slot numbering so it can't collide](ideas/0018-harden-slot-numbering-against-collisions.md) | 2026-07-10 | promoted | |
+| [0019 Pin the canonical artifact-header format so it can't drift](ideas/0019-pin-canonical-artifact-header-format.md) | 2026-07-10 | promoted | |
+| [0020 Advice and means to run the method economically and token-saving](ideas/0020-use-the-method-economically-and-token-saving.md) | 2026-07-10 | seed | |
 
 ## Decisions
 
@@ -60,6 +64,9 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0022 Every release ships precise, agent-reliable "bring me current" instructions](decisions/0022-every-release-ships-reliable-update-instructions.md) | 2026-07-04 | accepted | |
 | [0023 Promote and teach the method — a didactical guide](decisions/0023-promote-and-teach-the-method.md) | 2026-07-05 | accepted | |
 | [0024 Status vocabulary is per-family — state entry status and guard against cross-contamination](decisions/0024-status-vocabulary-guard-per-family.md) | 2026-07-10 | accepted | |
+| [0025 Harden next-slot numbering with a collision-proof procedure](decisions/0025-harden-slot-numbering-with-collision-proof-procedure.md) | 2026-07-10 | accepted | |
+| [0026 Pin the canonical artifact-header format](decisions/0026-pin-canonical-artifact-header-format.md) | 2026-07-10 | accepted | |
+| [0027 A `decomposed` status for a budded parent idea](decisions/0027-a-decomposed-status-for-a-budded-parent-idea.md) | 2026-07-10 | accepted | |
 
 ## Plans
 
@@ -79,3 +86,6 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0012 Carry ADR-0022 into the method — copy-driven update, manifest, in-repo pointer, conformance check](plans/0012-carry-adr-0022-into-the-method.md) | 2026-07-04 | done | |
 | [0013 Promote and teach the method — didactical guide with Mermaid visuals](plans/0013-promote-and-teach-the-method.md) | 2026-07-05 | done | |
 | [0014 Make the per-family status vocabulary explicit and guarded](plans/0014-status-vocabulary-guard-in-method-texts.md) | 2026-07-10 | done | |
+| [0015 Harden next-slot numbering with a collision-proof procedure](plans/0015-harden-slot-numbering-procedure.md) | 2026-07-10 | done | |
+| [0016 Pin the canonical artifact-header format](plans/0016-pin-canonical-artifact-header-format.md) | 2026-07-10 | done | |
+| [0017 Carry the `decomposed` idea status into the method](plans/0017-carry-decomposed-status-into-the-method.md) | 2026-07-10 | done | |

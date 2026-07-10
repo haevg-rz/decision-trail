@@ -1,8 +1,8 @@
 # Idea: artifact numbering is ordinal only — always use the next free slot
 
-Date: 2026-06-29
-Status: promoted
-Promoted to: [ADR-0015](../decisions/0015-artifact-numbering-is-ordinal-only.md)
+- Date: 2026-06-29
+- Status: promoted
+- Promoted to: [ADR-0015](../decisions/0015-artifact-numbering-is-ordinal-only.md)
 
 ## Observation
 

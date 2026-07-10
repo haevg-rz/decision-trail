@@ -32,6 +32,50 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-10-(2)]
+
+**Where we are.** v2.10.0 is ready to cut — a three-ADR guardrail-and-vocabulary
+release that also sharpens the human guide. It bundles work that had been
+collecting under the open `## [2.10.0]` changelog heading: ADR-0025, ADR-0026, and
+the new ADR-0027.
+
+**What we achieved.**
+- **ADR-0027 — a `decomposed` idea status** (idea 0017 → plan 0017). The core new
+  idea of this release: an idea is often *not one thought* but a **knot of
+  entangled ideas**. Promotion is 1:1, so a big idea can't fan out into many ADRs —
+  the tool is **budding**. But a budded parent had no honest resting state (`seed`
+  lied, `dropped` claimed rejection, `promoted` misdescribed). We added
+  `decomposed` — a rare, hand-curated, reversible *alternative-finalized* state
+  that says the idea broke into children and says nothing about their fate. `seed`
+  is reframed as "not yet promoted." A fixed **disentangling procedure** is stated
+  (procedure fixed, strategy free; agent proposes, human decides).
+- **Surfaced the concept in the human guide.** After a course-correction (we first
+  over-reached into the machine-facing texts, then reverted), the "knot of
+  entangled ideas" idea now appears at four escalating levels — promise #6, the
+  "an idea can be…" list, the idea stage, and its own first-class section
+  **"Budding: when one idea is really several."**
+- **Closed the two sibling guardrail plans** that were waiting on a release:
+  ADR-0025 (collision-proof `max+1` slot numbering + insert-and-shift +
+  duplicate-number conformance check, plan 0015) and ADR-0026 (canonical bulleted
+  header template + hardened refresh procedure + header-format conformance check,
+  plan 0016).
+- **Cut the release:** provenance bumped to **v2.10** across all three `starter/`
+  renderings (fixing a stale `vX.Y` in the starter guide along the way),
+  `CHANGELOG.md` `## [2.10.0]` dated and completed with all three ADRs and
+  `Adopter migration: none`, and `overview.md` regenerated (as of 2026-07-10):
+  plans 0015/0016/0017 → `done`, idea 0017 → `promoted`, ADR-0027 → `accepted`.
+
+**What is left.** Nothing for this release. Still-open loose ends noticed earlier
+remain untouched: the two `0010` ideas cosmetic numbering wart, and two fresh
+`seed` ideas of the home repo — 0019 (pin header format — now promoted) done; 0020
+(run the method economically / token-saving) still a `seed` awaiting its turn.
+
+**What is next.** Commit, tag `v2.10.0`, and publish the GitHub release. Then the
+`decomposed` vocabulary and the budding guide section are available for adopters
+via the copy-driven update.
+
+---
+
 ## [2026-07-10]
 
 **Where we are.** v2.9.0 is ready — a small guardrail release. While an adopter

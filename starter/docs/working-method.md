@@ -3,7 +3,7 @@
 > This project works **decision-trail** — carrying a thought through its whole life
 > (idea → proposal → decision → plan → execution) in plain markdown.
 >
-> Based on **decision-trail v2.9** — https://github.com/ckluth/decision-trail
+> Based on **decision-trail v2.10** — https://github.com/ckluth/decision-trail
 
 <!--
 Sync note — this file is CANONICAL.
@@ -46,13 +46,21 @@ artifact families:
 
 | Stage | Where it lives | Status values |
 |-------|----------------|---------------|
-| idea | `docs/ideas/NNNN-*.md` | `seed` → `promoted` / `dropped` |
+| idea | `docs/ideas/NNNN-*.md` | `seed` → `promoted` / `dropped` / `decomposed` |
 | proposal | `docs/decisions/NNNN-*.md` | `proposed` |
 | decision | `docs/decisions/NNNN-*.md` (same file) | `accepted` / `rejected` |
 | plan | `docs/plans/NNNN-*.md` | `draft` → `active` → `done` / `abandoned` |
 | execution | `docs/plans/NNNN-*.md` (same file) | the plan ticking its checkboxes |
 
-- **Ideas** are cheap to write; a matured idea is *promoted* to a proposal.
+- **Ideas** are cheap to write; a matured idea is *promoted* to a proposal. A
+  fresh idea starts at `seed` — read as *"not yet promoted,"* which legitimately
+  includes a deliberately-kept parent map that is still budding children (it sits
+  at `seed` honestly, not as an unexamined seed). `decomposed` is a rare,
+  *alternative finalized* state (alongside the standard finalized `promoted`): the
+  idea broke into budded children and its own content moved out. It says nothing
+  about the children's fate — that is told by *their* statuses — and is
+  hand-curated and reversible (nothing computes it; flip it back to `seed` to bud
+  one more child).
 - **Decisions** are ADRs — a proposal *becomes* a decision in place when accepted.
   Use the classic template (Status / Context / Decision / Consequences); add
   **Decision Drivers** / **Considered Options** when weighing alternatives.
@@ -65,18 +73,34 @@ status.** A newly created idea starts at `seed`, a new proposal at `proposed`, a
 a new plan at `draft`; decision and execution are in-place continuations (of a
 proposal and a plan) and add no separate entry status. Name the artifact family
 first, then pick a status from *that* family's row above only — an idea is never
-`proposed`, `draft`, or `accepted`; a plan is never `proposed` or `seed`; a
-proposal/decision is never `seed` or `draft`.
+`proposed`, `draft`, or `accepted`; a plan is never `proposed`, `seed`, or
+`decomposed`; a proposal/decision is never `seed`, `draft`, or `decomposed`.
+(`decomposed` is an idea-only status.)
 
 Every idea, decision, and plan carries a `Date:` (creation date) in its header —
 **mandatory**. It may also carry an optional `Tags:` line — comma-separated tag
 words naming cross-cutting themes; omit the line when empty (see **Tags** below).
+
+Every artifact's header follows one **canonical rendering**: a `# Title` line, a
+blank line, then a **bulleted header block** — `- Date:` and `- Status:` first,
+then any cross-link fields (`- Promoted to:`, `- Implements:`, `- Amends:`, …)
+and the optional `- Tags:` — each field on its own `-`-prefixed line. The bullets
+matter: the overview refresh procedure greps them, so a bare (bullet-less) header
+line is silently missed.
+
 Artifact numbers are **ordinal only**: assign the next unused
 number in that family (`docs/ideas/`, `docs/decisions/`, `docs/plans/` are
 independent sequences). Never derive a number from a related artifact — a plan
 implementing ADR-0004 is not named `0004`; it takes the next free plan slot.
 Relationships are expressed via cross-link fields (`Implements:`, `Promoted
-to:`, etc.), never via matching numbers. `docs/overview.md` is a derived status index over all three
+to:`, etc.), never via matching numbers. To pick that slot **reliably**,
+enumerate the whole family and take **`max(existing number) + 1`** — never the
+first apparent gap a glob happens to surface, and never a number copied from a
+related artifact — then **verify the target filename is unused** before writing.
+If an artifact must be slotted out of order (to preserve the timeline), use
+**insert-and-shift**: renumber the intruder into place, shift every later
+artifact in the family, rewire the reciprocal cross-links and prose references,
+and regenerate `docs/overview.md`. `docs/overview.md` is a derived status index over all three
 families: a single dated snapshot of each artifact's name, creation date, and
 state. It is **regenerated wholesale from the artifact headers** (never
 hand-patched) and stamped "as of <date>". Regenerate it whenever the user
@@ -84,7 +108,10 @@ explicitly asks.
 
   **Refresh procedure:** scan each family for `# N. Title` (line 1) and
   `- Status:` / `- Date:` / `- Tags:` (header block) → rewrite the three tables
-  in `docs/overview.md`. Nothing else is needed.
+  in `docs/overview.md`. If an artifact's header fields carry no leading `-`
+  bullet, do **not** silently skip it — a bare header means the artifact is
+  non-conformant; fix the header to the canonical bulleted form (see the header
+  template above) before regenerating, so no artifact is dropped from the index.
 
 ## Layout
 
@@ -122,6 +149,28 @@ promotion**. A link is reciprocal only when *both* ends are single and write-onc
 (promotion: one idea ↔ one ADR); `Parent` and `Implements` stay forward-only
 because their reverse side accumulates (one parent → many children; one ADR → many
 plans).
+
+## Disentangling a large idea
+
+Sometimes an idea grows too big to be one thought — it braids several *orthogonal*
+axes that only have weight together, as a map. The tool for this is **budding**
+(#6), not multi-promotion: promotion is strictly 1:1 (one idea ↔ one ADR), so a
+big idea cannot fan out into several ADRs.
+
+The **procedure is fixed** — when the thought *"let's disentangle this idea"*
+arises, the *how* is a lookup, not a debate:
+
+1. The parent idea **stays** and its status becomes `decomposed`.
+2. Each axis **buds** into a child idea via `Parent:`.
+3. Each child matures and **promotes 1:1** to its own ADR.
+4. The **reasons for the branching are documented in the parent idea.**
+5. One status per idea — never stack `promoted` and `decomposed`.
+
+What is **not** prescribed is the *strategy*: whether to promote an
+already-decidable core first and bud the rest, or bud everything and let the
+parent stand as a pure map, is a judgment call decided in conversation. The agent
+may (and a good one will) **propose** the disentangling; the **responsible unit is
+the human.**
 
 ## Tags (optional)
 

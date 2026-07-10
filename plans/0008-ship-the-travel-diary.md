@@ -1,8 +1,8 @@
 # Plan: ship the travel diary as an optional human-facing companion
 
-Date: 2026-07-03
-Status: done
-Implements: [ADR-0018](../decisions/0018-a-travel-diary-for-the-human-machine-interface.md)
+- Date: 2026-07-03
+- Status: done
+- Implements: [ADR-0018](../decisions/0018-a-travel-diary-for-the-human-machine-interface.md)
 
 ## Goal
 

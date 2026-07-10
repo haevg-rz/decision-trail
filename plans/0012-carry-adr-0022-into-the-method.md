@@ -1,8 +1,8 @@
 # Plan: carry ADR-0022 into the method — copy-driven update, `starter/`-derived manifest, in-repo pointer, conformance check
 
-Date: 2026-07-04
-Status: done
-Implements: [ADR-0022](../decisions/0022-every-release-ships-reliable-update-instructions.md)
+- Date: 2026-07-04
+- Status: done
+- Implements: [ADR-0022](../decisions/0022-every-release-ships-reliable-update-instructions.md)
 
 ## Goal
 
@@ -95,7 +95,7 @@ ships (faithful to ADR-0021 Option D).
 
 ### Overview
 - [x] Regenerate `overview.md` to include this plan and reflect final states
-      (idea 0013 → promoted, ADR-0022 → accepted, ADR-0021 → amended-by note);
+      (idea 0014 → promoted, ADR-0022 → accepted, ADR-0021 → amended-by note);
       restamp "as of".
 
 ## Out of scope

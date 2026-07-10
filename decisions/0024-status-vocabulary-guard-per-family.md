@@ -1,8 +1,9 @@
 # ADR-0024: Status vocabulary is per-family — state entry status and guard against cross-contamination
 
-Date: 2026-07-10
-Status: accepted
-Promoted from: [Idea-0015](../ideas/0015-status-vocabulary-guard-per-family.md)
+- Date: 2026-07-10
+- Status: accepted
+- Promoted from: [Idea-0016](../ideas/0016-status-vocabulary-guard-per-family.md)
+- Amended by: [ADR-0027](0027-a-decomposed-status-for-a-budded-parent-idea.md)
 
 ## Context
 

@@ -1,8 +1,8 @@
 # Idea: overview regeneration should be more economical
 
-Date: 2026-06-29
-Status: promoted
-Promoted to: [ADR-0016](../decisions/0016-overview-regeneration-on-explicit-request-only.md)
+- Date: 2026-06-29
+- Status: promoted
+- Promoted to: [ADR-0016](../decisions/0016-overview-regeneration-on-explicit-request-only.md)
 
 ## Observation
 

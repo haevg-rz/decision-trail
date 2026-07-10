@@ -1,8 +1,8 @@
 # Plan: add explicit numbering rule to method texts
 
-Date: 2026-06-29
-Status: done
-Implements: [ADR-0015](../decisions/0015-artifact-numbering-is-ordinal-only.md)
+- Date: 2026-06-29
+- Status: done
+- Implements: [ADR-0015](../decisions/0015-artifact-numbering-is-ordinal-only.md)
 
 ## Goal
 

@@ -4,6 +4,7 @@
 - Date: 2026-06-28
 - Promoted from: [idea 0003](../ideas/0003-an-always-up-to-date-overview.md)
 - Amends: ADR-0005 (extends the header conventions: ideas and plans gain a `Date:` field)
+- Amended by: [ADR-0026](0026-pin-canonical-artifact-header-format.md)
 
 ## Context
 
