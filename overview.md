@@ -37,8 +37,10 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0020 Advice and means to run the method economically and token-saving](ideas/0020-use-the-method-economically-and-token-saving.md) | 2026-07-10 | decomposed | |
 | [0021 Shrink the always-loaded agent instruction weight](ideas/0021-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | promoted | |
 | [0022 Render the method's fixed procedures as optional skills](ideas/0022-render-fixed-procedures-as-optional-skills.md) | 2026-07-11 | seed | |
-| [0023 Name the resume-time economy practices as a stated discipline](ideas/0023-name-the-resume-time-economy-practices-as-a-discipline.md) | 2026-07-11 | seed | |
+| [0023 Name the resume-time economy practices as a stated discipline](ideas/0023-name-the-resume-time-economy-practices-as-a-discipline.md) | 2026-07-11 | promoted | |
 | [0024 Pin the title-line format so the ordinal is always visible in the H1](ideas/0024-pin-the-title-line-format-ordinal-in-h1.md) | 2026-07-11 | promoted | |
+| [0025 Clarify how a consuming repo adopts a newer version of decision-trail](ideas/0025-clarify-how-a-consuming-repo-adopts-a-newer-version.md) | 2026-07-11 | promoted | |
+| [0026 The guide's derived-rendering sync model can't hold audience deltas](ideas/0026-guide-sync-model-cant-hold-audience-deltas.md) | 2026-07-11 | seed | |
 
 ## Decisions
 
@@ -73,6 +75,8 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0027 A `decomposed` status for a budded parent idea](decisions/0027-a-decomposed-status-for-a-budded-parent-idea.md) | 2026-07-10 | accepted | |
 | [0028 Pin the title-line format so the ordinal is always visible in the H1](decisions/0028-pin-the-title-line-format-ordinal-in-h1.md) | 2026-07-11 | accepted | |
 | [0029 Shrink the always-loaded agent instruction weight](decisions/0029-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | accepted | |
+| [0030 Resume economy as a human-facing discipline in the guide](decisions/0030-resume-economy-as-a-human-facing-guide-discipline.md) | 2026-07-11 | accepted | |
+| [0031 The adopter update path is human intent, agent execution](decisions/0031-adopter-update-is-human-intent-agent-execution.md) | 2026-07-11 | accepted | |
 
 ## Plans
 
@@ -97,3 +101,5 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0017 Carry the `decomposed` idea status into the method](plans/0017-carry-decomposed-status-into-the-method.md) | 2026-07-10 | done | |
 | [0018 Pin the title-line format so the ordinal is always visible in the H1](plans/0018-pin-the-title-line-format-ordinal-in-h1.md) | 2026-07-11 | done | |
 | [0019 Shrink the always-loaded agent instruction weight](plans/0019-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | done | |
+| [0020 Teach resume economy as a human-facing guide discipline](plans/0020-teach-resume-economy-as-human-facing-guide-discipline.md) | 2026-07-11 | done | |
+| [0021 Split the adopter update path — human intent + agent-facing `updating.agent.md`](plans/0021-split-adopter-update-into-human-intent-and-agent-file.md) | 2026-07-11 | done | |

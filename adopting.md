@@ -60,44 +60,27 @@ there (see `docs/guide.md`).
 
 ## 2. Inject into an existing repo
 
-Goal: drop the method into a repo that already has content, **without disturbing
-anything that is already there**.
+Goal: add the method to a repo that already has code and history, **without
+disturbing anything already there.**
 
-1. **Copy `starter/docs/` into your repo's `docs/`.** This adds `working-method.md`,
-   `guide.md`, the three empty families, `overview.md`, `travel-diary.md`, and
-   `intermediate-artifacts/`. It touches none of your existing files. (If you keep
-   docs somewhere other than `docs/`, adjust the paths consistently — the method is
-   about the artifacts, not the exact folder name.)
-2. **Wire up `AGENTS.md`:**
-   - If your repo has **no** `AGENTS.md`, create it from `starter/AGENTS.md`
-     (fill in the project name/description placeholder).
-   - If your repo **already has** an `AGENTS.md`, keep it and **append** the two
-     blocks below verbatim — the `## How we work` pointer block and the
-     `## Agent operating guidance` block from `starter/AGENTS.md`. Do not hand-merge
-     the method body; it lives in `docs/working-method.md`, and `AGENTS.md` only
-     points at it.
+It is the **Fresh repo** steps above with two small differences:
 
-   The pointer block to append looks like this (adjust the version):
+1. **Copy `starter/docs/` into your repo's `docs/`** (not the starter root over your
+   root). This adds the method text, the three empty families, `overview.md`,
+   `travel-diary.md`, and `intermediate-artifacts/` — and touches none of your
+   existing files. (Keep docs elsewhere than `docs/`? Adjust paths consistently.)
+2. **The one real delta — `AGENTS.md`:**
+   - **No `AGENTS.md` yet?** Create it from `starter/AGENTS.md` (fill in the
+     project name).
+   - **Already have one?** Keep it and **append** the `## How we work` and
+     `## Agent operating guidance` blocks from `starter/AGENTS.md` verbatim (adjust
+     the version in the citation). Don't hand-merge the method body — it lives in
+     `docs/working-method.md`; `AGENTS.md` only points at it.
 
-   ```markdown
-   ## How we work
-
-   This project follows **decision-trail** — a generic method for carrying a thought
-   through its whole life (idea → proposal → decision → plan → execution) in plain
-   markdown. New here? Start with the guide in [`docs/guide.md`](docs/guide.md). The
-   terse reference is [`docs/working-method.md`](docs/working-method.md); decision
-   records live in [`docs/decisions/`](docs/decisions/), starting with
-   [`0001-adopt-decision-trail.md`](docs/decisions/0001-adopt-decision-trail.md).
-
-   Based on decision-trail vX.Y — https://github.com/haevg-rz/decision-trail
-   ```
-3. **Seed the adoption decision.** Keep `docs/decisions/0001-adopt-decision-trail.md`,
-   set its `Date:`, and record the version you copied. Your pre-existing history and
-   any prior decisions coexist untouched: the decision-trail ADR log starts **fresh
-   at 0001** and never inherits the standard repo's construction ADRs. (If your repo
-   already uses `0001` for something else in the same folder, put decision-trail's
-   ADRs in `docs/decisions/` so the sequences don't collide.)
-4. **Commit.** From here it is identical to a fresh repo.
+Then, exactly as in Fresh repo: keep `docs/decisions/0001-adopt-decision-trail.md`
+(set its `Date:` and version), and commit. Your decision-trail ADR log starts fresh
+at `0001` and never inherits this standard repo's construction ADRs; your prior
+history and any existing `0001` elsewhere coexist untouched.
 
 ---
 
@@ -107,87 +90,60 @@ Goal: pull a newer version of decision-trail into an already-adopting repo cheap
 and safely. In the best case it is a no-op; otherwise it is a small, explicit
 migration.
 
-1. **Find your current version.** Read the `Based on decision-trail vX.Y` citation
-   in your `AGENTS.md` (and `docs/working-method.md`). That is the anchor.
-2. **Re-copy the method-owned set** from the target version's `starter/`, so your
-   repo lands in the exact shape a *fresh* adopter of the target would have
-   ("bring me current"). Overwrite the **method text and templates** with the
-   target's `starter/docs/` copies — `working-method.md`, `guide.md`, and any
-   companion scaffolds the target ships (e.g. `travel-diary.md`,
-   `intermediate-artifacts/`). Because these scaffolds live in `starter/`,
-   re-copying lands new additive companions **automatically** — you never have to
-   hunt a changelog for "what files got added."
+**You don't run the steps by hand — your agent does.** Since an agentic setup is a
+precondition, updating is a single spoken intent. Tell your agent to update the
+method, and give it two things:
 
-   **Preserve rule — copy method text/templates, preserve project content.** The
-   method-owned set is exactly `starter/`'s own contents (it is the source of
-   truth; there is no separate manifest to drift). Everything your project
-   *authored* is **never** overwritten:
-   - `docs/decisions/`, `docs/ideas/`, `docs/plans/` (your artifacts);
-   - a populated `docs/travel-diary.md` and `docs/intermediate-artifacts/`;
-   - `docs/overview.md` (regenerated, not copied).
+- **the source** — a path or URL to the **target version** of this standard repo
+  (the version you want to move *to*); and
+- **the how-to** — the path to that version's
+  [`updating.agent.md`](updating.agent.md), the terse agent procedure that does the
+  work.
 
-   Rule of thumb: if `starter/` ships it as *method text or an empty scaffold*, copy
-   it; if your repo *filled it with project content*, keep yours.
-3. **Bump the citation.** Update the `Based on decision-trail vX.Y` citation to the
-   target version in **both** `docs/working-method.md` and the `## How we work`
-   block of `AGENTS.md`.
-4. **Apply the release migrations.** In this standard repo's
-   [`CHANGELOG.md`](CHANGELOG.md), each release carries an **`Adopter migration:`**
-   note stating the **required behavioral changes** for that version. Read the notes
-   for every version **between your old version and the target** and apply them **in
-   order**. Each is written as steps an agent can execute — for example: *"backfill
-   any missing `Date:` header on ideas and plans, then regenerate
-   `docs/overview.md`."* When a note says **"none"**, there is nothing required for
-   that version (new optional scaffolds already arrived via step 2).
-5. **Regenerate `docs/overview.md`** from the artifact headers.
-6. **Run the conformance check** (below) to confirm the update landed cleanly.
-7. **Record the bump.** Add a short ADR in your own `docs/decisions/` noting that you
-   moved to the new version (the method text is copied, not referenced, so the bump
-   is a decision worth recording).
-8. **Commit.**
+> **Example prompt:**
+> *"Update the method from `<path/URL-to-target>`. The how-to is
+> `<path/URL-to-target>/updating.agent.md`."*
+
+Your agent then reads your current version from the `Based on decision-trail vX.Y`
+citation, follows `updating.agent.md` (re-copy the method-owned set with the
+preserve rule, apply required migrations in order, bump the citation, regenerate
+`docs/overview.md`, run the conformance check, record a bump ADR, commit), and does
+it as **one transparent batch under the confirmation guard**: it states the plan,
+waits for your green light, executes, and pauses only where a step needs your
+judgment.
+
+**Why name the how-to file explicitly?** Bootstrap. A repo on an *older* version has
+no in-repo knowledge that this procedure exists — so the prompt hands the agent the
+entry point directly. It never depends on prior knowledge in your repo.
+
+The full step-by-step (the preserve rule, migration ordering, citation bump, and
+the conformance check) lives in [`updating.agent.md`](updating.agent.md) — a single
+operational source of truth, not duplicated here.
 
 ---
 
 ## Conformance check
 
 After an update — or any time you want to confirm your repo still matches the method
-it cites — run this quick check. It is **pure agent do-guidance**: there is no
-script, your agent verifies each point directly.
-
-1. **Headers present.** Every artifact in `docs/ideas/`, `docs/decisions/`, and
-   `docs/plans/` carries the mandatory `Date:` header (and a `Status:`).
-2. **No duplicate numbers.** Within each family (`docs/ideas/`, `docs/decisions/`,
-   `docs/plans/`) every four-digit number appears exactly once — no two artifacts
-   share a slot. If a collision exists, fix it with insert-and-shift (renumber the
-   intruder into place, shift every later artifact, rewire cross-links and prose
-   references) and regenerate `docs/overview.md`.
-3. **Header format canonical.** Every artifact's header fields use the canonical
-   bulleted form — a `# Title` line, a blank line, then `- Date:` / `- Status:`
-   and any cross-link / `- Tags:` fields, each on its own `-`-prefixed line. Flag
-   any bare (bullet-less) header and fix it, so the overview refresh can't
-   silently drop the artifact.
-4. **Title line matches filename.** Every artifact's `# Title` line is typed and
-   zero-padded to match its filename slot, naming the family —
-   `# Idea 0017: …`, `# ADR-0017: …`, `# Plan 0017: …`. Flag any artifact whose
-   title-line ordinal disagrees with (or omits) its filename ordinal, and fix it.
-5. **Overview in sync.** `docs/overview.md` matches the artifact headers — same
-   names, dates, and states — and is stamped with a current "as of" date. If not,
-   regenerate it.
-6. **Citation consistent.** The `Based on decision-trail vX.Y` citation is identical
-   in `docs/working-method.md` and the `## How we work` block of `AGENTS.md`.
-
-If all six hold, the repo conforms to the version it cites.
+it cites — your agent can run the **conformance check**. It is **pure agent
+do-guidance** (no script): the six-point checklist lives with the update procedure
+in [`updating.agent.md`](updating.agent.md#conformance-check), and verifies that
+headers are present and canonical, numbers don't collide, title lines match
+filenames, `docs/overview.md` is in sync, and the `Based on decision-trail vX.Y`
+citation is consistent across `docs/working-method.md` and the `AGENTS.md`
+`## How we work` block.
 
 ---
 
 ## Why there's no adoption tool
 
 There isn't a script to run, and that's deliberate. Every step above is either a
-plain copy, a small edit, or — for the update migrations — a task written so your
-**agent** can carry it out directly (backfilling headers, regenerating
-`overview.md`, adding back-links). Since an agentic setup is a precondition, the
-agent already *is* the tool; a static script would only duplicate trivial copying
-and couldn't know about future releases' migrations anyway.
+plain copy, a small edit, or — for the update procedure in
+[`updating.agent.md`](updating.agent.md) — a task written so your **agent** can
+carry it out directly (backfilling headers, regenerating `overview.md`, adding
+back-links). Since an agentic setup is a precondition, the agent already *is* the
+tool; a static script would only duplicate trivial copying and couldn't know about
+future releases' migrations anyway.
 
 > A future release may offer this repo as a GitHub *template* for a one-click
 > "Use this template" start (recorded as a deferred option in ADR-0008). That is a

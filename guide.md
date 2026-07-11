@@ -1,10 +1,12 @@
 # A guide to working decision-trail
 
-This is the gentle introduction. It tells you what the method is, why it is shaped
+This is the narrative introduction to decision-trail. It tells you what the method
+is, why it is shaped
 the way it is, and how to use it day to day — teaching by walking one small
 example (a dark-mode toggle) through its whole life, with a couple of diagrams
-along the way. Once the ideas here are familiar, the terse
-[`AGENTS.md`](AGENTS.md) is all you'll need as a quick reference.
+along the way. Once the ideas here are familiar, lean on the terse
+[`AGENTS.md`](AGENTS.md) for quick lookups, and come back here for the human-facing
+advice the spec doesn't carry.
 
 <!--
 Sync note — this file is a DERIVED rendering of `starter/docs/guide.md` (the
@@ -265,6 +267,16 @@ break, and a repo that doesn't need one simply has none.
 
 ## How to start
 
+**First, get the method into your project.** decision-trail lives in its own
+standard repo. To adopt it, `git clone` (or `git pull` for the latest) the
+[decision-trail repo](https://github.com/haevg-rz/decision-trail), then follow its
+[`adopting.md`](adopting.md) on-ramp — it walks you through dropping the `starter/`
+skeleton into your repo (whether the repo is brand new or already has code) and
+recording which version you adopted. That is a one-time setup.
+
+Once your repo owns its `ideas/`, `decisions/`, and `plans/` families, the everyday
+rhythm is just the lifecycle:
+
 1. Capture a thought as an idea in `ideas/`.
 2. When it matures, open an ADR in `decisions/` with `Status: proposed`.
 3. Accept or reject it; an accepted ADR is a decision.
@@ -340,6 +352,42 @@ itself:
 - **You**, when the scope is at all unclear, should bound the approval in words
   rather than answering with a bare "yes". A few extra words —
   *"yes, but only this single next step [...]"* — are far cheaper than a rollback.
+
+## Working with an agent: resuming cheaply
+
+**Economy** (promise #2) isn't only about the artifacts being cheap to write — it's
+about them being cheap to *resume*. Today the one doing the resuming is usually an
+AI agent, and its real running cost is **tokens and context budget**. The trail is
+deliberately built so that catching up is cheap: the overview is a derived index,
+the travel diary is a one-file catch-up, and every artifact carries fixed,
+greppable header fields. The agent already knows how to exploit all that — read the
+index first, grep headers instead of whole bodies, open only the files it actually
+needs. That side is handled for you.
+
+What's left is a handful of levers that only *you* control — small habits that
+decide whether a resume costs a few reads or a march through the whole corpus:
+
+- **How you re-open the session is the biggest lever.** *"We're resuming plan 0007
+  — read its file and the overview"* costs a few targeted reads. *"Catch me up on
+  the project"* invites reading everything. Same information need, wildly different
+  cost.
+- **Name the artifact, not the topic.** *"What does ADR-0021 decide?"* opens one
+  file. *"What did we decide about token weight?"* sends the agent searching across
+  bodies. If you know the number, give it.
+- **Ask narrow.** A scoped question — *"what's the status of the active plan?"* —
+  maps to a quick header lookup; an open-ended one invites a synthesis over the
+  whole trail.
+- **Invest at pause-time, not resume-time.** A regenerated overview and a
+  one-paragraph travel-diary chapter, written while the context is still fresh in
+  the session, are what make the *next* resume cheap. The minute you spend before a
+  break pays back every time someone picks the thread up again.
+- **Terseness is your discipline too.** You author and green-light every artifact.
+  Terse ones are cheaper to write *and* cheaper to resume — economy compounds on
+  both ends.
+
+None of this is enforced, and ignoring it breaks nothing — it only ever spends more
+tokens than it needed to. Think of it as good travel habits: pack light, label your
+bags, and leave a note for whoever arrives next.
 
 ## Where to go next
 

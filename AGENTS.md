@@ -302,13 +302,20 @@ only flags the trap to avoid and points to it.
   version order, via the update path in [`adopting.md`](adopting.md), the
   adopter-facing on-ramp. No adoption *tool* ships: adopting/updating is plain
   do-guidance the agent executes directly.
-- **Copy-driven "bring me current" + conformance check (ADR-0022).** Updating an
-  adopter to a target version means **re-copying the method-owned set** (exactly
-  `starter/`'s contents) into the adopter's `docs/`, overwriting method text and
-  scaffolds while **preserving project content** (the artifact families, a
-  populated `travel-diary.md`, `intermediate-artifacts/`, `overview.md`) — so
-  additive scaffolds arrive without per-release bookkeeping. After an update (or on
-  request), run the **conformance check** (do-guidance, no tool): mandatory `Date:`
-  headers present, `overview.md` in sync with headers, and the `Based on
-  decision-trail vX.Y` citation consistent across `docs/working-method.md` and the
-  `AGENTS.md` "How we work" block. Full steps live in [`adopting.md`](adopting.md).
+- **Copy-driven "bring me current" + conformance check (ADR-0022; audience split
+  ADR-0031).** Updating an adopter to a target version means **re-copying the
+  method-owned set** (exactly `starter/`'s contents) into the adopter's `docs/`,
+  overwriting method text and scaffolds while **preserving project content** (the
+  artifact families, a populated `travel-diary.md`, `intermediate-artifacts/`,
+  `overview.md`) — so additive scaffolds arrive without per-release bookkeeping.
+  After an update (or on request), run the **conformance check** (do-guidance, no
+  tool): mandatory `Date:` headers present, `overview.md` in sync with headers, and
+  the `Based on decision-trail vX.Y` citation consistent across
+  `docs/working-method.md` and the `AGENTS.md` "How we work" block. Per ADR-0031 the
+  two audiences are separated: the **human** trigger is one intent naming the source
+  **and** the how-to file — *"update the method from `<source>`; the how-to is
+  `<source>/updating.agent.md`"* — and the **agent** executes the full procedure
+  (the executable, self-contained steps live in
+  [`updating.agent.md`](updating.agent.md), the single operational source of truth,
+  run as one transparent batch under the confirmation guard). `adopting.md` carries
+  only the human intent + pointer; never duplicate the steps back into it.

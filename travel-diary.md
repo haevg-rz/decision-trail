@@ -32,6 +32,82 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-11-(4)]
+
+**Where we are.** v2.13.0 is complete and about to be committed, tagged, and
+released. This session took idea 0025 — the last thread we were deliberately
+holding 2.13.0 open for — all the way through the lifecycle, and dogfood-tested the
+result from a real consuming repo.
+
+**What we achieved.**
+- **Reworked the adopter update path (idea 0025 → ADR-0031 → plan 0021).** We
+  clarified that the confusion was one of *mixed audiences*, not broken mechanics:
+  the update ritual is sound (ADR-0022), it was just aimed at a human when the agent
+  is present by definition. Decided the clean split — **human states intent, agent
+  executes** — and, on your prompting, gave it a physical home: a new terse,
+  self-contained, tool-agnostic **`updating.agent.md`** carries the executable
+  procedure, while `adopting.md` §3 shrinks to a one-line human trigger + pointer.
+  The bootstrap (hen-and-egg) is closed by having the human name the how-to file in
+  the prompt, so an older adopter needs no prior in-repo knowledge.
+- **Executed plan 0021 step-by-confirmed-step:** created `updating.agent.md`,
+  slimmed `adopting.md`, updated this repo's `AGENTS.md` agent-guidance bullet,
+  patched two `guide.md` sentences (both renderings), added the CHANGELOG entry to
+  the still-open `[2.13.0]`, and regenerated `overview.md`.
+- **Dogfooded it.** You ran the update from a real consuming repo using the
+  bootstrap prompt — it worked. The test surfaced one drift, now captured.
+
+**What is left.** Nothing on 2.13.0. One new backlog seed: **idea 0026** — the
+guide's *derived-rendering* sync note claims a paths-only delta, but "How to start"
+and "Where to go next" now diverge by audience; the model can't honestly describe
+that (touches ADR-0014).
+
+**What is next.** Commit + push everything, git-tag v2.13.0, cut the GitHub release.
+Then, when you're ready, idea 0026 is the next thread to weigh.
+
+> **Continuation brief:** 2.13.0 ships the human-intent / agent-execution update
+> split ([ADR-0031](decisions/0031-adopter-update-is-human-intent-agent-execution.md),
+> [plan 0021](plans/0021-split-adopter-update-into-human-intent-and-agent-file.md)).
+> Pick up [idea 0026](ideas/0026-guide-sync-model-cant-hold-audience-deltas.md) next.
+
+---
+
+## [2026-07-11-(3)]
+
+**Where we are.** v2.13.0 is **staged but deliberately not committed** — held open
+so idea 0025 can join it next session. This was a use-phase session: we closed the
+last axis of the 0020 economy map and did some human-facing on-ramp tidying.
+
+**What we achieved.**
+- **Discussed idea 0023** (resume-time economy — the third axis of decomposed 0020)
+  and promoted it one confirmed step at a time: narrowed its scope to the
+  *human-controlled* resume levers (excluding agent mechanics already owned by
+  ADR-0011 / idea 0008), promoted it to **ADR-0030**, accepted it, and carried it
+  into **plan 0020** — a new *"Working with an agent: resuming cheaply"* section in
+  both guides. It lands in the human-facing `guide.md` register only, so it adds
+  zero always-loaded weight (preserving ADR-0029's shrink).
+- **Two informal clarity patches** folded into 2.13.0 (no contract change): a short
+  adoption lead-in atop `guide.md`'s "How to start", and `adopting.md` §2 collapsed
+  to just its real deltas from §1.
+- **Captured, not patched:** the confusing update path (`adopting.md` §3) became
+  **idea 0025** rather than a hand-edit — to be reworked the decision-trail way.
+- Provenance bumped to **v2.13**, `CHANGELOG` `## [2.13.0]` written
+  (`Adopter migration: none`), `overview.md` regenerated.
+
+**A note on process.** Mid-session the agent over-reached the confirmation guard —
+flipped plan 0020 to `done` before the human had read the new prose. Caught and
+corrected: plan reverted to `active`, prose reviewed, then closed properly. A live
+reminder that a "yes" to one step isn't a "yes" to the batch.
+
+**What is left.** 2.13.0 is staged, uncommitted. Idea 0025 is a fresh `seed`.
+
+**What is next.** Next session: work **idea 0025** (clarify how a consuming repo
+adopts a newer version — `adopting.md` §3) through idea → ADR → plan, fold it into
+the still-open 2.13.0, then commit the release.
+
+> Continuation brief → pick up
+> [idea 0025](ideas/0025-clarify-how-a-consuming-repo-adopts-a-newer-version.md).
+> Everything else for 2.13.0 is staged and ready; don't commit until 0025 lands.
+
 ## [2026-07-11-(2)]
 
 **Where we are.** v2.12.0 is ready to cut, closing plan 0019 (ADR-0029) — the

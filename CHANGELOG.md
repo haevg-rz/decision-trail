@@ -13,6 +13,89 @@ then regenerate `overview.md`"). **New optional scaffolds are not listed here** 
 reach adopters automatically via the copy-driven "bring me current" update. This is
 the contract the [`adopting.md`](adopting.md) update path relies on.
 
+## [2.13.0] - 2026-07-11
+
+### Added
+- ADR-0030 — **resume economy as a human-facing discipline in the guide** (idea
+  0023, the third and final axis of decomposed idea 0020): Economy (#2) promises
+  the method is cheap to *resume*, but nothing named the discipline that makes
+  that real for the human driving the work. The mechanics already exist (derived
+  `overview.md`, travel diary, greppable header fields) and the agent already
+  exploits them — so the missing piece is advice aimed at the levers only the
+  human controls. Per the accepted decision, a short **"Working with an agent:
+  resuming cheaply"** section is added to `guide.md` (both this repo's and
+  `starter/docs/guide.md`), carrying five human levers: how you re-open the
+  session, name the artifact not the topic, ask narrow, invest at pause-time not
+  resume-time, and terseness as a write/approve discipline. It is **purely
+  advisory** — no mechanism, no new artifact family, no cross-link vocabulary. It
+  lands **only in the human-facing `guide.md` register** (never the always-loaded
+  spec `working-method.md` / `AGENTS.md`), so it adds **zero per-session weight**
+  and preserves ADR-0029's shrink; agent-facing mechanics (grep headers, header-
+  only overview regeneration, already owned by ADR-0011 / idea 0008) are
+  cross-referenced by concept rather than restated.
+- All three `starter/` renderings bump their provenance citation to **v2.13**
+  (`starter/docs/working-method.md`, `starter/docs/guide.md`, `starter/AGENTS.md`).
+- ADR-0031 — **the adopter update path is human intent, agent execution** (idea
+  0025, promoted): the update path (`adopting.md` §3) read as an overcomplicated,
+  deterrent human checklist even though the ADR-0022 mechanics are sound — because
+  it mixed audiences, handing a present-by-definition agent's mechanical steps to
+  the human. Per the accepted decision, the two audiences are split into two
+  artifacts. The **human** trigger shrinks to one plain intent that names the
+  **source and the how-to file** — *"update the method from `<source>`; the how-to
+  is `<source>/updating.agent.md`"* — run as **one transparent batch under the
+  confirmation guard**; the human must supply the source (the agent never guesses a
+  target). The **agent** procedure moves into a new terse, self-contained,
+  tool-agnostic **[`updating.agent.md`](updating.agent.md)** (standard-repo-only,
+  *not* copied into adopters), the single operational source of truth for the
+  copy-driven "bring me current" steps and the conformance check. Naming the how-to
+  file in the prompt closes the **bootstrap** (hen-and-egg): an adopter on an older
+  version needs no prior in-repo knowledge of the mechanism. **ADR-0022's mechanics
+  are unchanged** — this amends it in *presentation and audience framing* only; a
+  deterministic conformance *linter* stays a deferred option (ADR-0008), no tool
+  ships.
+
+### Changed
+- **Human-facing on-ramp clarity (informal patches, no contract change).** Two
+  small documentation improvements folded into this release: (a) `guide.md`'s
+  "How to start" now opens with a short adoption lead-in — clone/pull the standard
+  repo and follow [`adopting.md`](adopting.md) — before the everyday lifecycle
+  steps (home-repo `guide.md` only; the adopter's `starter/docs/guide.md` keeps the
+  lifecycle steps); (b) `adopting.md` §2 ("Inject into an existing repo") is
+  collapsed from a near-duplicate of §1 down to the two real deltas (copy
+  `starter/docs/`, and the `AGENTS.md` create-vs-append difference). No mechanic or
+  contract changed — ADR-0021/ADR-0022 remain in force.
+- **Captured, then reworked (idea 0025 → ADR-0031 → plan 0021).** The confusing
+  update path was first recorded as idea 0025 and has now been reworked
+  decision-trail: `adopting.md` §3 is slimmed from an 8-step human procedure to a
+  single human trigger (intent + source + how-to pointer) that points at the new
+  [`updating.agent.md`](updating.agent.md); the standalone "Conformance check"
+  section is collapsed to a pointer at the same file (the six-point checklist now
+  lives there); and this repo's `AGENTS.md` "Agent operating guidance" bullet on the
+  copy-driven update is updated to name the human/agent split and `updating.agent.md`
+  as the executable source of truth. `guide.md`'s existing `adopting.md` pointer is
+  left unchanged (the agent-facing file stays out of the human narrative). ADR-0022
+  is cross-linked `Amended by: ADR-0031` (mechanics unchanged).
+- **Small on-the-fly `guide.md` wording patches (no contract change):** the opening
+  sentence now reads *"This is the narrative introduction to decision-trail"*, and
+  the closing "quick reference" line acknowledges that some human-facing advice
+  lives only in the guide (both the canonical `starter/docs/guide.md` and this
+  repo's derived `guide.md`).
+- **Human-facing on-ramp clarity (informal patches, no contract change).** Two
+  small documentation improvements folded into this release: (a) `guide.md`'s
+  "How to start" now opens with a short adoption lead-in — clone/pull the standard
+  repo and follow [`adopting.md`](adopting.md) — before the everyday lifecycle
+  steps (home-repo `guide.md` only; the adopter's `starter/docs/guide.md` keeps the
+  lifecycle steps); (b) `adopting.md` §2 ("Inject into an existing repo") is
+  collapsed from a near-duplicate of §1 down to the two real deltas (copy
+  `starter/docs/`, and the `AGENTS.md` create-vs-append difference). No mechanic or
+  contract changed — ADR-0021/ADR-0022 remain in force.
+
+**Adopter migration:** none. This release adds human-facing advisory prose to
+`guide.md` and re-presents the (unchanged) update path; the new `updating.agent.md`
+is standard-repo-facing (an adopter's agent is *pointed at* it during an update, it
+is not copied in), and the copied method text reaches adopters automatically via the
+"bring me current" update (ADR-0022). No hand-done step is required.
+
 ## [2.12.0] - 2026-07-11
 
 ### Changed

@@ -3,7 +3,7 @@
 > This project works **decision-trail** — carrying a thought through its whole life
 > (idea → proposal → decision → plan → execution) in plain markdown.
 >
-> Based on **decision-trail v2.12** — https://github.com/haevg-rz/decision-trail
+> Based on **decision-trail v2.13** — https://github.com/haevg-rz/decision-trail
 
 <!--
 Sync note — this file is CANONICAL.

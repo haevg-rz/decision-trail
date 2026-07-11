@@ -1,8 +1,9 @@
 # Idea 0023: name the resume-time economy practices as a stated discipline
 
 - Date: 2026-07-11
-- Status: seed
+- Status: promoted
 - Parent: [0020](0020-use-the-method-economically-and-token-saving.md)
+- Promoted to: [ADR-0030](../decisions/0030-resume-economy-as-a-human-facing-guide-discipline.md)
 
 ## Why this budded from 0020
 
@@ -54,12 +55,44 @@ Collect the cheap-to-operate practices into stated guidance, e.g.:
 
 ## Open questions
 
-- Where does this guidance live? Advice-only in `guide.md`, a discipline in the
-  `## Agent operating guidance` section of `AGENTS.md`, and/or its own ADR?
-- Is this purely advisory (no mechanism change), or does it motivate a small
-  mechanism — e.g. a stable "read me first" ordering, or a machine-terse resume
-  header — to make cheap operation the default path?
-- Does it belong in the canonical `starter/docs/working-method.md` so adopters
-  inherit it, or is it home-repo commentary?
-- How does it relate to the travel diary (0010) and the economical-overview idea
-  (0008) — sibling advice, or should those be cross-referenced?
+Most of these were settled in the 2026-07-11 discussion (see **Scoping note**
+below); resolved answers are marked, with only the promote/drop call still open.
+
+- ~~Where does this guidance live?~~ **Resolved:** `guide.md` only (human-facing,
+  read on demand) — *not* the always-loaded `AGENTS.md` block, whose weight
+  sibling 0021 exists to shrink.
+- ~~Purely advisory, or does it motivate a small mechanism?~~ **Resolved (leaning):**
+  purely advisory — human-facing resume levers, no mechanism change.
+- ~~Canonical `working-method.md` (adopters inherit) or home-repo commentary?~~
+  **Resolved:** advice in `guide.md`, not the canonical spec.
+- ~~Relation to the travel diary (0010) and economical-overview (0008)?~~
+  **Resolved:** cross-reference them rather than restate their mechanics.
+- **Still open — the actual decision:** promote (as the narrowed, human-facing
+  `guide.md` ADR described below) or drop as too thin?
+
+## Scoping note (2026-07-11, from discussion)
+
+If promoted, **narrow the scope to the human-facing resume levers** and keep the
+guidance in `guide.md` only (read on demand) — *not* in the always-loaded
+`AGENTS.md` block, whose weight promoted sibling 0021 exists to shrink; putting
+resume-economy advice into every-session custom instructions would be
+self-defeating. The valuable, human-controlled levers are:
+
+- **How you re-open the session is the biggest lever** — "resume plan 0007, read
+  its file and `overview.md`" costs a few reads; "catch me up on the project"
+  invites reading the whole corpus.
+- **Name the artifact, not the topic** — "what does ADR-0021 decide?" opens one
+  file; "what did we decide about token weight?" searches across bodies.
+- **Ask narrow** — a scoped question maps to a header grep, not a synthesis over
+  everything.
+- **Invest at pause-time, not resume-time** — a regenerated `overview.md` and a
+  one-paragraph travel-diary chapter, written while context is fresh, make every
+  future resume cheap (the diary's stated purpose, 0010).
+- **Terseness is a human write/approve discipline** — you author and green-light
+  artifacts; terse ones are cheaper to write *and* to resume (Economy #2).
+
+**Explicitly exclude the agent-mechanic restatements** (grep headers vs. bodies,
+header-only `overview.md` regeneration) — those are already stated in ADR-0011 /
+idea 0008 and would be filler in a human guide; cross-reference them instead of
+repeating them. Without this narrowing the idea risks being a raised finger
+("be thrifty"); with it, it earns its own ADR.
