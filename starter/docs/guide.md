@@ -6,7 +6,7 @@ example (a dark-mode toggle) through its whole life, with a couple of diagrams
 along the way. Once the ideas here are familiar, the terse
 [`working-method.md`](working-method.md) is all you'll need as a quick reference.
 
-> Based on **decision-trail v2.11** — https://github.com/haevg-rz/decision-trail
+> Based on **decision-trail v2.12** — https://github.com/haevg-rz/decision-trail
 
 ## The problem it solves
 

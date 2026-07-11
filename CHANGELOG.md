@@ -13,6 +13,35 @@ then regenerate `overview.md`"). **New optional scaffolds are not listed here** 
 reach adopters automatically via the copy-driven "bring me current" update. This is
 the contract the [`adopting.md`](adopting.md) update path relies on.
 
+## [2.12.0] - 2026-07-11
+
+### Changed
+- ADR-0029 — **shrink the always-loaded agent instruction weight** (idea 0021,
+  amends ADR-0014): `AGENTS.md` is injected as custom instructions before every
+  task, and it re-stated each normative rule ~twice — once in the derived spec
+  body (lifecycle / dedicated sections) and again in full in the non-derived
+  `## Agent operating guidance` block (the Refresh procedure was duplicated
+  verbatim). Per the accepted **A + C** decision, the canonical spec
+  (`starter/docs/working-method.md`) is compacted to state each rule **once**, and
+  the non-derived guidance block is hand-tightened to **principle + pointer** form
+  (each mechanic bullet now flags the trap and points to the owning spec section,
+  rather than restating it); the duplicated Refresh-procedure block is removed from
+  guidance and kept only in the spec. The spec register is optimized **agent-first**
+  — no repetition retained for human skimmability, since `guide.md` (which the agent
+  never loads) already narrates every concept. This repo's derived `AGENTS.md` body
+  was regenerated from the compacted spec, which also reconciled two drifts: the
+  Refresh procedure now sits in the lifecycle section, and the overview-regeneration
+  wording matches ADR-0016 ("whenever the user explicitly asks", not "after any
+  work"). Net size: spec ~15.3 KB → ~13.7 KB; `AGENTS.md` ~21.9 KB → ~18.6 KB
+  (~2k tokens saved per session), with **no behavioral or mechanism change** and no
+  rule, status, or field name dropped.
+- All three `starter/` renderings bump their provenance citation to **v2.12**
+  (`starter/docs/working-method.md`, `starter/docs/guide.md`, `starter/AGENTS.md`).
+
+**Adopter migration:** none. This is a prose-compaction release with no behavioral
+change; the tightened method text and guidance reach adopters automatically via the
+copy-driven "bring me current" update (ADR-0022). No hand-done step is required.
+
 ## [2.11.0] - 2026-07-11
 
 ### Added

@@ -1,8 +1,9 @@
 # Idea 0021: shrink the always-loaded agent instruction weight
 
 - Date: 2026-07-11
-- Status: seed
+- Status: promoted
 - Parent: [0020](0020-use-the-method-economically-and-token-saving.md)
+- Promoted to: [ADR-0029](../decisions/0029-shrink-the-always-loaded-agent-instruction-weight.md)
 
 ## Why this budded from 0020
 
@@ -40,16 +41,36 @@ loss of meaning by stating each rule once and cross-referencing.
   than inline procedures — dovetailing with the skills idea (0022).
 - Estimated ~21 KB → ~13 KB, saving ~2k tokens on **every** session.
 
-## Open questions / tensions
+## Open questions / tensions (resolved)
 
 - **Compaction vs. the derived-rendering sync (ADR-0014).** `AGENTS.md`'s method
   body is regenerated from `working-method.md`. Compaction must happen at the
   *canonical* source (or in the rendering rules), not as a hand-patch — otherwise
   the next regeneration undoes it. Which layer gets compacted: the canonical spec,
   the derivation rules, or the non-derived `## Agent operating guidance` section?
+  → **Resolved: A + C.** Compact the **canonical spec** (`working-method.md`) —
+  this collapses the two derived restatements (lifecycle section + inline prose)
+  in one edit, propagated to `AGENTS.md` by regeneration. Separately, hand-tighten
+  the **non-derived `## Agent operating guidance` block** (in both `AGENTS.md` and
+  `starter/AGENTS.md`), since it isn't sourced from `working-method.md`. Rejected:
+  putting the compaction logic into the derivation rules themselves (option B) —
+  regeneration must stay a dumb, deterministic, mechanical delta-application
+  (ADR-0011/ADR-0014), never an editorial rewrite step.
 - **Human readability vs. terseness.** The repetition may aid a human reader
   skimming one section. Does stating-once hurt the human audience the split
   renderings (ADR-0014) were meant to serve?
+  → **Resolved: agent-first.** The spec (`working-method.md` → `AGENTS.md`) is
+  optimized purely for compactness and unambiguous precision — the agent is its
+  first consumer, and no repetition is kept there for human skimmability. Human
+  readability is `guide.md`'s job, not the spec's. As part of the compaction work,
+  audit `guide.md` to confirm every rule/nuance currently only present via the
+  spec's repeated restatements is also narrated there in prose, so nothing is lost
+  for the human reader — it moves to the register meant to carry it, which the
+  agent never loads.
 - **Is this even a mechanism change, or just a refactor?** If purely a
   tightening of existing prose with no behavioral change, it may need no ADR — or a
   light one. Decide when promoting.
+  → **Resolved: yes, an ADR — the method way.** Per the method's own rule (any
+  change to the canonical method text is made decision-trail), this gets a light
+  ADR at promotion, amending ADR-0014 (it refines how that decision's
+  canonical/derived text is written, not reversing it).

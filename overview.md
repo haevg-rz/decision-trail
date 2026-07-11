@@ -9,7 +9,7 @@ snapshot. Keeping it current is the agent's responsibility (see
 
 You can ask the agent to **regenerate the overview** at any time.
 
-**As of: 2026-07-11**
+**As of: 2026-07-11 (updated)**
 
 ## Ideas
 
@@ -35,7 +35,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0018 Harden next-slot numbering so it can't collide](ideas/0018-harden-slot-numbering-against-collisions.md) | 2026-07-10 | promoted | |
 | [0019 Pin the canonical artifact-header format so it can't drift](ideas/0019-pin-canonical-artifact-header-format.md) | 2026-07-10 | promoted | |
 | [0020 Advice and means to run the method economically and token-saving](ideas/0020-use-the-method-economically-and-token-saving.md) | 2026-07-10 | decomposed | |
-| [0021 Shrink the always-loaded agent instruction weight](ideas/0021-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | seed | |
+| [0021 Shrink the always-loaded agent instruction weight](ideas/0021-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | promoted | |
 | [0022 Render the method's fixed procedures as optional skills](ideas/0022-render-fixed-procedures-as-optional-skills.md) | 2026-07-11 | seed | |
 | [0023 Name the resume-time economy practices as a stated discipline](ideas/0023-name-the-resume-time-economy-practices-as-a-discipline.md) | 2026-07-11 | seed | |
 | [0024 Pin the title-line format so the ordinal is always visible in the H1](ideas/0024-pin-the-title-line-format-ordinal-in-h1.md) | 2026-07-11 | promoted | |
@@ -72,6 +72,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0026 Pin the canonical artifact-header format](decisions/0026-pin-canonical-artifact-header-format.md) | 2026-07-10 | accepted | |
 | [0027 A `decomposed` status for a budded parent idea](decisions/0027-a-decomposed-status-for-a-budded-parent-idea.md) | 2026-07-10 | accepted | |
 | [0028 Pin the title-line format so the ordinal is always visible in the H1](decisions/0028-pin-the-title-line-format-ordinal-in-h1.md) | 2026-07-11 | accepted | |
+| [0029 Shrink the always-loaded agent instruction weight](decisions/0029-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | accepted | |
 
 ## Plans
 
@@ -95,3 +96,4 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0016 Pin the canonical artifact-header format](plans/0016-pin-canonical-artifact-header-format.md) | 2026-07-10 | done | |
 | [0017 Carry the `decomposed` idea status into the method](plans/0017-carry-decomposed-status-into-the-method.md) | 2026-07-10 | done | |
 | [0018 Pin the title-line format so the ordinal is always visible in the H1](plans/0018-pin-the-title-line-format-ordinal-in-h1.md) | 2026-07-11 | done | |
+| [0019 Shrink the always-loaded agent instruction weight](plans/0019-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | done | |

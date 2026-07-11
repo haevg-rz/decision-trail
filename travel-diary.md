@@ -32,6 +32,46 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-11-(2)]
+
+**Where we are.** v2.12.0 is ready to cut, closing plan 0019 (ADR-0029) — the
+"always-loaded weight" thread from the 0020 economy map. The concept phase stays
+settled; this was a use-phase refinement of the method's own texts.
+
+**What we achieved.**
+- **Answered idea 0021's three open questions**, one confirmed step at a time:
+  compact at the **canonical spec** and hand-tighten the non-derived guidance
+  block (A + C; rejected baking compaction into the mechanical regeneration, B);
+  keep the spec **agent-first** with human narrative living in `guide.md`; and do
+  it the method way — a light ADR amending ADR-0014.
+- **Promoted 0021 → ADR-0029** (amends ADR-0014), accepted it, and wrote **plan
+  0019**.
+- **Executed plan 0019 end to end.** Compacted `starter/docs/working-method.md`
+  (15.3 → 13.7 KB), rewrote both `## Agent operating guidance` blocks to
+  *principle + pointer* form, removed the verbatim-duplicated Refresh procedure,
+  and regenerated the derived `AGENTS.md` body (21.9 → 18.6 KB, ~1k tokens/session).
+  The regeneration also reconciled two real drifts: the Refresh procedure now sits
+  in the lifecycle section, and overview-regeneration wording matches ADR-0016
+  (not the stale "after any work"). Verified no rule, status, or field name was
+  lost; `guide.md` already narrates every trimmed concept, so no additions needed.
+- Bumped provenance to **v2.12** and added the CHANGELOG entry with **`Adopter
+  migration: none`** (prose-only, reaches adopters via the copy-driven update).
+- **Reflected honestly on the economics.** The always-on cost is ~4,600 tokens
+  (~2–4% of a real session) — sound, but today's refactor hit a floor because we
+  refused to drop any rule. The deterministic *procedures* still sit in
+  always-loaded prose.
+
+**What is left.** Two siblings of 0021 remain `seed`: **0022** (procedures as
+optional skills) and **0023** (resume-time economy as a stated discipline).
+
+**What is next.** Promote **idea 0022** — skills are the natural next lever, the
+only way to evict the still-inline procedures without losing anything (and they
+make execution more reliable). Mind the tool-agnosticism caveat: frame skills as
+an *optional, derived* rendering of canonical procedure prose (idea 0022 §open
+questions; ADR-0006/ADR-0014).
+
+---
+
 ## [2026-07-11]
 
 **Where we are.** v2.11.0 is cut, closing plan 0018 (ADR-0028) — the last thread

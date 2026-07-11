@@ -52,15 +52,12 @@ artifact families:
 | plan | `plans/NNNN-*.md` | `draft` → `active` → `done` / `abandoned` |
 | execution | `plans/NNNN-*.md` (same file) | the plan ticking its checkboxes |
 
-- **Ideas** are cheap to write; a matured idea is *promoted* to a proposal. A
-  fresh idea starts at `seed` — read as *"not yet promoted,"* which legitimately
-  includes a deliberately-kept parent map that is still budding children (it sits
-  at `seed` honestly, not as an unexamined seed). `decomposed` is a rare,
-  *alternative finalized* state (alongside the standard finalized `promoted`): the
-  idea broke into budded children and its own content moved out. It says nothing
-  about the children's fate — that is told by *their* statuses — and is
-  hand-curated and reversible (nothing computes it; flip it back to `seed` to bud
-  one more child). (ADR-0027)
+- **Ideas** are cheap; a matured idea is *promoted* to a proposal. A fresh idea is
+  `seed` (*"not yet promoted"* — legitimately including a deliberately-kept parent
+  map still budding children). `decomposed` is an *alternative finalized* state: the
+  idea budded into children and its own content moved out — it says nothing about
+  the children's fate (told by *their* statuses) and is hand-curated and reversible
+  (flip back to `seed` to bud one more child). (ADR-0027)
 - **Decisions** are [ADRs](decisions/) — a proposal *becomes* a decision in place
   when accepted. Use the classic template (Status / Context / Decision /
   Consequences); add **Decision Drivers** / **Considered Options** when weighing
@@ -69,51 +66,51 @@ artifact families:
   is the *how*, execution is the plan in motion. Tasks use portable task-list
   markdown (`- [ ]` / `- [x]`).
 
-**Each family's status vocabulary is its own — never borrow another family's
-status.** A newly created idea starts at `seed`, a new proposal at `proposed`, and
-a new plan at `draft`; decision and execution are in-place continuations (of a
-proposal and a plan) and add no separate entry status. Name the artifact family
-first, then pick a status from *that* family's row above only — an idea is never
-`proposed`, `draft`, or `accepted`; a plan is never `proposed`, `seed`, or
-`decomposed`; a proposal/decision is never `seed`, `draft`, or `decomposed`.
-(`decomposed` is an idea-only status.) (ADR-0024, ADR-0027)
+**Each family's status vocabulary is its own — never borrow another family's.** New
+idea → `seed`, new proposal → `proposed`, new plan → `draft`; decision and execution
+are in-place continuations that add no separate entry status. Pick a status only
+from the target family's row above: an idea is never `proposed`/`draft`/`accepted`;
+a plan is never `proposed`/`seed`/`decomposed`; a proposal/decision is never
+`seed`/`draft`/`decomposed` (`decomposed` is idea-only). (ADR-0024, ADR-0027)
 
-Every idea, decision, and plan carries a `Date:` (creation date) in its header —
-**mandatory**. It may also carry an optional `Tags:` line — comma-separated theme
-words, omitted when empty (see **Tags** below).
+Every idea, decision, and plan carries a **mandatory** `Date:` (creation date) in
+its header, and may carry an optional `Tags:` line (comma-separated theme words,
+omitted when empty — see **Tags**).
 
-Every artifact's header follows one **canonical rendering**: a `# Title` line, a
-blank line, then a **bulleted header block** — `- Date:` and `- Status:` first,
-then any cross-link fields (`- Promoted to:`, `- Implements:`, `- Amends:`, …)
-and the optional `- Tags:` — each field on its own `-`-prefixed line. The bullets
-matter: the overview refresh procedure greps them, so a bare (bullet-less) header
-line is silently missed (ADR-0026).
+**Canonical header rendering:** a `# Title` line, a blank line, then a **bulleted
+block** — `- Date:` and `- Status:` first, then any cross-link fields
+(`- Promoted to:`, `- Implements:`, `- Amends:`, …) and the optional `- Tags:`,
+each on its own `-`-prefixed line. The bullets matter: the refresh procedure greps
+them, so a bare (bullet-less) header line is silently missed. (ADR-0026)
 
-The `# Title` line itself is pinned too: **typed and zero-padded, the ordinal
-echoing the filename slot, family named** — `# Idea 0017: Title`,
-`# ADR-0017: Title`, `# Plan 0017: Title`. The filename stays authoritative (the
-number lives in the slot); the H1 ordinal is a *visible echo* of it, not a second
-source of truth — so the two must always agree (ADR-0028).
+**Title line** is pinned: typed, zero-padded, ordinal echoing the filename slot,
+family named — `# Idea 0017: Title`, `# ADR-0017: Title`, `# Plan 0017: Title`. The
+filename stays authoritative; the H1 ordinal is a *visible echo*, so the two must
+always agree. (ADR-0028)
 
-Artifact numbers are **ordinal
-only**: assign the next unused number in that family (`ideas/`, `decisions/`,
-`plans/` are independent sequences). Never derive a number from a related artifact
-— a plan implementing ADR-0004 is not named `0004`; it takes the next free plan
-slot. Relationships are expressed via cross-link fields (`Implements:`, `Promoted
-to:`, etc.), never via matching numbers. To pick that slot **reliably**, enumerate
-the whole family and take **`max(existing number) + 1`** — never the first
-apparent gap a glob happens to surface, and never a number copied from a related
-artifact — then **verify the target filename is unused** before writing. If an
-artifact must be slotted out of order (to preserve the timeline), use
-**insert-and-shift**: renumber the intruder into place, shift every later artifact
-in the family, rewire the reciprocal cross-links and prose references, and
-regenerate `overview.md` (ADR-0015, ADR-0025). `overview.md` is a derived status
-index over all three families: a
-single dated snapshot of each artifact's name, creation date, and state. It is
-**regenerated wholesale from the artifact headers** (never hand-patched) and
-stamped "as of <date>" (ADR-0011). Keeping it current is the **agent's**
-responsibility — regenerated after any work that creates an artifact or changes a
-state, and whenever asked.
+Artifact numbers are **ordinal only**: assign the next unused number in that family
+(`ideas/`, `decisions/`, `plans/` are independent sequences). Never derive a number
+from a related artifact — a plan implementing ADR-0004 is not `0004`; it takes the
+next free plan slot. Relationships live in cross-link fields (`Implements:`,
+`Promoted to:`, …), never in matching numbers. To pick the slot **reliably**,
+enumerate the family and take **`max(number) + 1`** (never the first gap a glob
+surfaces), then **verify the filename is unused** before writing. To slot out of
+order, use **insert-and-shift**: renumber the intruder into place, shift every later
+artifact, rewire reciprocal cross-links and prose references, and regenerate
+`overview.md`. (ADR-0015, ADR-0025)
+
+`overview.md` is a derived status index over all three families — a single dated
+snapshot of each artifact's name, creation date, and state. It is **regenerated
+wholesale from the artifact headers** (never hand-patched) and stamped "as of
+<date>" (ADR-0011). Regenerate it whenever the user explicitly asks (ADR-0016).
+
+**Refresh procedure:** scan each family for its typed title line (`# Idea NNNN:`,
+`# ADR-NNNN:`, or `# Plan NNNN:`) and `- Status:` / `- Date:` / `- Tags:` (header
+block) → rewrite the three tables in `overview.md`. If an artifact's header fields
+carry no leading `-` bullet, or its title-line ordinal doesn't match its filename
+slot, do **not** silently skip or trust it — both are non-conformant; fix the header
+to the canonical bulleted form and align the ordinals before regenerating, so no
+artifact is dropped or misfiled in the index.
 
 ## Layout
 
@@ -158,13 +155,10 @@ plans). See ADR-0012.
 
 ## Disentangling a large idea
 
-Sometimes an idea grows too big to be one thought — it braids several *orthogonal*
-axes that only have weight together, as a map. The tool for this is **budding**
-(#6), not multi-promotion: promotion is strictly 1:1 (one idea ↔ one ADR), so a
-big idea cannot fan out into several ADRs.
-
-The **procedure is fixed** — when the thought *"let's disentangle this idea"*
-arises, the *how* is a lookup, not a debate:
+An idea that grows too big — braiding several *orthogonal* axes that only have
+weight together as a map — is taken apart by **budding** (#6), not multi-promotion
+(promotion is strictly 1:1, one idea ↔ one ADR). The **procedure is fixed** — the
+*how* is a lookup, not a debate:
 
 1. The parent idea **stays** and its status becomes `decomposed`.
 2. Each axis **buds** into a child idea via `Parent:`.
@@ -172,83 +166,70 @@ arises, the *how* is a lookup, not a debate:
 4. The **reasons for the branching are documented in the parent idea.**
 5. One status per idea — never stack `promoted` and `decomposed`.
 
-What is **not** prescribed is the *strategy*: whether to promote an
-already-decidable core first and bud the rest, or bud everything and let the
-parent stand as a pure map, is a judgment call decided in conversation. The agent
-may (and a good one will) **propose** the disentangling; the **responsible unit is
-the human.** See ADR-0027.
+What is **not** prescribed is the *strategy* (promote an already-decidable core
+first, or bud everything and let the parent stand as a pure map) — a judgment call
+decided in conversation. The agent may (and a good one will) **propose** the
+disentangling; the **responsible unit is the human.** See ADR-0027.
 
 ## Tags (optional)
 
-Any idea, decision, or plan may carry an optional `Tags:` header line — a
-comma-separated list of theme words that re-slice the artifacts along a
-shared-theme axis, so cross-cutting threads become findable without reading every
-artifact in order. Tags surface as a `Tags` column in the derived `overview.md`.
-
-Governance is deliberately light: the vocabulary is **recommended, not enforced**,
-and **curated per repo**. Off-list tags are always allowed and nothing rejects
-them; over-tagging or vague tags only make a tag less useful — they never break or
-spoil the trail. A repo defines its own vocabulary below; the method ships none,
-because tags name a *project's* recurring themes (Genericity #7). See ADR-0017.
+An optional `Tags:` header line (comma-separated theme words) re-slices artifacts
+along a shared-theme axis, so cross-cutting threads are findable without reading
+every artifact in order; tags surface as a `Tags` column in `overview.md`.
+Governance is light: the vocabulary is **recommended, not enforced**, and **curated
+per repo**. Off-list tags are allowed; over-tagging or vague tags only make a tag
+less useful — they never break or spoil the trail. The method ships no vocabulary
+(tags name a *project's* recurring themes, Genericity #7); a repo defines its own
+below. See ADR-0017.
 
 **Recommended tags for this repo:** _(none yet — decision-trail's home repo needs
 no tags of its own; adopting repos list their recurring themes here.)_
 
 ## Travel diary (optional companion)
 
-The travel diary is an optional, **human-facing** companion to the machine-facing
-`overview.md`. Where the overview is *derived, terse, and state-oriented*, the
-diary is *authored, prose, and narrative* — a single growing logbook, newest entry
-first, that a colleague can skim after a break to learn *where we are, what changed
-last session, what is left, and what is next* without synthesizing across every
-artifact.
+An optional, **human-facing** companion to the machine-facing `overview.md`: an
+authored, newest-first prose logbook a colleague can skim after a break to learn
+*where we are, what changed, what is left, and what is next* — without synthesizing
+across every artifact.
 
-- **One file, `travel-diary.md`.** Newest entry first. Each entry is headed with
-  the date in brackets — `## [YYYY-MM-DD]` — with same-day entries disambiguated by
-  a counter: `## [YYYY-MM-DD-(2)]`, `-(3)`, and so on.
-- **Each entry** is brief friendly prose covering roughly **where we are**, **what
-  we achieved** (since the last entry), **what is left**, and **what is next**,
-  optionally closing with a one- or two-sentence **continuation brief** that links
-  the relevant plan or ADR.
-- **Self-describing.** The file carries its own short agent-instructions header, so
-  the mechanism travels with the artifact.
-- **Maintained guard-free.** Adding a chapter is a light-weight task — no ADR, no
-  plan, and **no confirmation guard** — because the diary touches nothing
-  authoritative.
-- **Not a source of truth.** The ideas, decisions, and plans remain the only source
-  of truth; the diary is prose narration over them, sits outside the lifecycle and
-  cross-link vocabulary, and may drift harmlessly. It is optional. See ADR-0018.
+- **One file, `travel-diary.md`**, newest entry first; each entry headed
+  `## [YYYY-MM-DD]` (same-day entries disambiguated `-(2)`, `-(3)`, …).
+- **Each entry** is brief prose — *where we are / what we achieved / what is left /
+  what is next* — optionally closing with a **continuation brief** linking the
+  relevant plan or ADR.
+- **Self-describing** — carries its own short agent-instructions header, so the
+  mechanism travels with the artifact.
+- **Guard-free** — adding a chapter needs no ADR, no plan, and **no confirmation
+  guard**; it touches nothing authoritative.
+- **Not a source of truth** — prose narration over the artifacts, outside the
+  lifecycle and cross-link vocabulary; may drift harmlessly. Optional. See ADR-0018.
 
 ## Intermediate artifacts (optional companion)
 
-Intermediate artifacts are an optional, informal **scratch persistence layer for
-the execution stage**. Executing a plan sometimes means *gathering* material first
-— pulling data together, extracting or transcribing findings, capturing
-intermediate outputs — and working on it later, across steps or sessions. That
-working material has no home among the authoritative artifacts (which would pollute
-a plan) and dies with the session's context if left unsaved. Intermediate artifacts
-give it a cheap, conventional place to live (ADR-0020).
+An optional, informal **scratch persistence layer for the execution stage**
+(ADR-0020). Executing a plan sometimes means *gathering* material first (data,
+findings, intermediate outputs) to work on later, across steps or sessions; that
+material has no home among the authoritative artifacts (it would pollute a plan) and
+dies with the session if left unsaved. Intermediate artifacts give it a cheap,
+conventional place to live.
 
-- **A folder, `intermediate-artifacts/`.** A scratch space for material gathered
+- **A folder, `intermediate-artifacts/`** — scratch space for material gathered
   while executing a plan.
-- **Not a source of truth.** The ideas, decisions, and plans remain the only source
-  of truth; intermediate artifacts hold disposable working material, sit outside the
-  lifecycle and cross-link vocabulary, and may drift or go stale harmlessly because
-  nothing authoritative depends on them.
-- **Internally unstructured.** The method defines only *where* the folder lives and
-  *what it is not*; how its contents are organized is entirely the project's business
-  (one subfolder per plan is a fine option, not a rule).
-- **Guard-free.** Creating, populating, and removing intermediate artifacts touches
-  nothing authoritative, so it needs **no ADR, no plan, and no confirmation guard**.
-- **Committed by default.** By default the folder is committed to git, so gathered
-  material survives across machines and sessions (Continuity #1). A repo that prefers
-  purely-local scratch may gitignore it instead.
-- **Optional forward-only pointer.** A plan *may* carry an informal prose note like
-  "execution parked material in `intermediate-artifacts/…`" for findability — plain
-  prose, **not** a formal cross-link field, with no reciprocal back-link.
-- **Left to rot harmlessly.** When a plan is `done`, its intermediate artifacts are
-  simply left in place; a repo may prune them, but the method requires no cleanup.
-- **Optional.** A repo that does not need intermediate artifacts simply has none.
+- **Not a source of truth** — disposable working material, outside the lifecycle and
+  cross-link vocabulary; may drift or go stale harmlessly because nothing
+  authoritative depends on it.
+- **Internally unstructured** — the method defines only *where* it lives and *what it
+  is not*; how its contents are organized is the project's business (one subfolder
+  per plan is a fine option, not a rule).
+- **Guard-free** — creating, populating, and removing files needs **no ADR, no plan,
+  and no confirmation guard**.
+- **Committed by default**, so material survives across machines and sessions
+  (Continuity #1); a repo preferring purely-local scratch may gitignore it instead.
+- **Optional forward-only pointer** — a plan *may* carry an informal prose note
+  ("execution parked material in `intermediate-artifacts/…`") for findability —
+  plain prose, **not** a formal cross-link field, with no reciprocal back-link.
+- **Left to rot harmlessly** when a plan is `done` (pruning is optional). The whole
+  mechanism is optional — a repo that does not need it simply has none.
 
 ## How to start working
 1. Capture a thought as an idea in `ideas/`.
@@ -259,7 +240,10 @@ give it a cheap, conventional place to live (ADR-0020).
 
 ## Agent operating guidance
 
-These rules are for an AI agent working in this repo:
+These rules are for an AI agent working in this repo. Beyond the derived-body
+rule, they **complement, not restate** the spec above (`## The contract` …
+`## How to start working`): where a mechanic is fully specified there, this list
+only flags the trap to avoid and points to it.
 
 - **`AGENTS.md` has a derived method body.** When `starter/docs/working-method.md`
   changes, regenerate only the section from `## The contract` through `## How to
@@ -268,43 +252,22 @@ These rules are for an AI agent working in this repo:
   citation, entry-point framing adjusted). The preamble above that section and
   this `## Agent operating guidance` section below it are **not derived and must
   not be touched**.
-- **Artifact numbers are ordinal only.** When creating an artifact, assign the
-  next unused number in that family (`ideas/`, `decisions/`, `plans/` are
-  independent sequences). Never derive a number from a related artifact — a plan
-  that implements ADR-0004 is not named `0004`; it gets the next free plan slot.
-  Relationships are expressed via cross-link fields (`Implements:`, `Promoted
-  to:`, etc.), never via matching numbers. To find that slot **reliably**,
-  enumerate the whole family and take **`max(existing number) + 1`** — never the
-  first apparent gap a glob surfaces — and **verify the target filename is unused**
-  before writing. To slot an artifact out of order, use **insert-and-shift**:
-  renumber it into place, shift every later artifact in the family, rewire
-  reciprocal cross-links and prose references, and regenerate `overview.md`.
-  (ADR-0015, ADR-0025)
-- **Status values are per-family — never mix them.** A new idea starts `seed`, a
-  new proposal `proposed`, a new plan `draft`. Pick a status only from the target
-  artifact's own family: an idea is never `proposed`/`draft`/`accepted`; a plan is
-  never `proposed`/`seed`; a proposal/decision is never `seed`/`draft`. (ADR-0024)
-- **Disentangling a large idea — use `decomposed`.** When an idea grows too big
-  to be one thought, break it apart by **budding**, never multi-promotion
-  (promotion is 1:1). The procedure is fixed: the parent idea stays and its status
-  becomes `decomposed` (the idea's *alternative finalized* state for a fully-budded
-  parent map — hand-curated and reversible, saying nothing about the children's
-  fate); each axis buds into a child via `Parent:`; each child promotes 1:1 to its
-  own ADR; and the **reasons for the branching are documented in the parent idea**.
-  Never stack `promoted` and `decomposed`. The *strategy* (promote a decidable core
-  first, or bud everything) is a free judgment call — **propose** it; the human
-  decides. (ADR-0027)
-- **Header format is canonical.** Every artifact header is a bulleted block — a
-  `# Title` line, a blank line, then `- Date:` and `- Status:` followed by any
-  cross-link fields and the optional `- Tags:`, each on its own `-`-prefixed line.
-  Never write a bare (bullet-less) header line: the overview refresh procedure
-  greps the bullets, so a bare header is silently missed and can leave a stale row
-  in `overview.md`. (ADR-0026)
-- **Title line carries the ordinal.** Every artifact's `# Title` line is typed
-  and zero-padded to match its filename slot, naming the family —
-  `# Idea 0017: Title`, `# ADR-0017: Title`, `# Plan 0017: Title`. The filename
-  stays authoritative; the H1 number is a visible echo of it, so the two must
-  always agree — treat a mismatch as a conformance failure. (ADR-0028)
+- **Follow the spec's mechanics above** (`## The contract` … `## How to start
+  working`) exactly — they are lookups, not judgment calls:
+  - **Ordinal numbering** — next free slot per family via `max(number)+1`, verify
+    the filename is unused; never reuse a related artifact's number; renumber
+    out-of-order inserts with insert-and-shift (§ *The lifecycle*; ADR-0015,
+    ADR-0025).
+  - **Per-family status** — a new idea is `seed`, a proposal `proposed`, a plan
+    `draft`; never borrow another family's status (§ *The lifecycle*; ADR-0024).
+  - **Canonical header + title line** — a bulleted header block, and a typed,
+    zero-padded H1 ordinal matching the filename slot; a bare (bullet-less) header
+    is silently missed by the refresh, and a title/filename ordinal mismatch is a
+    conformance failure (§ *The lifecycle*; ADR-0026, ADR-0028).
+  - **Disentangling a large idea** — bud into children, mark the parent
+    `decomposed`, document the reasons in the parent; never multi-promote, never
+    stack `promoted` and `decomposed`. **Propose** the split; the human decides
+    (§ *Disentangling a large idea*; ADR-0027).
 - **The method is settled.** Use it; don't redesign decision-trail casually. Any
   change to the method itself is made decision-trail — proposed and recorded as a
   new ADR, with amended or superseded ADRs cross-linked (never edited away).
@@ -315,32 +278,20 @@ These rules are for an AI agent working in this repo:
   could be read as approving a larger batch rather than just the single next step.
 - **Keep `overview.md` current.** It is a derived snapshot, regenerated wholesale
   from the artifact headers (never hand-patched) and stamped "as of <date>"
-  (ADR-0011). Regenerate it whenever the user explicitly asks. A user may flip a
-  state directly in an artifact; the next regeneration reconciles the index.
-
-  **Refresh procedure:** scan each family for its typed title line
-  (`# Idea NNNN:`, `# ADR-NNNN:`, or `# Plan NNNN:`) and `- Status:` / `- Date:` /
-  `- Tags:` (header block) → rewrite the three tables in `overview.md`. If an
-  artifact's header fields carry no leading `-` bullet, or its title-line
-  ordinal doesn't match its filename slot, do **not** silently skip or trust it —
-  both are non-conformant; fix the header to the canonical bulleted form and
-  align the ordinals before regenerating, so no artifact is dropped or misfiled
-  in the index.
-- **Travel diary — guard-free.** `travel-diary.md` is an optional, informal
-  human-facing logbook, outside the lifecycle and **not a source of truth**
-  (ADR-0018). When the user says *"add a chapter to the travel diary"* (or
-  similar), prepend a new dated `## [YYYY-MM-DD]` section (same-day entries
-  disambiguated `-(2)`, `-(3)`, …) covering where we are / what we achieved / what
-  is left / what is next, with an optional continuation brief. This is a
-  light-weight task — **no ADR, no plan, and no confirmation guard**. Full
-  instructions live in the diary's own header.
-- **Intermediate artifacts — guard-free.** `intermediate-artifacts/` is an
-  optional, informal scratch persistence layer for material gathered during plan
-  execution, outside the lifecycle and **not a source of truth** (ADR-0020).
-  Creating, populating, and deleting files there is a light-weight task — **no ADR,
-  no plan, and no confirmation guard** — because it touches nothing authoritative.
-  Its internal organization is the project's business; it is committed by default
-  (a repo may gitignore it) and left to rot harmlessly once a plan is done.
+  (ADR-0011) — the refresh procedure is specified in the spec above
+  (§ *The lifecycle*). Regenerate it whenever the user explicitly asks (ADR-0016).
+  A user may flip a state directly in an artifact; the next regeneration reconciles
+  the index.
+- **Travel diary — guard-free.** When the user says *"add a chapter to the travel
+  diary"* (or similar), prepend a new dated `## [YYYY-MM-DD]` section to
+  `travel-diary.md` (same-day entries disambiguated `-(2)`, `-(3)`, …) — where we
+  are / what we achieved / what is left / what is next, with an optional
+  continuation brief. Light-weight: **no ADR, no plan, no confirmation guard**
+  (§ *Travel diary*; ADR-0018).
+- **Intermediate artifacts — guard-free.** Creating, populating, and deleting
+  files under `intermediate-artifacts/` is light-weight — **no ADR, no plan, no
+  confirmation guard** — because it touches nothing authoritative
+  (§ *Intermediate artifacts*; ADR-0020).
 - **Release-migration contract (release-author rule, ADR-0021, refined by
   ADR-0022).** When cutting a new release of decision-trail, every `CHANGELOG.md`
   entry **must** carry an **`Adopter migration:`** line — **even when it is
