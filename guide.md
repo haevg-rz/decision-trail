@@ -10,11 +10,35 @@ advice the spec doesn't carry.
 
 <!--
 Sync note — this file is a DERIVED rendering of `starter/docs/guide.md` (the
-canonical guide). It is regenerated wholesale, never hand-patched. The only delta
-is paths: this repo uses repo-root families (`ideas/`, `decisions/`, `plans/`)
-where the canonical guide uses `docs/`-prefixed ones, and it points at this repo's
-`AGENTS.md` instead of the adopter's `docs/working-method.md`. Edit the canonical
-guide; regenerate this file.
+canonical guide). It is regenerated from the canonical, never hand-patched. It
+differs from the canonical only by a closed set of deltas (ADR-0032, extending
+ADR-0014):
+
+  1. Paths — this repo uses repo-root families (`ideas/`, `decisions/`, `plans/`)
+     where the canonical guide uses `docs/`-prefixed ones, and it points at this
+     repo's `AGENTS.md` instead of the adopter's `docs/working-method.md`.
+  2. Audience-forked sections — two sections carry home-repo-specific content that
+     is correct for THIS repo and wrong for an adopter, so it must NOT be replaced
+     by the canonical (adopter) text: "How to start" and "Where to go next". Each
+     is bracketed below by `AUDIENCE-FORKED SECTION … BEGIN/END` markers.
+
+Edit the canonical guide, then regenerate this file (regeneration rule below).
+-->
+
+<!--
+Regeneration rule — how to rebuild this derived guide from `starter/docs/guide.md`
+(mirrors the `AGENTS.md` derived-span pattern):
+
+  • 1:1-derived sections (everything NOT between AUDIENCE-FORKED markers): take the
+    canonical text and apply the path delta (delta 1) only — repo-root families
+    instead of `docs/`-prefixed, `AGENTS.md` instead of `docs/working-method.md`.
+  • Audience-forked sections (the spans between `AUDIENCE-FORKED SECTION … BEGIN`
+    and `… END`): PRESERVE this file's existing text verbatim. Do NOT copy the
+    canonical (adopter) wording over them, and do NOT flatten them to match the
+    canonical — that is precisely what these markers guard against.
+
+So a faithful regeneration overwrites every unmarked section from the canonical and
+leaves the two marked sections (and these markers) untouched.
 -->
 
 ## The problem it solves
@@ -265,6 +289,10 @@ intermediate outputs) to work on later. Like the diary it's informal, guard-free
 and never a source of truth; it's committed by default so the material survives a
 break, and a repo that doesn't need one simply has none.
 
+<!-- AUDIENCE-FORKED SECTION (home-repo variant) — "How to start" — BEGIN.
+     Per the sync note in this file's header and ADR-0032, this section is
+     preserved on regeneration: do NOT overwrite it with the canonical (adopter)
+     variant from starter/docs/guide.md. -->
 ## How to start
 
 **First, get the method into your project.** decision-trail lives in its own
@@ -282,6 +310,7 @@ rhythm is just the lifecycle:
 3. Accept or reject it; an accepted ADR is a decision.
 4. Write a `plans/` file that `Implements:` the decision and lists tasks.
 5. Execute by moving the plan `active` → `done`, ticking checkboxes.
+<!-- AUDIENCE-FORKED SECTION — "How to start" — END. -->
 
 ## Working with an agent: a conversation, not a command line
 
@@ -389,6 +418,10 @@ None of this is enforced, and ignoring it breaks nothing — it only ever spends
 tokens than it needed to. Think of it as good travel habits: pack light, label your
 bags, and leave a note for whoever arrives next.
 
+<!-- AUDIENCE-FORKED SECTION (home-repo variant) — "Where to go next" — BEGIN.
+     Per the sync note in this file's header and ADR-0032, this section is
+     preserved on regeneration: do NOT overwrite it with the canonical (adopter)
+     variant from starter/docs/guide.md. -->
 ## Where to go next
 
 - [`AGENTS.md`](AGENTS.md) — the terse reference: the same contract, lifecycle,
@@ -400,3 +433,4 @@ bags, and leave a note for whoever arrives next.
 - [`adopting.md`](adopting.md) — the on-ramp for using decision-trail in **your own
   repo**: how to start fresh, inject it into an existing repo, or update to a newer
   version.
+<!-- AUDIENCE-FORKED SECTION — "Where to go next" — END. -->

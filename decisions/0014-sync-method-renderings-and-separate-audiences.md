@@ -4,6 +4,7 @@
 - Date: 2026-06-28
 - Amends: ADR-0007 (re-frames the single source of truth: the lean spec in `working-method.md` is canonical, this repo's `AGENTS.md` becomes a derived rendering), ADR-0010 (splits the method body — the didactic guide moves to `docs/guide.md`, leaving `working-method.md` the lean spec)
 - Promoted from: [idea 0006](../ideas/0006-documentation-flaw-sync-and-audience.md)
+- Amended by: [ADR-0032](0032-audience-forked-sections-are-a-declared-delta-class.md)
 
 ## Context
 

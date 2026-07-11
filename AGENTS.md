@@ -249,9 +249,11 @@ only flags the trap to avoid and points to it.
   changes, regenerate only the section from `## The contract` through `## How to
   start working` — applying the enumerated deltas (repo-root paths instead of
   `docs/`-prefixed ones, construction-ADR cross-references added, no provenance
-  citation, entry-point framing adjusted). The preamble above that section and
-  this `## Agent operating guidance` section below it are **not derived and must
-  not be touched**.
+  citation, entry-point framing adjusted, and the audience-forked adopter-only tail
+  of `## How to start working` — the `0001-adopt-decision-trail.md` note and the
+  `adopting.md` pointer — omitted here per ADR-0032). The preamble above that
+  section and this `## Agent operating guidance` section below it are **not derived
+  and must not be touched**.
 - **Follow the spec's mechanics above** (`## The contract` … `## How to start
   working`) exactly — they are lookups, not judgment calls:
   - **Ordinal numbering** — next free slot per family via `max(number)+1`, verify

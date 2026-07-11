@@ -1,7 +1,8 @@
 # Idea 0026: the guide's derived-rendering sync model can't hold audience deltas
 
 - Date: 2026-07-11
-- Status: seed
+- Status: promoted
+- Promoted to: [ADR-0032](../decisions/0032-audience-forked-sections-are-a-declared-delta-class.md)
 
 ## Observation
 

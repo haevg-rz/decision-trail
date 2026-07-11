@@ -40,7 +40,8 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0023 Name the resume-time economy practices as a stated discipline](ideas/0023-name-the-resume-time-economy-practices-as-a-discipline.md) | 2026-07-11 | promoted | |
 | [0024 Pin the title-line format so the ordinal is always visible in the H1](ideas/0024-pin-the-title-line-format-ordinal-in-h1.md) | 2026-07-11 | promoted | |
 | [0025 Clarify how a consuming repo adopts a newer version of decision-trail](ideas/0025-clarify-how-a-consuming-repo-adopts-a-newer-version.md) | 2026-07-11 | promoted | |
-| [0026 The guide's derived-rendering sync model can't hold audience deltas](ideas/0026-guide-sync-model-cant-hold-audience-deltas.md) | 2026-07-11 | seed | |
+| [0026 The guide's derived-rendering sync model can't hold audience deltas](ideas/0026-guide-sync-model-cant-hold-audience-deltas.md) | 2026-07-11 | promoted | |
+| [0027 Author new artifacts from the spec, not from a sibling as a template](ideas/0027-author-artifacts-from-spec-not-from-a-sibling-template.md) | 2026-07-11 | seed | |
 
 ## Decisions
 
@@ -77,6 +78,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0029 Shrink the always-loaded agent instruction weight](decisions/0029-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | accepted | |
 | [0030 Resume economy as a human-facing discipline in the guide](decisions/0030-resume-economy-as-a-human-facing-guide-discipline.md) | 2026-07-11 | accepted | |
 | [0031 The adopter update path is human intent, agent execution](decisions/0031-adopter-update-is-human-intent-agent-execution.md) | 2026-07-11 | accepted | |
+| [0032 Audience-forked sections are a declared delta class in the sync model](decisions/0032-audience-forked-sections-are-a-declared-delta-class.md) | 2026-07-11 | accepted | |
 
 ## Plans
 
@@ -103,3 +105,4 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0019 Shrink the always-loaded agent instruction weight](plans/0019-shrink-the-always-loaded-agent-instruction-weight.md) | 2026-07-11 | done | |
 | [0020 Teach resume economy as a human-facing guide discipline](plans/0020-teach-resume-economy-as-human-facing-guide-discipline.md) | 2026-07-11 | done | |
 | [0021 Split the adopter update path — human intent + agent-facing `updating.agent.md`](plans/0021-split-adopter-update-into-human-intent-and-agent-file.md) | 2026-07-11 | done | |
+| [0022 Carry the audience-forked delta class into the guide sync model](plans/0022-carry-audience-forked-delta-class-into-guide-sync.md) | 2026-07-11 | done | |

@@ -18,6 +18,12 @@ the two renderings are:
   - the `Based on decision-trail vX.Y` provenance citation is adopter-only (this file);
   - entry-point framing: here `AGENTS.md` points to this file; in the decision-trail
     repo `AGENTS.md` carries the text.
+  - audience-forked sections (ADR-0032): a section may carry audience-specific
+    content that is preserved on regeneration rather than overwritten. Currently
+    "How to start working" has an adopter-only tail — the
+    `docs/decisions/0001-adopt-decision-trail.md` note and the `adopting.md`
+    (re)adopt/update pointer — absent from the decision-trail repo's `AGENTS.md`
+    rendering.
 Edit the method here; regenerate the other rendering.
 -->
 
