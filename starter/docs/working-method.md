@@ -3,7 +3,7 @@
 > This project works **decision-trail** — carrying a thought through its whole life
 > (idea → proposal → decision → plan → execution) in plain markdown.
 >
-> Based on **decision-trail v2.14** — https://github.com/haevg-rz/decision-trail
+> Based on **decision-trail v2.15** — https://github.com/haevg-rz/decision-trail
 
 <!--
 Sync note — this file is CANONICAL.
@@ -72,7 +72,16 @@ artifact families:
   the heading is renamed to **`## Decision`** — status and heading move together.
 - **Plans** carry an accepted decision into action: the ADR is the spec, the plan
   is the *how*, execution is the plan in motion. Tasks use portable task-list
-  markdown (`- [ ]` / `- [x]`).
+  markdown (`- [ ]` / `- [x]`). A plan is for **mechanical execution only** — it
+  **never contains a decision-making task** (no "decide X", no "clarify the open
+  question Y"); if part of the work still depends on an undecided question, the
+  plan is not yet ready to be written for that part. Questions *will* surface
+  while executing — that is normal, and the answer is **never** to fold the
+  decision into the plan, but to **return to the decision stage**: clarify the
+  governing ADR — patch it, amend it, or open a new one — then resume execution
+  against the updated spec. *That* a surfaced question leaves the plan and returns
+  to the decision stage is fixed; *which* form the return takes (patch, amend, or
+  new ADR) is a judgment call sized to the question.
 
 **Each family's status vocabulary is its own — never borrow another family's.** New
 idea → `seed`, new proposal → `proposed`, new plan → `draft`; decision and execution

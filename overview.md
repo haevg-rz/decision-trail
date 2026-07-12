@@ -9,7 +9,7 @@ snapshot. Keeping it current is the agent's responsibility (see
 
 You can ask the agent to **regenerate the overview** at any time.
 
-**As of: 2026-07-11 (updated)**
+**As of: 2026-07-12**
 
 ## Ideas
 
@@ -45,6 +45,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0028 A derived ADR→plan map so a human can find how a decision was implemented](ideas/0028-derived-adr-to-plan-map-for-human-discoverability.md) | 2026-07-11 | promoted | |
 | [0029 Enumerate two missing "lookup, not judgment call" rules in the agent operating checklist](ideas/0029-enumerate-heading-transition-in-agent-checklist.md) | 2026-07-11 | promoted | |
 | [0030 Revisit optional skills if adopters demand structured operation](ideas/0030-revisit-skills-if-adopters-demand-structured-operation.md) | 2026-07-11 | seed | |
+| [0031 plans execute — they never "plan decisions"](ideas/0031-plans-execute-they-never-plan-decisions.md) | 2026-07-12 | promoted | |
 
 ## Decisions
 
@@ -86,6 +87,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0034 A derived ADR → plans sub-index in `overview.md`](decisions/0034-derived-adr-to-plans-sub-index-in-overview.md) | 2026-07-11 | accepted | |
 | [0035 Enumerate two missing "lookup, not judgment call" rules in the agent operating checklist](decisions/0035-enumerate-checklist-gaps-heading-and-reciprocal-links.md) | 2026-07-11 | accepted | |
 | [0036 Render the method's fixed procedures as optional skills](decisions/0036-render-fixed-procedures-as-optional-skills.md) | 2026-07-11 | rejected | |
+| [0037 plans are mechanical execution — a surfaced question returns to the decision stage](decisions/0037-plans-are-mechanical-execution-questions-return-to-the-decision-stage.md) | 2026-07-12 | accepted | |
 
 ## Plans
 
@@ -116,6 +118,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0023 Carry ADR-0033 into the method — author-from-spec rule + proposal heading convention](plans/0023-carry-adr-0033-into-the-method.md) | 2026-07-11 | done | |
 | [0024 Add the ADR → plans sub-index to `overview.md`](plans/0024-add-adr-to-plans-sub-index-to-overview.md) | 2026-07-11 | done | |
 | [0025 Enumerate the heading-transition and reciprocal-cross-link rules in the agent checklist](plans/0025-enumerate-checklist-gaps-heading-and-reciprocal-links.md) | 2026-07-11 | done | |
+| [0026 Carry ADR-0037 into the method — plans are mechanical execution, questions return to the decision stage](plans/0026-carry-adr-0037-into-the-method.md) | 2026-07-12 | done | |
 
 ## Implements (ADR → plans)
 
@@ -146,4 +149,5 @@ You can ask the agent to **regenerate the overview** at any time.
 | [ADR-0033 – author new artifacts from the spec, not from a sibling as a template](decisions/0033-author-from-the-spec-not-from-a-sibling.md) | [Plan 0023](plans/0023-carry-adr-0033-into-the-method.md) | done |
 | [ADR-0034 – A derived ADR → plans sub-index in `overview.md`](decisions/0034-derived-adr-to-plans-sub-index-in-overview.md) | [Plan 0024](plans/0024-add-adr-to-plans-sub-index-to-overview.md) | done |
 | [ADR-0035 – Enumerate two missing "lookup, not judgment call" rules in the agent operating checklist](decisions/0035-enumerate-checklist-gaps-heading-and-reciprocal-links.md) | [Plan 0025](plans/0025-enumerate-checklist-gaps-heading-and-reciprocal-links.md) | done |
+| [ADR-0037 – plans are mechanical execution — a surfaced question returns to the decision stage](decisions/0037-plans-are-mechanical-execution-questions-return-to-the-decision-stage.md) | [Plan 0026](plans/0026-carry-adr-0037-into-the-method.md) | done |
 

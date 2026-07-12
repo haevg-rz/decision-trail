@@ -2,6 +2,7 @@
 
 - Status: accepted
 - Date: 2026-06-28
+- Amended by: [ADR-0037](0037-plans-are-mechanical-execution-questions-return-to-the-decision-stage.md)
 
 ## Context
 

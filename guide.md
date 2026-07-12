@@ -173,7 +173,10 @@ forever.
 **Plan.** The accepted ADR says *what* and *why*, but not *how*. That's a *plan* in
 `plans/` — `plans/0004-dark-mode-toggle.md` — which `Implements:` the decision and
 breaks it into concrete tasks written as GitHub checkboxes: `- [ ] add a theme
-context`, `- [ ] persist the choice`, `- [ ] add the settings toggle`.
+context`, `- [ ] persist the choice`, `- [ ] add the settings toggle`. A plan is
+purely the mechanical *how* — it never holds a "decide this" task. If a question
+comes up while you're executing, you don't settle it inside the plan; you step
+back to the ADR, clarify or amend it, then carry on.
 
 **Execution.** Execution isn't a separate place — it's the plan in motion. You move
 the plan from `draft` to `active`, then tick checkboxes as the work lands, until

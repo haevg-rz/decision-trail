@@ -13,6 +13,40 @@ then regenerate `overview.md`"). **New optional scaffolds are not listed here** 
 reach adopters automatically via the copy-driven "bring me current" update. This is
 the contract the [`adopting.md`](adopting.md) update path relies on.
 
+## [2.15.0] - 2026-07-12
+
+**Adopter migration:** The **plans rule is tightened** (ADR-0037) — internalize
+it and apply it going forward; there is **no artifact back-migration**. A plan is
+now explicitly **mechanical execution only**: a plan **never contains a
+decision-making task** ("decide X" / "clarify open question Y"). If a question
+surfaces while executing, do **not** fold the decision into the plan — **return to
+the decision stage**: clarify / patch / amend the governing ADR (or open a new
+one), then resume. Re-copy the method-owned set (`starter/` → your `docs/`) to
+pick up the sharpened spec bullet, the new agent-checklist bullet, and the guide
+note; existing plans need no rewrite. Then **regenerate `docs/overview.md`** as
+usual.
+
+### Changed
+- ADR-0037 — **plans are mechanical execution; a surfaced question returns to the
+  decision stage** (idea 0031, promoted): an incident in a consumer repo saw an
+  agent derive a plan whose tasks included *deciding undecided things* ("decide X"
+  / "clarify Y") — collapsing the **decision** and **plan** lifecycle stages and
+  letting decisions slip through as unreviewed plan steps, bypassing the
+  confirmation guard. ADR-0004's soft wording ("the ADR is the spec, the plan is
+  the *how*") did not prevent it. This **amends ADR-0004** to state plainly that a
+  plan is for mechanical execution only and never holds a decision-making task,
+  and to fix the mid-execution escalation: a surfaced question returns to the
+  decision stage (clarify / patch / amend the ADR, or open a new one), then
+  execution resumes — *that* it returns is fixed, *which* form the return takes is
+  judgment sized to the question. Landed in `starter/docs/working-method.md`
+  (§ *The lifecycle*, Plans bullet), this repo's `AGENTS.md` derived body, a new
+  **"Plans are mechanical execution"** bullet in both `AGENTS.md` checklists
+  (adopter rendering carries no ADR citation, method-home one cites ADR-0037), and
+  a brief note in both guides. ADR-0004 stands (amended, not rewritten) with an
+  `Amended by:` back-link.
+- All three `starter/` renderings bump their provenance citation to **v2.15**
+  (`working-method.md`, `guide.md`, and `AGENTS.md`).
+
 ## [2.14.0] - 2026-07-11
 
 **Adopter migration:** After copying this version, **regenerate `docs/overview.md`**

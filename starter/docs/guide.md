@@ -8,7 +8,7 @@ along the way. Once the ideas here are familiar, lean on the terse
 [`working-method.md`](working-method.md) for quick lookups, and come back here for
 the human-facing advice the spec doesn't carry.
 
-> Based on **decision-trail v2.14** — https://github.com/haevg-rz/decision-trail
+> Based on **decision-trail v2.15** — https://github.com/haevg-rz/decision-trail
 
 ## The problem it solves
 
@@ -143,6 +143,9 @@ forever.
 `docs/plans/` — `docs/plans/0004-dark-mode-toggle.md` — which `Implements:` the
 decision and breaks it into concrete tasks written as GitHub checkboxes: `- [ ]
 add a theme context`, `- [ ] persist the choice`, `- [ ] add the settings toggle`.
+A plan is purely the mechanical *how* — it never holds a "decide this" task. If a
+question comes up while you're executing, you don't settle it inside the plan; you
+step back to the ADR, clarify or amend it, then carry on.
 
 **Execution.** Execution isn't a separate place — it's the plan in motion. You move
 the plan from `draft` to `active`, then tick checkboxes as the work lands, until
