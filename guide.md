@@ -313,23 +313,33 @@ before you end a session, say *"update the diary"*. Once this underrated little
 helper is part of your routine, you'll miss it the moment you forget that last,
 super-useful step.
 
-## Companion artifact locations
+## The companion artifact folders
 
-For the *execution* stage there's a second optional companion: an
-**intermediate-artifacts** folder (`intermediate-artifacts/`) — a scratch space
-where a plan can park material it gathers along the way (data, findings,
-intermediate outputs) to work on later. Like the diary it's informal, guard-free,
-and never a source of truth; it's committed by default so the material survives a
-break, and a repo that doesn't need one simply has none.
+Not everything you touch while working is a source of truth. Alongside the ideas,
+decisions, and plans, the method sets aside three optional folders for the *other*
+material a project accumulates — the scratch, the outputs, the summaries. None of
+them is authoritative, none is part of the lifecycle, and any repo that doesn't
+need one simply leaves it out. What makes them easy to keep straight is a single
+question: **where did this content come from?**
 
-Two more optional companions round out the `*-artifacts/` family, split by where
-their contents *come from*: **delivered-artifacts** (`delivered-artifacts/`) is the
-home for content a plan *creates* — a report, a spec, a diagram, authored fresh; and
-**derived-artifacts** (`derived-artifacts/`) holds human-facing projections *distilled*
-from the ADRs, regenerated on request and, like the overview, never a source of truth.
-The rule of thumb: re-running a generator gets it back → `derived-artifacts/`; re-doing
-creative work gets it back → `delivered-artifacts/`; losing it costs nothing → it was
-`intermediate-artifacts/` scratch.
+- **Gathered → `intermediate-artifacts/`.** Scratch space for the execution stage.
+  When a plan collects material as it runs — data, findings, half-finished outputs —
+  it can park it here to pick up later, across steps or sessions. It's informal and
+  guard-free, committed by default so nothing is lost over a break, and free to go
+  stale because nothing depends on it.
+- **Created → `delivered-artifacts/`.** The home for content a plan *produces* —
+  a report, a spec, a diagram — authored fresh rather than copied or distilled from
+  anything else. The folder mechanics are guard-free, but writing the content itself
+  is real plan work and follows the normal confirmation guard.
+- **Derived → `derived-artifacts/`.** Human-facing projections *distilled* from the
+  ADRs: a topic summarized once instead of read across a dozen records. Each links
+  back to its sources and is regenerated on request when they change — like the
+  overview, a convenience, never a source of truth.
+
+A quick rule of thumb when you're unsure where something belongs: if re-running a
+generator brings it back, it's `derived-artifacts/`; if only re-doing creative work
+brings it back, it's `delivered-artifacts/`; if losing it costs nothing, it was
+`intermediate-artifacts/` scratch all along.
      Per the sync note in this file's header and ADR-0032, this section is
      preserved on regeneration: do NOT overwrite it with the canonical (adopter)
      variant from starter/docs/guide.md. -->
