@@ -3,7 +3,7 @@
 > This project works **decision-trail** — carrying a thought through its whole life
 > (idea → proposal → decision → plan → execution) in plain markdown.
 >
-> Based on **decision-trail v2.17** — https://github.com/haevg-rz/decision-trail
+> Based on **decision-trail v2.18** — https://github.com/haevg-rz/decision-trail
 
 <!--
 Sync note — this file is CANONICAL.
@@ -157,6 +157,20 @@ list stays low-noise and makes an unexecuted decision impossible to walk past.
   align the ordinals (see the header template above) before regenerating, so no
   artifact is dropped or misfiled in the index.
 
+  **Optional regeneration script.** Because this refresh is purely mechanical, a
+  repo *may* ship a deterministic script (e.g.
+  `docs/scripts/regen-overview.ps1`) that implements exactly this procedure — the
+  same three tables, the ADR → plans sub-index, and the stand-alone list, in the
+  same order — and *flags* any non-conformant header (bare/bullet-less block, or a
+  title-line ordinal disagreeing with the filename slot) instead of copying the
+  drift. The script is a **convenience, never the source of truth**: this prose
+  procedure stays normative, and only `docs/overview.md`'s *shape* is contract, so
+  the script may be reimplemented in any language or simply omitted. Its trigger is
+  standing agent guidance, not a new user step — the user's request is the same
+  plain "regenerate the overview"; on that request the agent runs the script if it
+  is present, and otherwise regenerates by hand exactly as above. An adopter without
+  the script's runtime simply falls through to the prose path.
+
 ## Layout
 
 ```
@@ -168,6 +182,7 @@ docs/travel-diary.md    optional human-facing logbook (companion, not a source o
 docs/intermediate-artifacts/  optional scratch persistence layer for execution (not a source of truth)
 docs/delivered-artifacts/  optional home for plan-created content (companion)
 docs/derived-artifacts/  optional distilled projections from the ADRs (not a source of truth)
+docs/scripts/           optional helper scripts (e.g. deterministic overview regeneration)
 docs/ideas/             idea artifacts
 docs/decisions/         proposal + decision artifacts (ADRs)
 docs/plans/             plan + execution artifacts

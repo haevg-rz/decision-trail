@@ -1,7 +1,8 @@
 # Idea 0033: Overview regeneration is mechanical yet error-prone — is a script/skill/tool worth the agnosticism cost?
 
 - Date: 2026-07-15
-- Status: seed
+- Status: promoted
+- Promoted to: [ADR-0040](../decisions/0040-optional-deterministic-overview-regen-script.md)
 
 ## The itch
 

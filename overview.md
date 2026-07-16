@@ -4,8 +4,8 @@ A derived status index over all ideas, decisions, and plans — a plain
 *to-do / what's-done* list. It is **regenerated wholesale from the artifact
 headers** (never hand-patched) and stamped with the moment it was true. The
 artifacts themselves are the source of truth; this file is a convenience
-snapshot. Keeping it current is the agent's responsibility (see
-[ADR-0011](decisions/0011-an-always-up-to-date-overview-as-a-derived-status-index.md)).
+snapshot. Keeping it current is the agent's responsibility (see the working
+method).
 
 You can ask the agent to **regenerate the overview** at any time.
 
@@ -47,7 +47,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0030 revisit optional skills if adopters demand structured operation](ideas/0030-revisit-skills-if-adopters-demand-structured-operation.md) | 2026-07-11 | seed |  |
 | [0031 plans execute — they never "plan decisions"](ideas/0031-plans-execute-they-never-plan-decisions.md) | 2026-07-12 | promoted |  |
 | [0032 A stub-plan-at-acceptance discipline plus a derived "accepted, no plan" backstop](ideas/0032-surface-accepted-adrs-still-awaiting-a-plan.md) | 2026-07-15 | promoted |  |
-| [0033 Overview regeneration is mechanical yet error-prone — is a script/skill/tool worth the agnosticism cost?](ideas/0033-overview-regen-mechanical-yet-error-prone-script-or-skill.md) | 2026-07-15 | seed |  |
+| [0033 Overview regeneration is mechanical yet error-prone — is a script/skill/tool worth the agnosticism cost?](ideas/0033-overview-regen-mechanical-yet-error-prone-script-or-skill.md) | 2026-07-15 | promoted |  |
 | [0034 delivered-artifacts and derived-artifacts — two more companion folders](ideas/0034-deliverables-and-derived-as-companion-folders.md) | 2026-07-16 | promoted |  |
 
 ## Decisions
@@ -93,6 +93,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0037 plans are mechanical execution — a surfaced question returns to the decision stage](decisions/0037-plans-are-mechanical-execution-questions-return-to-the-decision-stage.md) | 2026-07-12 | accepted |  |
 | [0038 A stub-plan-at-acceptance discipline plus a derived "accepted, no plan" backstop](decisions/0038-stub-plan-at-acceptance-and-derived-no-plan-backstop.md) | 2026-07-15 | accepted |  |
 | [0039 delivered-artifacts and derived-artifacts — two more companion folders](decisions/0039-delivered-and-derived-artifacts-companion-folders.md) | 2026-07-16 | accepted |  |
+| [0040 An optional, deterministic overview-regen script, prose-normative and instruction-triggered](decisions/0040-optional-deterministic-overview-regen-script.md) | 2026-07-16 | accepted |  |
 
 ## Plans
 
@@ -126,6 +127,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0026 carry ADR-0037 into the method — plans are mechanical execution, questions return to the decision stage](plans/0026-carry-adr-0037-into-the-method.md) | 2026-07-12 | done |  |
 | [0027 Carry ADR-0038 into the method — stub-plan-at-acceptance discipline and the "accepted, no plan" backstop](plans/0027-stub-plan-discipline-and-no-plan-backstop.md) | 2026-07-15 | done |  |
 | [0028 ship delivered-artifacts and derived-artifacts as optional companion folders](plans/0028-ship-delivered-and-derived-artifacts.md) | 2026-07-16 | done |  |
+| [0029 Ship the optional deterministic overview-regen script and its agent-guidance trigger](plans/0029-ship-optional-overview-regen-script.md) | 2026-07-16 | done |  |
 
 ## Implements (ADR → plans)
 
@@ -159,14 +161,14 @@ You can ask the agent to **regenerate the overview** at any time.
 | [ADR-0037 – plans are mechanical execution — a surfaced question returns to the decision stage](decisions/0037-plans-are-mechanical-execution-questions-return-to-the-decision-stage.md) | [Plan 0026](plans/0026-carry-adr-0037-into-the-method.md) | done |
 | [ADR-0038 – A stub-plan-at-acceptance discipline plus a derived "accepted, no plan" backstop](decisions/0038-stub-plan-at-acceptance-and-derived-no-plan-backstop.md) | [Plan 0027](plans/0027-stub-plan-discipline-and-no-plan-backstop.md) | done |
 | [ADR-0039 – delivered-artifacts and derived-artifacts — two more companion folders](decisions/0039-delivered-and-derived-artifacts-companion-folders.md) | [Plan 0028](plans/0028-ship-delivered-and-derived-artifacts.md) | done |
+| [ADR-0040 – An optional, deterministic overview-regen script, prose-normative and instruction-triggered](decisions/0040-optional-deterministic-overview-regen-script.md) | [Plan 0029](plans/0029-ship-optional-overview-regen-script.md) | done |
 
 ## ADR — stand-alone decision
 
 Accepted ADRs that no plan carries out via `Implements:` — decisions that stand on
-their own and need no execution. Worth a quick check now and then
-(see [ADR-0038](decisions/0038-stub-plan-at-acceptance-and-derived-no-plan-backstop.md)):
-if a decision here accidentally has no plan but actually does need one, write its
-`draft` stub so it is not forgotten.
+their own and need no execution. Worth a quick check now and then: if a decision
+here accidentally has no plan but actually does need one, write its `draft` stub so
+it is not forgotten.
 
 | ADR | Accepted |
 |-----|----------|
@@ -180,4 +182,3 @@ if a decision here accidentally has no plan but actually does need one, write it
 | [ADR-0008 – Adopt the-way via a copied starter skeleton; version this repo as the standard](decisions/0008-adopt-the-way-via-a-copied-starter-skeleton.md) | 2026-06-28 |
 | [ADR-0009 – Adopters use conventional, unbranded locations — no `the-way/` folder](decisions/0009-adopters-use-conventional-unbranded-locations.md) | 2026-06-28 |
 | [ADR-0010 – Adopters keep the method text in `docs/working-method.md`; `AGENTS.md` only points to it](decisions/0010-adopters-keep-the-method-text-in-working-method-md.md) | 2026-06-28 |
-

@@ -32,6 +32,42 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-16-(2)]
+
+**Where we are.** About to cut **v2.18.0**, which lands the first *executable*
+optional companion: a deterministic `overview.md` regeneration script
+([ADR-0040](decisions/0040-optional-deterministic-overview-regen-script.md), from
+idea 0033). This is a small, deliberate crack in the "instructions-and-markdown-only"
+purism — and it held: Economy (#2) won a lot, Transparency / tool-agnosticism (#3)
+lost almost nothing.
+
+**What we achieved.** Promoted idea 0033 → ADR-0040 (accepted), wrote and executed
+plan 0029. Shipped `scripts/regen-overview.ps1` (cross-platform `pwsh`) plus its
+copy in `starter/docs/scripts/`: it rebuilds all five derived views deterministically
+and *flags* non-conformant headers (ADR-0026 / ADR-0028) instead of copying drift,
+aborting rather than misfiling. Wired the standing "run the script if present, else
+regenerate by hand" trigger into `working-method.md` and both `AGENTS.md`
+renderings — the user's trigger is unchanged and the prose procedure stays normative.
+Caught and fixed a genericity bug (the generated boilerplate no longer hard-links
+construction ADRs that don't exist in an adopter repo). Also enriched idea 0030
+(kept `seed`) to bank this precedent and open the question of *more* mechanical
+economy-win candidates (a conformance lint, insert-and-shift renumbering,
+reciprocal-link checks).
+
+**What is left.** Nothing for this release — overview is current, CHANGELOG and
+provenance citations bumped to v2.18. Just the release mechanics: commit, push, tag,
+GitHub release.
+
+**What is next.** Cut v2.18.0. Down the road, idea 0030 is the staging ground for
+the next optional-script candidates (and, on a UX driver, the skills question from
+ADR-0036).
+
+*Continuation brief:* the four guards that kept #3 intact — prose normative,
+strictly optional, invisible instruction trigger, output-is-contract — are the reusable
+recipe for any future optional script. Reach for
+[idea 0030](ideas/0030-revisit-skills-if-adopters-demand-structured-operation.md)
+before proposing the next one.
+
 ## [2026-07-16]
 
 **Where we are.** About to cut **v2.17.0**, which promotes two more optional

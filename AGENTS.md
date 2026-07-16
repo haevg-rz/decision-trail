@@ -151,6 +151,20 @@ slot, do **not** silently skip or trust it — both are non-conformant; fix the 
 to the canonical bulleted form and align the ordinals before regenerating, so no
 artifact is dropped or misfiled in the index.
 
+**Optional regeneration script.** Because this refresh is purely mechanical, a repo
+*may* ship a deterministic script (here
+[`scripts/regen-overview.ps1`](scripts/regen-overview.ps1)) that implements exactly
+this procedure — the same three tables, the ADR → plans sub-index, and the
+stand-alone list, in the same order — and *flags* any non-conformant header
+(bare/bullet-less block, or a title-line ordinal disagreeing with the filename slot)
+instead of copying the drift. The script is a **convenience, never the source of
+truth**: this prose procedure stays normative, and only `overview.md`'s *shape* is
+contract, so the script may be reimplemented in any language or simply omitted. Its
+trigger is standing agent guidance, not a new user step — the user's request is the
+same plain "regenerate the overview"; on that request the agent runs the script if
+it is present, and otherwise regenerates by hand exactly as above. An adopter without
+the script's runtime simply falls through to the prose path.
+
 ## Layout
 
 ```
@@ -161,6 +175,7 @@ travel-diary.md optional human-facing logbook (companion, not a source of truth)
 intermediate-artifacts/ optional scratch persistence layer for execution (not a source of truth)
 delivered-artifacts/ optional home for plan-created content (companion)
 derived-artifacts/ optional distilled projections from the ADRs (not a source of truth)
+scripts/      optional helper scripts (e.g. deterministic overview regeneration)
 ideas/        idea artifacts
 decisions/    proposal + decision artifacts (ADRs)
 plans/        plan + execution artifacts
@@ -403,8 +418,11 @@ only flags the trap to avoid and points to it.
   from the artifact headers (never hand-patched) and stamped "as of <date>"
   (ADR-0011) — the refresh procedure is specified in the spec above
   (§ *The lifecycle*). Regenerate it whenever the user explicitly asks (ADR-0016).
-  A user may flip a state directly in an artifact; the next regeneration reconciles
-  the index.
+  If the optional regeneration script ([`scripts/regen-overview.ps1`](scripts/regen-overview.ps1))
+  is present, run it; otherwise regenerate by hand per the refresh procedure — the
+  user's trigger is the same either way, and the prose procedure stays normative
+  (ADR-0040). A user may flip a state directly in an artifact; the next regeneration
+  reconciles the index.
 - **Travel diary — guard-free.** When the user says *"add a chapter to the travel
   diary"* (or similar), prepend a new dated `## [YYYY-MM-DD]` section to
   `travel-diary.md` (same-day entries disambiguated `-(2)`, `-(3)`, …) — where we

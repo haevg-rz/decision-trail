@@ -8,7 +8,7 @@ along the way. Once the ideas here are familiar, lean on the terse
 [`working-method.md`](working-method.md) for quick lookups, and come back here for
 the human-facing advice the spec doesn't carry.
 
-> Based on **decision-trail v2.17** — https://github.com/haevg-rz/decision-trail
+> Based on **decision-trail v2.18** — https://github.com/haevg-rz/decision-trail
 
 ## The problem it solves
 

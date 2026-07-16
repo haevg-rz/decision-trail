@@ -16,7 +16,7 @@ terse reference is [`docs/working-method.md`](docs/working-method.md); decision
 records live in [`docs/decisions/`](docs/decisions/), starting with
 [`0001-adopt-decision-trail.md`](docs/decisions/0001-adopt-decision-trail.md).
 
-Based on decision-trail v2.17 — https://github.com/haevg-rz/decision-trail
+Based on decision-trail v2.18 — https://github.com/haevg-rz/decision-trail
 
 ## Agent operating guidance
 
@@ -77,7 +77,10 @@ points to it.
 - **Keep `docs/overview.md` current.** It is a derived snapshot, regenerated
   wholesale from the artifact headers (never hand-patched) and stamped "as of
   <date>" — the refresh procedure is specified in the spec (§ *The lifecycle*).
-  Regenerate it — and update the stamp — whenever the user explicitly asks. A user
+  Regenerate it — and update the stamp — whenever the user explicitly asks. If the
+  optional regeneration script (`docs/scripts/regen-overview.ps1`) is present, run
+  it; otherwise regenerate by hand per the refresh procedure — the user's trigger is
+  the same either way, and the prose procedure stays normative. A user
   may flip a state directly in an artifact; the next regeneration reconciles the
   index.
 - **Travel diary — guard-free.** When the user says *"add a chapter to the travel

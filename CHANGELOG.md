@@ -13,6 +13,43 @@ then regenerate `overview.md`"). **New optional scaffolds are not listed here** 
 reach adopters automatically via the copy-driven "bring me current" update. This is
 the contract the [`adopting.md`](adopting.md) update path relies on.
 
+## [2.18.0] - 2026-07-16
+
+**Adopter migration:** **None.** The optional overview-regeneration script is a new
+scaffold that reaches you automatically via the copy-driven "bring me current"
+update (it lands at `docs/scripts/regen-overview.ps1`). Nothing behavioral is
+required: your existing hand-regeneration of `docs/overview.md` keeps working
+unchanged, because the prose refresh procedure stays normative. If you *want* the
+faster path after updating, just ask the agent to regenerate the overview — it will
+run the script when present, or regenerate by hand otherwise.
+
+### Added
+- ADR-0040 — **An optional, deterministic `overview.md` regeneration script**
+  (idea 0033, promoted). Overview regeneration had grown from a trivial agent task
+  into a mechanical-yet-error-prone one (five derived views over ~100 artifacts;
+  three drift classes already observed), pitting Economy (#2) against
+  tool-agnosticism (#3/#7/#8). The resolution keeps both: a cross-platform `pwsh`
+  script (`scripts/regen-overview.ps1`, shipped in `starter/docs/scripts/`) that
+  deterministically rebuilds the three family tables, the ADR → plans sub-index, and
+  the stand-alone list, and **flags** non-conformant headers (bare/bullet-less block
+  per ADR-0026; title-line ordinal disagreeing with the filename slot per ADR-0028)
+  instead of silently copying drift — aborting rather than emitting a misfiled index.
+  Four guards preserve agnosticism: the **prose refresh procedure stays normative**
+  (the script is an *implementation of* it, not a second source of truth); it is
+  **strictly optional and additive**; its trigger is **standing agent guidance,
+  invisible to the user** (the same plain "regenerate the overview" request — the
+  agent runs the script if present, else regenerates by hand); and **only the
+  output's shape is contract**, so the script may be reimplemented in any language or
+  omitted, with adopters lacking the runtime falling through to the prose path.
+  Landed in `starter/docs/working-method.md` (an "Optional regeneration script"
+  paragraph + `docs/scripts/` layout entry), this repo's `AGENTS.md` derived body,
+  and the **"Keep `overview.md` current"** guidance bullet in both `AGENTS.md`
+  renderings.
+
+### Changed
+- All three `starter/` renderings bump their provenance citation to **v2.18**
+  (`working-method.md`, `guide.md`, and `AGENTS.md`).
+
 ## [2.17.0] - 2026-07-16
 
 **Adopter migration:** If your repo already uses folders named `docs/deliverables/`
