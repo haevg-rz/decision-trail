@@ -44,15 +44,35 @@ leaves the two marked sections (and these markers) untouched.
 ## The problem it solves
 
 You sit down to work on a project. You think hard, weigh options, decide
-something, and act. Then the session ends — and with it goes the context: *why*
-you chose this over that, what you'd already ruled out, where a half-formed idea
-was heading. Next time you (or a teammate, or an agent) start almost from scratch,
-re-deriving reasoning that was once clear.
+something, and act. Then the session ends — and the *reasoning* evaporates: why you
+chose this over that, what you'd already ruled out, where a half-formed idea was
+heading. Next time you (or a teammate, or an agent) start almost from scratch,
+re-deriving what was once clear. That alone is worth fixing — but it's only the
+surface.
 
-decision-trail is a way of working that makes that context cheap to leave behind
-and cheap to pick back up. It does so with nothing more than plain markdown files
-in your repo — no app, no database, no proprietary tool. Anything you can read in
-a text editor, you can resume from.
+The deeper shift is in *how* the work gets done. decision-trail invites you to
+think slowly, out in the open. Options get weighed on the page, not in your head;
+nothing important is decided by accident or buried in a commit. Every choice leaves
+a trail back to its reasons, so the project's genesis stays legible — not as a
+documentation chore bolted on afterward, but as the natural residue of working this
+way.
+
+It also changes your seat. When an agent can write the code, the scarce and
+valuable act is no longer typing — it's *deciding*: framing the problem, choosing
+between real options, saying yes to one path and no to the rest. decision-trail is
+built around that act. It promotes the developer from coder to decision-maker, and
+gives agentic development what it actually needs — clear intent, explicit choices,
+a durable record to work against — instead of leaving an agent to guess.
+
+Think of it as *decision-driven* development. "Spec-driven" had the right instinct
+— decide before you build — but it often meant heavy specs and a documentation
+burden that aged badly. Here the decision itself is the spec: lightweight,
+first-class, and carried forward by the method rather than by discipline alone. The
+spec-driven instinct, freed of its weight and improved.
+
+And it asks for almost nothing in return: plain markdown files in your repo — no
+app, no database, no proprietary tool. Anything you can read in a text editor, you
+can resume from.
 
 ## The eight promises
 
