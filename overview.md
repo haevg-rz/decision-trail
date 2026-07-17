@@ -9,7 +9,7 @@ method).
 
 You can ask the agent to **regenerate the overview** at any time.
 
-**As of: 2026-07-16**
+**As of: 2026-07-17**
 
 ## Ideas
 
@@ -49,6 +49,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0032 A stub-plan-at-acceptance discipline plus a derived "accepted, no plan" backstop](ideas/0032-surface-accepted-adrs-still-awaiting-a-plan.md) | 2026-07-15 | promoted |  |
 | [0033 Overview regeneration is mechanical yet error-prone — is a script/skill/tool worth the agnosticism cost?](ideas/0033-overview-regen-mechanical-yet-error-prone-script-or-skill.md) | 2026-07-15 | promoted |  |
 | [0034 delivered-artifacts and derived-artifacts — two more companion folders](ideas/0034-deliverables-and-derived-as-companion-folders.md) | 2026-07-16 | promoted |  |
+| [0035 The copy-driven "bring me current" update can silently miss a shipped scaffold](ideas/0035-copy-driven-update-can-silently-miss-a-shipped-scaffold.md) | 2026-07-17 | promoted |  |
 
 ## Decisions
 
@@ -94,6 +95,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0038 A stub-plan-at-acceptance discipline plus a derived "accepted, no plan" backstop](decisions/0038-stub-plan-at-acceptance-and-derived-no-plan-backstop.md) | 2026-07-15 | accepted |  |
 | [0039 delivered-artifacts and derived-artifacts — two more companion folders](decisions/0039-delivered-and-derived-artifacts-companion-folders.md) | 2026-07-16 | accepted |  |
 | [0040 An optional, deterministic overview-regen script, prose-normative and instruction-triggered](decisions/0040-optional-deterministic-overview-regen-script.md) | 2026-07-16 | accepted |  |
+| [0041 Harden the copy-driven re-copy against a silently missed scaffold](decisions/0041-harden-the-copy-driven-recopy-against-missed-scaffolds.md) | 2026-07-17 | accepted |  |
 
 ## Plans
 
@@ -128,6 +130,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [0027 Carry ADR-0038 into the method — stub-plan-at-acceptance discipline and the "accepted, no plan" backstop](plans/0027-stub-plan-discipline-and-no-plan-backstop.md) | 2026-07-15 | done |  |
 | [0028 ship delivered-artifacts and derived-artifacts as optional companion folders](plans/0028-ship-delivered-and-derived-artifacts.md) | 2026-07-16 | done |  |
 | [0029 Ship the optional deterministic overview-regen script and its agent-guidance trigger](plans/0029-ship-optional-overview-regen-script.md) | 2026-07-16 | done |  |
+| [0030 Harden updating.agent.md step 2 and ship the 2.18.1 bugfix release](plans/0030-harden-updating-agent-step2-and-ship-2181.md) | 2026-07-17 | done |  |
 
 ## Implements (ADR → plans)
 
@@ -162,6 +165,7 @@ You can ask the agent to **regenerate the overview** at any time.
 | [ADR-0038 – A stub-plan-at-acceptance discipline plus a derived "accepted, no plan" backstop](decisions/0038-stub-plan-at-acceptance-and-derived-no-plan-backstop.md) | [Plan 0027](plans/0027-stub-plan-discipline-and-no-plan-backstop.md) | done |
 | [ADR-0039 – delivered-artifacts and derived-artifacts — two more companion folders](decisions/0039-delivered-and-derived-artifacts-companion-folders.md) | [Plan 0028](plans/0028-ship-delivered-and-derived-artifacts.md) | done |
 | [ADR-0040 – An optional, deterministic overview-regen script, prose-normative and instruction-triggered](decisions/0040-optional-deterministic-overview-regen-script.md) | [Plan 0029](plans/0029-ship-optional-overview-regen-script.md) | done |
+| [ADR-0041 – Harden the copy-driven re-copy against a silently missed scaffold](decisions/0041-harden-the-copy-driven-recopy-against-missed-scaffolds.md) | [Plan 0030](plans/0030-harden-updating-agent-step2-and-ship-2181.md) | done |
 
 ## ADR — stand-alone decision
 

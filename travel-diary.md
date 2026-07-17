@@ -32,6 +32,41 @@ Keep it short and human. It's a diary, not a report.
 
 ---
 
+## [2026-07-17]
+
+**Where we are.** Just cut **v2.18.1** — decision-trail's *first patch release*
+(every prior release was a `2.x.0` minor). It's a pure bugfix, born from a real
+adopter miss: when a downstream repo updated to v2.18, the agent copied the files
+named in `updating.agent.md` step 2's example list and **skipped
+`docs/scripts/regen-overview.ps1`**, because `scripts/` wasn't in that list. The
+result was an adopter citing v2.18 but missing a scaffold v2.18 ships — a silent
+conformance gap the "empty migration note" contract deliberately doesn't catch.
+
+**What we achieved.** Full decision-trail trail, kept deliberately lean after a
+round of "reduce it": **idea 0035 → ADR-0041 (amends ADR-0022) → plan 0030**. The
+fix is small and aimed at the *cause*: step 2's list is now explicitly
+non-exhaustive — *"copy **everything** under `starter/`, including but not limited
+to …, and `scripts/`"* — so no example list can ever again override "copy
+everything." We consciously *dropped* the heavier belt-and-suspenders options (a
+post-copy tree-parity check, a conformance-check item) as over-engineering for a
+misleading-list bug. Shipped as **2.18.1** with a **non-"none" `Adopter migration:`**
+note that remediates the already-stranded v2.18 adopter (re-copy, or confirm and copy
+the script). Citations bumped, `overview.md` regenerated clean.
+
+**What is left.** Nothing on this thread — the trail is complete, executed, and
+indexed.
+
+**What is next.** Finalize the release: commit, push, tag `v2.18.1`, and cut the
+GitHub release.
+
+*Continuation brief:* the fix lives in
+[ADR-0041](decisions/0041-harden-the-copy-driven-recopy-against-missed-scaffolds.md)
+and [plan 0030](plans/0030-harden-updating-agent-step2-and-ship-2181.md); the lesson
+— *an illustrative list that looks exhaustive silently overrides the instruction
+beside it* — is worth remembering the next time we add a companion scaffold.
+
+---
+
 ## [2026-07-16-(2)]
 
 **Where we are.** About to cut **v2.18.0**, which lands the first *executable*

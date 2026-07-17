@@ -46,12 +46,15 @@ Do **not** silently auto-apply, and do **not** nag step-by-step. Instead:
 
 2. **Re-copy the method-owned set** from `<source>`'s `starter/` into the adopter's
    `docs/` locations, overwriting those files — this lands the adopter in the exact
-   shape a *fresh* adopter of the target would have ("bring me current"). This
-   copies the method **text and templates** (`working-method.md`, `guide.md`, and
-   any companion scaffolds the target ships, e.g. `travel-diary.md`,
-   `intermediate-artifacts/`). Because additive scaffolds live in `starter/`,
-   re-copying lands new companions **automatically** — no changelog hunt for "what
-   files were added."
+   shape a *fresh* adopter of the target would have ("bring me current"). Copy
+   **everything** under `starter/`, including but not limited to the method **text
+   and templates** (`working-method.md`, `guide.md`) and any companion scaffolds the
+   target ships (e.g. `travel-diary.md`, `intermediate-artifacts/`, and `scripts/` —
+   e.g. `docs/scripts/regen-overview.ps1`). The named files are *examples, not a
+   closed set*: `starter/`'s own contents are the single source of truth, so copy the
+   whole tree, not just the items listed here. Because additive scaffolds live in
+   `starter/`, re-copying lands new companions **automatically** — no changelog hunt
+   for "what files were added."
 
    **Preserve rule — copy method text/templates, preserve project content.** The
    method-owned set is exactly `starter/`'s own contents (the single source of

@@ -4,7 +4,7 @@
 - Status: accepted
 - Promoted from: [Idea-0014](../ideas/0014-every-change-ships-reliable-update-instructions.md)
 - Amends: [ADR-0021](0021-a-single-adopter-on-ramp-fresh-inject-update.md)
-- Amended by: [ADR-0026](0026-pin-canonical-artifact-header-format.md), [ADR-0031](0031-adopter-update-is-human-intent-agent-execution.md)
+- Amended by: [ADR-0026](0026-pin-canonical-artifact-header-format.md), [ADR-0031](0031-adopter-update-is-human-intent-agent-execution.md), [ADR-0041](0041-harden-the-copy-driven-recopy-against-missed-scaffolds.md)
 
 ## Context
 

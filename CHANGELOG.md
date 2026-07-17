@@ -13,6 +13,46 @@ then regenerate `overview.md`"). **New optional scaffolds are not listed here** 
 reach adopters automatically via the copy-driven "bring me current" update. This is
 the contract the [`adopting.md`](adopting.md) update path relies on.
 
+## [2.18.1] - 2026-07-17
+
+**Adopter migration:** **Required if you took v2.18.** v2.18 introduced the optional
+overview-regeneration script at `docs/scripts/regen-overview.ps1`, meant to arrive
+automatically via the copy-driven "bring me current" re-copy. A real adopter update
+missed it — the agent anchored on step 2's example list (which omitted `scripts/`)
+instead of the "copy everything under `starter/`" instruction, so the `docs/scripts/`
+subtree was silently skipped. To remediate: re-run the step-2 re-copy of the source's
+`starter/` into your `docs/` (overwriting method text/scaffolds, preserving your
+artifact families and populated companions), or minimally confirm
+`docs/scripts/regen-overview.ps1` is present and copy it from the source if absent.
+Nothing else behavioral is required; the script is optional and your hand-regeneration
+of `docs/overview.md` keeps working. Repos that never took v2.18, or that already have
+the script, need do **nothing**.
+
+### Fixed
+- ADR-0041 (idea 0035, promoted; **amends ADR-0022**) — **the copy-driven re-copy
+  could silently miss a shipped scaffold.** `updating.agent.md` step 2 correctly says
+  "copy `starter/`'s own contents," but its parenthetical example list
+  (`working-method.md`, `guide.md`, `travel-diary.md`, `intermediate-artifacts/`)
+  omitted `scripts/` and read as exhaustive — so an executing agent narrowed the copy
+  scope to the named items and skipped `docs/scripts/regen-overview.ps1` when updating
+  a real adopter to v2.18. Fix: step 2's list is reframed as **explicitly
+  non-exhaustive** — *"copy **everything** under `starter/`, including but not limited
+  to …, and `scripts/`"* — so no example list can override the "copy everything"
+  instruction, fixing the whole class (any future scaffold subtree), not just this
+  file. `starter/` stays the single source of truth; no manifest is introduced. This
+  amends ADR-0022 in **execution detail only** — the copy-driven mechanics are
+  unchanged (reciprocal `Amended by: ADR-0041` added to ADR-0022). Deliberately *not*
+  added: a post-copy tree-parity check and a conformance-check item were weighed as
+  belt-and-suspenders and dropped as over-engineering for a misleading-list bug. The
+  omission surfaced from a **real adopter update**, which is why this ships as a
+  remediating release rather than a silent edit.
+
+### Changed
+- All three `starter/` renderings bump their provenance citation to **v2.18.1**
+  (`starter/docs/working-method.md`, `starter/docs/guide.md`, `starter/AGENTS.md`).
+- First **patch** release of decision-trail (prior releases were all `2.x.0` minors):
+  a pure bugfix with no new behavior, so semver patch rather than minor.
+
 ## [2.18.0] - 2026-07-16
 
 **Adopter migration:** **None.** The optional overview-regeneration script is a new
